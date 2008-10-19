@@ -1,0 +1,148 @@
+﻿<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{E62B3A54-B64D-47C4-95D5-2BABE40285D4}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <OutputType>Library</OutputType>
+    <RootNamespace>fitnessewhite</RootNamespace>
+    <AssemblyName>fithtmlwhite</AssemblyName>
+    <TargetFrameworkVersion>v3.0</TargetFrameworkVersion>
+    <StartWorkingDirectory>G:\Cuiyan\source\fit.white\sample</StartWorkingDirectory>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>..\bin\Debug\fithtmlwhite\</OutputPath>
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <Optimize>False</Optimize>
+    <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <StartAction>Program</StartAction>
+    <StartProgram>..\bin\Debug\Fit.WhiteEditor.exe</StartProgram>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>..\bin\Release\fithtmlwhite\</OutputPath>
+    <DebugSymbols>False</DebugSymbols>
+    <DebugType>None</DebugType>
+    <Optimize>True</Optimize>
+    <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Drawing" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\fitnessewhite\FitUItem.cs">
+      <Link>FitUItem.cs</Link>
+    </Compile>
+    <Compile Include="..\fitnessewhite\Guifixture.cs">
+      <Link>Guifixture.cs</Link>
+    </Compile>
+    <Compile Include="..\fitnessewhite\MethodAttribute.cs">
+      <Link>MethodAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\fitnessewhite\TApplication.cs">
+      <Link>TApplication.cs</Link>
+    </Compile>
+    <Compile Include="..\fitnessewhite\TButton.cs">
+      <Link>TButton.cs</Link>
+    </Compile>
+    <Compile Include="..\fitnessewhite\TCheckbox.cs">
+      <Link>TCheckbox.cs</Link>
+    </Compile>
+    <Compile Include="..\fitnessewhite\TCombobox.cs">
+      <Link>TCombobox.cs</Link>
+    </Compile>
+    <Compile Include="..\fitnessewhite\TDatetimepicker.cs">
+      <Link>TDatetimepicker.cs</Link>
+    </Compile>
+    <Compile Include="..\fitnessewhite\TDialog.cs">
+      <Link>TDialog.cs</Link>
+    </Compile>
+    <Compile Include="..\fitnessewhite\THyperlink.cs">
+      <Link>THyperlink.cs</Link>
+    </Compile>
+    <Compile Include="..\fitnessewhite\TImage.cs">
+      <Link>TImage.cs</Link>
+    </Compile>
+    <Compile Include="..\fitnessewhite\TInputdevice.cs">
+      <Link>TInputdevice.cs</Link>
+    </Compile>
+    <Compile Include="..\fitnessewhite\TLabel.cs">
+      <Link>TLabel.cs</Link>
+    </Compile>
+    <Compile Include="..\fitnessewhite\TListbox.cs">
+      <Link>TListbox.cs</Link>
+    </Compile>
+    <Compile Include="..\fitnessewhite\TListview.cs">
+      <Link>TListview.cs</Link>
+    </Compile>
+    <Compile Include="..\fitnessewhite\TListviewcell.cs">
+      <Link>TListviewcell.cs</Link>
+    </Compile>
+    <Compile Include="..\fitnessewhite\TMenu.cs">
+      <Link>TMenu.cs</Link>
+    </Compile>
+    <Compile Include="..\fitnessewhite\TMessagebox.cs">
+      <Link>TMessagebox.cs</Link>
+    </Compile>
+    <Compile Include="..\fitnessewhite\TRadiobutton.cs">
+      <Link>TRadiobutton.cs</Link>
+    </Compile>
+    <Compile Include="..\fitnessewhite\TStatusbar.cs">
+      <Link>TStatusbar.cs</Link>
+    </Compile>
+    <Compile Include="..\fitnessewhite\TSystem.cs">
+      <Link>TSystem.cs</Link>
+    </Compile>
+    <Compile Include="..\fitnessewhite\TTab.cs">
+      <Link>TTab.cs</Link>
+    </Compile>
+    <Compile Include="..\fitnessewhite\TTable.cs">
+      <Link>TTable.cs</Link>
+    </Compile>
+    <Compile Include="..\fitnessewhite\TTextbox.cs">
+      <Link>TTextbox.cs</Link>
+    </Compile>
+    <Compile Include="..\fitnessewhite\TToolstrip.cs">
+      <Link>TToolstrip.cs</Link>
+    </Compile>
+    <Compile Include="..\fitnessewhite\TTooltip.cs">
+      <Link>TTooltip.cs</Link>
+    </Compile>
+    <Compile Include="..\fitnessewhite\TTree.cs">
+      <Link>TTree.cs</Link>
+    </Compile>
+    <Compile Include="..\fitnessewhite\TTreenode.cs">
+      <Link>TTreenode.cs</Link>
+    </Compile>
+    <Compile Include="..\fitnessewhite\TWindow.cs">
+      <Link>TWindow.cs</Link>
+    </Compile>
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="FitRunner.cs" />
+  </ItemGroup>
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\fithtml\fithtml.csproj">
+      <Project>{AC7D1BB0-5203-44B6-ACE7-E73EF711A179}</Project>
+      <Name>fithtml</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\White\white.csproj">
+      <Project>{12C59CE2-9CF7-44F4-B27C-90754609F979}</Project>
+      <Name>white</Name>
+    </ProjectReference>
+    <COMReference Include="AutoItX3Lib">
+      <Guid>{F8937E53-D444-4E71-9275-35B64210CC3B}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+  </ItemGroup>
+</Project>

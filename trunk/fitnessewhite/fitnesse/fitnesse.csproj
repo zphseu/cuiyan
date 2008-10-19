@@ -1,0 +1,325 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{483287D5-0C87-4257-AB40-C75C02F2ECF6}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>
+    </ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>fit</AssemblyName>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <RootNamespace>fit</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>..\bin\Debug\fitnessewhite\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>..\bin\Release\fitnessewhite\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AbstractAccessor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Accessor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AccessorFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ActionFixture.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Binding.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BoundFixture.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CellOperation.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ColumnFixture.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Comment.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Counts.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FailFixture.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FieldAccessor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FileRunner.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FileRunnerExe.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fitnesse\fitserver\FitServer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fitnesse\fitserver\ISocketWrapper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fitnesse\fitserver\PageResult.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fitnesse\fitserver\PathParser.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fitnesse\fitserver\Protocol.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fitnesse\fitserver\SocketUtils.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fitnesse\fitserver\SocketWrapper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fitnesse\fitserver\TestRunner.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fitnesse\fitserver\TestRunnerFixtureListener.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fitnesse\fixtures\TableFixture.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fitnesse\handlers\AbstractCellHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fitnesse\handlers\AbstractSymbolHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fitnesse\handlers\BlankKeywordHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fitnesse\handlers\BoolHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fitnesse\handlers\CellHandlerInspector.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fitnesse\handlers\CellHandlerLoaderFixture.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fitnesse\handlers\DefaultCellHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fitnesse\handlers\EmptyCellHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fitnesse\handlers\EndsWithHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fitnesse\handlers\ErrorKeywordHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fitnesse\handlers\ExceptionKeywordHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fitnesse\handlers\FailKeywordHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fitnesse\handlers\IntegralRangeHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fitnesse\handlers\NullKeywordHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fitnesse\handlers\StartsWithHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fitnesse\handlers\SubstringHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fitnesse\handlers\SymbolRecallHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fitnesse\handlers\SymbolSaveHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Fixture.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FixtureListener.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GracefulNameConverter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="HtmlParser.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ICellHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ImportFixture.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MethodAccessor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="NullFixtureListener.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ObjectFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OperationType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Parse.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PassFixture.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PrimitiveFixture.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PropertyAccessor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="RowFixture.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="RunTime.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ScientificDouble.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SummaryFixture.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TimedActionFixture.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TypeAdapter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TypeName.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

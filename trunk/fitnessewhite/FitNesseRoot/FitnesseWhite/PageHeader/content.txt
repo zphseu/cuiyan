@@ -1,0 +1,21 @@
+!anchor page_top '''[[项目主页][.FitnesseWhite.FitnesseWhite]]  [[简要介绍][.FitnesseWhite.OneMinuteDescription]]  [[架构设计][.FitnesseWhite.ArchitectureDesign]]  [[产品发布][.FitnesseWhite.ProductRelease]]  [[产品功能][.FitnesseWhite.ProductFeatures]]  [[验证测试][.FitnesseWhite.AcceptanceTest]]  [[使用说明][.FitnesseWhite.UserGuide]]  [[展望未来][.FitnesseWhite.AboutFuture]]!-<script>
+var p = location.pathname;
+var tokens = p.split("/")[1].split(".")
+if (tokens[1] == "AcceptanceTest" && tokens[2] == "SelfSuite")
+{
+tokens[1] = "ProductFeatures";
+tokens[2] = "SelfFeatures";
+var s = tokens.join('.').replace("..", ".", "g");
+var y = s.substring(s.length - 4, s.length);
+if (y == "Test") s = s.substring(0, s.length - 4);
+document.write("  >> <a href='/"+ s +"' target=\"_blank\">功能说明</a>");
+}
+else if (tokens[1] == "ProductFeatures" && tokens[2] == "SelfFeatures")
+{
+tokens[1] = "AcceptanceTest";
+tokens[2] = "SelfSuite";
+var s = tokens.join('.');
+if (tokens.length > 2) s = s + "Test";
+document.write("  >> <a href='/"+ s +"'>功能测试</a>");
+}
+</script>-!'''----

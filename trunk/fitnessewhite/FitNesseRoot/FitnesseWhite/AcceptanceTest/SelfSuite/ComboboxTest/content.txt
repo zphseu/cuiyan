@@ -1,0 +1,25 @@
+!include -c .LocalDefine.FitnesseWhiteVariables
+
+!|fitnessewhite.Guifixture |
+|Application |Launch |notepad.exe | |
+|Window |Getbytext |无标题 - 记事本 | |
+|Window|Focus|||
+|Menu|Menubar|文件(F)||
+|Menu|Click|||
+|Menu|ClickByText|打开(O)...||
+|Dialog|FocusByText|打开||
+|Combobox|ClickByText|查找范围(I):|点击下拉列表|
+|Combobox|Select|我的文档|选择我的文档|
+|Combobox|ClickByText|查找范围(I):||
+|Combobox|SelectWithKey|我的电脑|选择我的电脑|
+|Combobox|Text|我的电脑|验证选择|
+|Application |kill|||
+|Application |Launch |${fitdotpath}Demo.exe | |
+|Application |Waitwhilebusy | | |
+|Window |Getbytext |Controls_Demo | |
+|Window|Focus|||
+|Combobox|ClickByText|组合框||
+|Combobox|ItemsCount|4|检查下拉列表项目数|
+|Application |kill|||
+
+

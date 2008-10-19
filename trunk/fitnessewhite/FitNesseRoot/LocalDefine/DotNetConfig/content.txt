@@ -1,0 +1,4 @@
+!define COMMAND_PATTERN {%m %p}
+!define TEST_RUNNER {d:\java\fitnesse\dotnet\FitServer.exe}
+!define PATH_SEPARATOR {;}
+!define TEST_PATH {d:\java\fitnesse\dotnet\*.dll}

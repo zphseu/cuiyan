@@ -1,0 +1,23 @@
+!|继承自Guifixture|
+!|返回值类型|方法名|参数|注释|
+|void |GetByText|string value|根据文本获取对象，参数为文本信息|
+|void |SetText|string value|设置当前对象的值|
+|void |Focus|void|设置焦点到当前对象|
+|void |FocusByText|string value|根据文本获取当前对象，并设置焦点到当前对象|
+|void |GetById|string text|根据Id获取当前对象，并设置焦点到当前对象|
+|void |FocusById|string id|根据Id获取当前对象，并设置焦点到当前对象|
+|void |Click|void|单击当前对象|
+|void |ClickByText|string text|根据文本获取当前对象，并单击当前对象|
+|void |ClickById|string id|根据Id获取当前对象，并单击当前对象|
+|void |DoubleClick|void|双击当前对象|
+|void |DoubleClickByText|string text|根据文本获取当前对象，并双击当前对象|
+|void |DoubleClickById|string id|根据Id获取当前对象，并双击当前对象|
+|void |RightClick|void|右键单击当前对象|
+|void |RightClickByText|string text|根据文本获取当前对象，并右键单击当前对象|
+|void |RightClickById|string id|根据Id获取当前对象，并右键单击当前对象|
+|bool |IsFocussed|void|返回是否为焦点对象|
+|bool|IsFound|void|返回对象是否发现|
+|string |Name|void|返回对象名称|
+|bool|IsVisible|void|返回对象是否可见|
+|bool|IsEnabled|void|返回对象是否有效|
+|void |GetById|string|返回对象的Id|

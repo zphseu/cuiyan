@@ -1,0 +1,29 @@
+!3 部署说明
+ * 安装DotNetFrameWork 3.0以上。
+  * 原因简单了，因为White是基于微软的DotNetFrameWork 3.0测试框架的。
+  * \\168.2.4.7\software\微软产品\开发工具\TEAM_Foundation_Server 2008\BUILD\WCU\dotNetFramework 可以使用。
+ * 安装fitnesse
+ * 从files中下载fitnessewhite，并解压到你的fitnesse\dotnet目录下
+ * 建一个Suite，添加dotnet的环境配置，路径要根据自己的情况修改
+
+{{{
+!define COMMAND_PATTERN {%m %p}
+!define PATH_SEPARATOR {;}
+!define TEST_RUNNER {d:\fitnesse\dotnet\FitServer.exe}
+!path d:\fitnesse\dotnet\*.dll
+}}}
+ * 再在Suite下建立一个测试页面，如果是中文系统的话，其他语言的需要调整一下
+{{{
+!|fitnessewhite.Guifixture |
+|Application |Launch |Calc.exe | |
+|Application |Isattached |true | |
+|Application |Waitwhilebusy | | |
+|Window |Getbytext |计算器 | |
+|Window |Isfound |true | |
+|Window |Focus| | |
+|System |Sleep |2000 |检查计算器程序是否已经确应为当前窗口 |
+|Window |Title |计算器 | |
+|Window |Close | | |
+|Window |Isclosed | | |
+}}}
+ * 测试一下，看看效果。

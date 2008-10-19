@@ -1,0 +1,3 @@
+!define varComboBoxWindow (音频音量)
+!define varApplicationName (calc)
+!define fitdotpath (D:\Java\fitnesse\dotnet\)

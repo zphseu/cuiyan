@@ -1,0 +1,6 @@
+|继承自[[FitUItem][FitUitem]]|
+!|返回值类型|方法名|参数|注释|
+|void |PopupMenu|string value|从PopMenu中选中菜单，格式为\"Menu1;Menu2;Menu3;...\"|
+|void |MenuBar|string value|从MenuBar中选中菜单，格式为\"Menu1;Menu2;Menu3;...\"|
+
+

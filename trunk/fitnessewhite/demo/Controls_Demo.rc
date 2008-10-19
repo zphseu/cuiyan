@@ -1,0 +1,316 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Chinese (P.R.C.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
+#pragma code_page(936)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 4, 2\r\n"
+    "#pragma code_page(936)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\Controls_Demo.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""l.chs\\afxres.rc""          // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "res\\Controls_Demo.ico"
+IDI_LARGE               ICON    DISCARDABLE     "res\\soaf.ico"
+IDI_SMALL               ICON    DISCARDABLE     "res\\Props.ico"
+IDI_LIST2               ICON    DISCARDABLE     "res\\Edit.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_CONTROLS_DEMO_DIALOG DIALOGEX 0, 0, 415, 245
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "Controls_Demo"
+FONT 9, "宋体", 0, 0, 0x1
+BEGIN
+    PUSHBUTTON      "退出",IDCANCEL,358,228,50,14
+    LTEXT           "程序有问题请联系王夷 ",IDC_STATIC,7,232,92,10
+END
+
+IDD_PAGE3 DIALOG DISCARDABLE  0, 0, 398, 203
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "模与非模窗体介绍"
+FONT 9, "宋体"
+BEGIN
+    PUSHBUTTON      "模态窗口",IDC_BUTTON1,18,21,57,15
+    PUSHBUTTON      "非模态窗口",IDC_BUTTON2,17,144,57,15
+    PUSHBUTTON      "报警框1",IDC_BUTTON3,141,21,57,15
+    PUSHBUTTON      "报警框2",IDC_BUTTON4,202,21,57,15
+    PUSHBUTTON      "报警框3",IDC_BUTTON5,263,21,57,15
+    PUSHBUTTON      "报警框4",IDC_BUTTON7,324,21,57,15
+    GROUPBOX        "模态窗体",IDC_STATIC,7,4,385,116
+    GROUPBOX        "非模态窗体",IDC_STATIC,6,126,387,73
+    LTEXT           "缺点:模态对话框弹出后，独占了资源，在对话框关闭前，用户不能在同一个应用程序的其他地方工作 尤其在服务端程序 如果出现模态窗体 主线程将被堵塞",
+                    IDC_STATIC,14,91,368,18
+    LTEXT           "优点:编程容易，在VC工程中经常运用模态对话框 最常见的报错框也是模态对话框 在不关闭报错框前，不能再对该应用程序进行任何操作 另外包括封装好的windows常用对话框也都是模态窗体 举例如上",
+                    IDC_STATIC,14,64,372,18
+    LTEXT           "优点:克服了模态对话框的缺点",IDC_STATIC,15,167,324,10
+    LTEXT           "缺点:不具有模态对话框的优点",IDC_STATIC,15,182,324,10
+    PUSHBUTTON      "另存为...",IDC_BUTTON6,141,40,57,15
+    PUSHBUTTON      "打开文件...",IDC_BUTTON8,202,40,57,15
+    PUSHBUTTON      "选择颜色...",IDC_BUTTON9,263,40,57,15
+    PUSHBUTTON      "打印设置...",IDC_BUTTON10,324,40,57,15
+END
+
+IDD_ModeDlg DIALOG DISCARDABLE  0, 0, 131, 87
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 9, "宋体"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,43,56,50,14
+    LTEXT           "我是个模态窗口 不对我进行操作就不能回主窗口",IDC_STATIC,
+                    16,21,95,22
+END
+
+IDD_ModelessDlg DIALOG DISCARDABLE  0, 0, 131, 83
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Modeless Dialog"
+FONT 9, "新宋体"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,40,49,50,14
+    LTEXT           "我是一个非模对话框 不对我进行操作也可以回主窗口",
+                    IDC_STATIC,17,18,101,19
+END
+
+IDD_PAGE4 DIALOGEX 0, 0, 399, 203
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "控件介绍及基本使用"
+FONT 9, "宋体", 0, 0, 0x1
+BEGIN
+    PUSHBUTTON      "开始",IDC_BUTTON_START,142,65,30,13
+    PUSHBUTTON      "停止",IDC_BUTTON_STOP,172,65,30,13
+    PUSHBUTTON      "倾斜",IDC_BUTTON_ITALIC,5,126,31,11
+    PUSHBUTTON      "下划线",IDC_BUTTON_ULINE,36,126,31,11
+    PUSHBUTTON      "粗体",IDC_BUTTON_BOLD,5,137,31,11
+    PUSHBUTTON      "大图标",IDC_BUTTON_LAGE,245,95,35,11
+    PUSHBUTTON      "小图标",IDC_BUTTON_SMALL,282,95,35,11
+    PUSHBUTTON      "列表",IDC_BUTTON_LIST,319,95,35,11
+    PUSHBUTTON      "报告",IDC_BUTTON_REPORT,356,95,35,11
+    LTEXT           "Spin控件",IDC_STATIC,7,5,35,8
+    EDITTEXT        IDC_EDIT1,43,3,24,12,ES_RIGHT | ES_AUTOHSCROLL
+    CONTROL         "Spin1",IDC_SPIN1,"msctls_updown32",UDS_SETBUDDYINT | 
+                    UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS,67,3,11,
+                    12
+    CONTROL         "MonthCalendar1",IDC_MONTHCALENDAR,"SysMonthCal32",
+                    MCS_NOTODAY | WS_TABSTOP,215,117,179,78,WS_EX_CLIENTEDGE
+    CONTROL         "",IDC_RICHEDIT,"RICHEDIT",ES_MULTILINE | ES_AUTOHSCROLL | 
+                    WS_BORDER | WS_TABSTOP,4,83,63,37
+    CONTROL         "Tree1",IDC_TREE,"SysTreeView32",TVS_HASBUTTONS | 
+                    TVS_HASLINES | TVS_LINESATROOT | TVS_EDITLABELS | 
+                    WS_BORDER | WS_TABSTOP,84,84,121,64
+    CONTROL         "DateTimePicker2",IDC_DATETIMEPICKER2,"SysDateTimePick32",
+                    DTS_RIGHTALIGN | WS_TABSTOP,6,169,115,12
+    LTEXT           "Rich Edit",IDC_STATIC,6,73,37,8
+    LTEXT           "",IDC_STATIC_DISP,6,183,201,11,SS_SUNKEN
+    CONTROL         "IPAddress1",IDC_IPADDRESS2,"SysIPAddress32",WS_TABSTOP,
+                    126,169,81,11
+    CONTROL         "",IDC_STATIC,"Static",SS_BLACKFRAME | SS_SUNKEN,6,199,
+                    387,1
+    LTEXT           "日期时间控件",IDC_STATIC,6,158,55,8
+    LTEXT           "IP地址控件",IDC_STATIC,126,158,55,8
+    CONTROL         "List1",IDC_LIST,"SysListView32",LVS_REPORT | 
+                    LVS_EDITLABELS | LVS_NOSORTHEADER | WS_BORDER | 
+                    WS_TABSTOP,245,10,145,70
+    LTEXT           "树控件",IDC_STATIC,83,73,25,8
+    LTEXT           "组合框",IDC_STATIC,90,5,25,8
+    COMBOBOX        IDC_COMBO1,119,3,66,91,CBS_DROPDOWNLIST | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    ICON            IDI_LARGE,IDC_STATIC,213,76,20,20
+    EDITTEXT        IDC_EDIT3,192,3,43,12,ES_AUTOHSCROLL
+    CONTROL         "Progress1",IDC_PROGRESS1,"msctls_progress32",PBS_SMOOTH | 
+                    WS_BORDER,60,23,142,11
+    RTEXT           "",IDC_STATIC1,208,23,27,11,SS_SUNKEN | WS_BORDER
+    CONTROL         "Slider1",IDC_SLIDER1,"msctls_trackbar32",
+                    TBS_ENABLESELRANGE | WS_TABSTOP,57,38,148,11
+    CONTROL         "进度条控件",IDC_RADIO7,"Button",BS_AUTORADIOBUTTON | 
+                    BS_FLAT,5,23,52,10
+    CONTROL         "拖动条控件",IDC_RADIO8,"Button",BS_AUTORADIOBUTTON | 
+                    BS_FLAT,5,38,52,10
+    SCROLLBAR       IDC_SCROLLBAR2,59,53,142,8
+    CONTROL         "滚动条控件",IDC_RADIO9,"Button",BS_AUTORADIOBUTTON | 
+                    BS_FLAT,5,53,52,10
+    RTEXT           "",IDC_STATIC2,113,66,23,11,SS_SUNKEN | WS_BORDER
+    RTEXT           "",IDC_STATIC3,208,38,27,11,SS_SUNKEN | WS_BORDER
+    RTEXT           "",IDC_STATIC4,208,52,27,11,SS_SUNKEN | WS_BORDER
+    CONTROL         "在列表记录上创建动态菜单",IDC_CHECK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,245,82,143,11
+    GROUPBOX        "列表控件",IDC_STATIC,242,0,152,111
+    LTEXT           "图片控件",IDC_STATIC,207,102,33,8
+END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "080404B0"
+        BEGIN
+            VALUE "CompanyName", "\0"
+            VALUE "FileDescription", "Controls_Demo Microsoft 基础类应用程序\0"
+            VALUE "FileVersion", "1, 0, 0, 1\0"
+            VALUE "InternalName", "Controls_Demo\0"
+            VALUE "LegalCopyright", "版权所有 (C) 2004\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "Controls_Demo.EXE\0"
+            VALUE "ProductName", "Controls_Demo 应用程序\0"
+            VALUE "ProductVersion", "1, 0, 0, 1\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x804, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_CONTROLS_DEMO_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 408
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 242
+    END
+
+    IDD_ModeDlg, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 124
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 80
+    END
+
+    IDD_ModelessDlg, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 124
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 76
+    END
+
+    IDD_PAGE4, DIALOG
+    BEGIN
+        RIGHTMARGIN, 394
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_BITMAP1             BITMAP  DISCARDABLE     "res\\bk1.bmp"
+#endif    // Chinese (P.R.C.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE 4, 2
+#pragma code_page(936)
+#endif //_WIN32
+#include "res\Controls_Demo.rc2"  // non-Microsoft Visual C++ edited resources
+#include "l.chs\afxres.rc"          // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

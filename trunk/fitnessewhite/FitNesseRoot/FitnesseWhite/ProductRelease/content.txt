@@ -1,0 +1,12 @@
+[2008-10-13~2008-10-19]
+ * [[Combobox][ProductFeatures.SelfFeatures.ComboBox]]
+ * [[Listbox][ProductFeatures.SelfFeatures.ListBox]]
+ * [[Menu][ProductFeatures.SelfFeatures.MeNu]]
+ * [[Dialog][ProductFeatures.SelfFeatures.DiaLog]]
+
+[2008-10-8] 1.0.3203.20476
+ * [[Application][ProductFeatures.SelfFeatures.AppliCation]]
+ * [[Window][ProductFeatures.SelfFeatures.WinDow]]
+ * [[Button][ProductFeatures.SelfFeatures.ButTon]]
+ * [[Textbox][ProductFeatures.SelfFeatures.TextBox]]
+ * [[Checkbox][ProductFeatures.SelfFeatures.CheckBox]]

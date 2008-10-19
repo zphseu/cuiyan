@@ -32,15 +32,15 @@ namespace fitnessewhite
         public void MenuBarMenu(string value)
         {
             string[] items = SplitString(value);
-            if (items.Length < 3) 
+            if (items.Length < 2)
                 throw new ArgumentException("param format: MenuBarName;Menu1;Menu2;Menu3;...");
-            
+
             foreach (MenuBar w in mainwin.MenuBars)
             {
                 if (!w.Name.Equals(items[0])) continue;
                 string s = value.Substring(items[0].Length + 1);
                 Item = w.MenuItem(SplitString(s));
-            }        	
+            }      	
         }
 	}
 }

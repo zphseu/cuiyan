@@ -15,6 +15,20 @@ namespace fitnessewhite
     /// </summary>
     public sealed class TTable : FitUItem<Table>
     {
+        [MethodAttribute("根据文本获取Table，参数为文本信息")]
+        public override void GetByText(string value)
+        {
+            base.GetByText(value);
+            table = Item;
+        }
+
+        [MethodAttribute("根据Id获取Table，参数为文本信息")]
+        public override void GetById(string value)
+        {
+            base.GetById(value);
+            table = Item;
+        }
+    
         [MethodAttribute("刷新当前Table")]
         public void Refresh()
         {
@@ -22,9 +36,15 @@ namespace fitnessewhite
         }
 
         [MethodAttribute("单击当前Table的列标签，参数是从0开始的列序号")]
-        public void ClickHeader(int index)
+        public void ClickColumnHeader(int index)
         {
             Item.Header.Columns[index].Click();
+        }
+
+        [MethodAttribute("单击当前Table的列标签，参数是从0开始的列序号")]
+        public void ClickRowHeader(int index)
+        {
+        	Item.Rows[index].Click();
         }
 
         [MethodAttribute("返回当前Table的行数")]

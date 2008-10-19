@@ -19,6 +19,7 @@ namespace fitnessewhite
     {
         protected static Core.UIItems.ListView listView;
         protected static Core.UIItems.TreeItems.Tree tree;
+        protected static Core.UIItems.TableItems.Table table;
         protected static Core.Application application;
         protected static Core.UIItems.UIItemContainer uitemcontainer;
         protected static Core.UIItems.WindowItems.Window mainwin;

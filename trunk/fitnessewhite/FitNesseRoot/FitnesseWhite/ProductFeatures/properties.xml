@@ -8,11 +8,6 @@
 	<Search>true</Search>
 	<Versions>true</Versions>
 	<WhereUsed>true</WhereUsed>
-	<WikiImport>
-		<LastRemoteModification>20081009124841</LastRemoteModification>
-		<Source>http://168.2.8.99:80/FitnesseWhite.ProductFeatures</Source>
-		<AutoUpdate/>
-	</WikiImport>
 	<saveId>1223527721292</saveId>
 	<ticketId>7537654498831825171</ticketId>
 </properties>

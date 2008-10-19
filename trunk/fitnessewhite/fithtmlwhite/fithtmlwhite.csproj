@@ -102,6 +102,9 @@
     <Compile Include="..\fitnessewhite\TTable.cs">
       <Link>TTable.cs</Link>
     </Compile>
+    <Compile Include="..\fitnessewhite\TTablecell.cs">
+      <Link>TTablecell.cs</Link>
+    </Compile>
     <Compile Include="..\fitnessewhite\TTextbox.cs">
       <Link>TTextbox.cs</Link>
     </Compile>

@@ -1,0 +1,12 @@
+!|fitnessewhite.Guifixture |
+|Application |Launch |Calc.exe | |
+|Application |Waitwhilebusy | | |
+|Window |Getbytext |计算器 | |
+|Window|Focus|||
+|Button|RightClickByText|7 |右键点击按钮“7”，弹出菜单“这是什么”|
+|Menu|PopupMenu|这是什么?(W)||
+|Menu|Click||点击弹出菜单|
+|Menu|Menubar|帮助(H)||
+|Menu|Click|||
+|Menu|IsVisible|True||
+|Window |Close | | |

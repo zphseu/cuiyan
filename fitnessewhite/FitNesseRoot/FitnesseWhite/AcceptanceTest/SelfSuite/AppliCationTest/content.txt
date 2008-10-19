@@ -1,0 +1,9 @@
+!include -c .LocalDefine.FitnesseWhiteVariables
+
+!|fitnessewhite.Guifixture |
+|Application |Launch |Calc.exe | |
+|Application |Isattached |true | |
+|Application |Waitwhilebusy| |仅是为了测试可用 |
+|Application |Name|${varApplicationName}| |
+|Application |Windowscount |1 | |
+|Application |Kill| | |

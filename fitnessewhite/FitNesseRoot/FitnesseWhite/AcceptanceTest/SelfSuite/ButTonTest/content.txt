@@ -1,0 +1,42 @@
+!|fitnessewhite.Guifixture |
+|Application |Launch |Calc.exe | |
+|Application |Waitwhilebusy | | |
+|Window |Getbytext |计算器 | |
+|Window|Focus|||
+|Button|GetByText |7 |选择按钮“7”|
+|Button|Focus|||
+|Button|Click|||
+|Textbox|Getbyid |403 |检查是否显示“7”|
+|Textbox |Text |7. ||
+|Button|ClickById|81||
+|Textbox|Getbyid |403 ||
+|Textbox |Text |0. ||
+|Button|FocusByText|8||
+|Button|Name|8||
+|Button|IsFocussed|True|检验是否聚焦|
+|Button|IsFound|True|检验是否发现按钮|
+|Button|IsVisible|True|检验是否可见|
+|Button|IsEnabled|True|检验是否可用|
+|Button|FocusById|127||
+|Button|Id|127||
+|Button|ClickByText|1||
+|Textbox|Getbyid |403 ||
+|Textbox |Text |1. ||
+|Button|ClickByText|C||
+|Button|GetByText |7 ||
+|Button|Focus|||
+|Window |Close | | |
+|Window |Isclosed | | |
+
+!|fitnessewhite.Guifixture |
+|Application |Launch |Calc.exe | |
+|Application |Waitwhilebusy | | |
+|Window |Getbytext |计算器 | |
+|Window|Focus|||
+|Button|DoubleClickByText|7 ||
+|Button|RightClickByText|7 ||
+|Window |Close | | |
+
+{{{不适用方法|Button|SetText|false||
+}}}
+

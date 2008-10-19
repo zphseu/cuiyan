@@ -1,0 +1,94 @@
+﻿<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{FA34B6C6-C829-4C3B-91C6-226609193D07}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <OutputType>Library</OutputType>
+    <RootNamespace>fitnessewhite</RootNamespace>
+    <AssemblyName>fitnessewhite</AssemblyName>
+    <TargetFrameworkVersion>v3.0</TargetFrameworkVersion>
+    <StartWorkingDirectory>G:\Cuiyan\source\fit.white\sample</StartWorkingDirectory>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>..\bin\Debug\fitnessewhite\</OutputPath>
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <Optimize>False</Optimize>
+    <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <StartAction>Program</StartAction>
+    <StartProgram>..\bin\Debug\Fit.WhiteEditor.exe</StartProgram>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>..\bin\Release\fitnessewhite\</OutputPath>
+    <DebugSymbols>False</DebugSymbols>
+    <DebugType>None</DebugType>
+    <Optimize>True</Optimize>
+    <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Drawing" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="FitUItem.cs" />
+    <Compile Include="Guifixture.cs" />
+    <Compile Include="MethodAttribute.cs" />
+    <Compile Include="TApplication.cs" />
+    <Compile Include="TButton.cs" />
+    <Compile Include="TCheckbox.cs" />
+    <Compile Include="TCombobox.cs" />
+    <Compile Include="TDatetimepicker.cs" />
+    <Compile Include="TDialog.cs" />
+    <Compile Include="THyperlink.cs" />
+    <Compile Include="TImage.cs" />
+    <Compile Include="TInputdevice.cs" />
+    <Compile Include="TLabel.cs" />
+    <Compile Include="TListbox.cs" />
+    <Compile Include="TListview.cs" />
+    <Compile Include="TListviewcell.cs" />
+    <Compile Include="TMenu.cs" />
+    <Compile Include="TMessagebox.cs" />
+    <Compile Include="TRadiobutton.cs" />
+    <Compile Include="TStatusbar.cs" />
+    <Compile Include="TSystem.cs" />
+    <Compile Include="TTab.cs" />
+    <Compile Include="TTable.cs" />
+    <Compile Include="TTextbox.cs" />
+    <Compile Include="TToolstrip.cs" />
+    <Compile Include="TTooltip.cs" />
+    <Compile Include="TTree.cs" />
+    <Compile Include="TTreenode.cs" />
+    <Compile Include="TWindow.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AutoItX3Lib">
+      <Guid>{F8937E53-D444-4E71-9275-35B64210CC3B}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="fitnessewhite.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\fitnesse\fitnesse.csproj">
+      <Project>{483287D5-0C87-4257-AB40-C75C02F2ECF6}</Project>
+      <Name>fitnesse</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\White\white.csproj">
+      <Project>{12C59CE2-9CF7-44F4-B27C-90754609F979}</Project>
+      <Name>white</Name>
+    </ProjectReference>
+  </ItemGroup>
+</Project>

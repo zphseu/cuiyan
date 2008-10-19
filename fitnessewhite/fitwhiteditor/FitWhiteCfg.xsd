@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="FitWhiteCfg">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="FrmCmdCfg" minOccurs="0" maxOccurs="1" />
+        <xs:element ref="FrmFitEditorCfg" minOccurs="0" maxOccurs="1" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FrmCmdCfg">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="FrmCmdOtherCfg" minOccurs="0" maxOccurs="1" />
+        <xs:element ref="FrmCmdShowMethods" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FrmFitEditorCfg">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Name" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>        
+  </xs:element>  
+  <xs:element name="FrmCmdShowMethods">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="ClassName" type="xs:string" />
+        <xs:element name="MethodName" type="xs:string"  minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FrmCmdOtherCfg">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Name" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

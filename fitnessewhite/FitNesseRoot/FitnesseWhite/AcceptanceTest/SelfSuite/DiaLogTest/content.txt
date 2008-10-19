@@ -1,0 +1,25 @@
+!include -c .LocalDefine.FitnesseWhiteVariables
+
+!|fitnessewhite.Guifixture |
+|Application |Launch |${fitdotpath}Demo.exe | |
+|Application |Waitwhilebusy | | |
+|Window |Getbytext |Controls_Demo | |
+|Window|Focus|||
+|Tab |Getbyid |12320 ||
+|Tab |SelectByTitle |模与非模窗体介绍 ||
+|System|Sleep|500||
+|Button |Clickbytext |非模态窗口 ||
+|Dialog|Getbytext |Modeless Dialog | |
+|Dialog|Focus|||
+|System|Sleep|500||
+|Button |Clickbytext |OK ||
+|Window |Getbytext |Controls_Demo | |
+|Button |Clickbytext |模态窗口||
+|Dialog|Getbytext |Dialog | |
+|Dialog|Focus|||
+|System|Sleep|500||
+|Button |Clickbytext |OK ||
+|Window |Getbytext |Controls_Demo | |
+|Window|Focus|||
+|Tab |SelectByIndex |1 ||
+|Window|Close|||

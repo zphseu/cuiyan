@@ -33,13 +33,9 @@ namespace Core.UIItems
             get
             {
                 actionListener.ActionPerforming(this);
-                AutomationElementCollection collection = null;
-                try {
-                	collection = finder.Children(AutomationSearchCondition.ByControlType(ControlType.Text));
-                }catch {
-	                collection = finder.Children(AutomationSearchCondition.ByControlType(ControlType.Edit));
-                }
-                
+                AutomationElementCollection collection = finder.Children(AutomationSearchCondition.ByControlType(ControlType.Text));
+                if (collection.Count == 0)
+	                collection = finder.Children(AutomationSearchCondition.ByControlType(ControlType.Edit));               
                 return new ListViewCells(collection, actionListener, header);
             }
         }

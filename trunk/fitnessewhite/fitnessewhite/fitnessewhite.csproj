@@ -79,9 +79,6 @@
     </PreBuildEvent>
   </PropertyGroup>
   <ItemGroup>
-    <None Include="fitnessewhite.cd" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\fitnesse\fitnesse.csproj">
       <Project>{483287D5-0C87-4257-AB40-C75C02F2ECF6}</Project>
       <Name>fitnesse</Name>

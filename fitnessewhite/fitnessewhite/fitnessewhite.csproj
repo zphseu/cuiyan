@@ -57,6 +57,7 @@
     <Compile Include="TSystem.cs" />
     <Compile Include="TTab.cs" />
     <Compile Include="TTable.cs" />
+    <Compile Include="TTablecell.cs" />
     <Compile Include="TTextbox.cs" />
     <Compile Include="TToolstrip.cs" />
     <Compile Include="TTooltip.cs" />

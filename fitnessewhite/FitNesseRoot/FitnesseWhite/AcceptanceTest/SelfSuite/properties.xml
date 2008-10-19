@@ -9,11 +9,6 @@
 	<Suite>true</Suite>
 	<Versions>true</Versions>
 	<WhereUsed>true</WhereUsed>
-	<WikiImport>
-		<LastRemoteModification>20081013153018</LastRemoteModification>
-		<Source>http://168.2.8.99:80/FitnesseWhite.AcceptanceTest.SelfSuite</Source>
-		<AutoUpdate/>
-	</WikiImport>
 	<saveId>1223883018336</saveId>
 	<ticketId>926692763090903044</ticketId>
 </properties>

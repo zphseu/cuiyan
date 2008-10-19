@@ -9,11 +9,6 @@
 	<Test>true</Test>
 	<Versions>true</Versions>
 	<WhereUsed>true</WhereUsed>
-	<WikiImport>
-		<LastRemoteModification>20081016090433</LastRemoteModification>
-		<Source>http://168.2.8.99:80/FitnesseWhite.AcceptanceTest.SelfSuite.ComboboxTest</Source>
-		<AutoUpdate/>
-	</WikiImport>
 	<saveId>1224119073948</saveId>
 	<ticketId>3936256627864903886</ticketId>
 </properties>

@@ -1,0 +1,161 @@
+// PtEmt.odl : type library source for ActiveX Control project.
+
+// This file will be processed by the Make Type Library (mktyplib) tool to
+// produce the type library (PtEmt.tlb) that will become a resource in
+// PtEmt.ocx.
+
+#include <olectl.h>
+#include <idispids.h>
+
+[ uuid(5123D834-1AA3-486A-B944-655AD6052BD7), version(1.0),
+  helpfile("PtEmt.hlp"),
+  helpstring("PtEmt ActiveX Control module"),
+  control ]
+library PTEMTLib
+{
+	importlib(STDOLE_TLB);
+	importlib(STDTYPE_TLB);
+
+	//  Primary dispatch interface for CPtEmtDytCtrl
+
+	[ uuid(AC8B021B-DB57-48CF-BF71-95AF43B8D30B),
+	  helpstring("Dispatch interface for PtEmtDyt Control"), hidden ]
+	dispinterface _DPtEmtDyt
+	{
+		properties:
+			// NOTE - ClassWizard will maintain property information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_PROP(CPtEmtDytCtrl)
+			//}}AFX_ODL_PROP
+
+		methods:
+			// NOTE - ClassWizard will maintain method information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_METHOD(CPtEmtDytCtrl)
+			[id(1)] long PFile2Picture(BSTR sPFileName, short iType, short iMethodType, short iParam1, float dParam2, float dParam3);
+			[id(2)] long SavePicture(BSTR sPicFileName);
+			[id(3)] long FFile2Picture(BSTR sFFileName, short iType, short iMethodType);
+			[id(4)] long GFile2Picture(BSTR szFileName);
+			//}}AFX_ODL_METHOD
+	};
+
+	//  Event dispatch interface for CPtEmtDytCtrl
+
+	[ uuid(F993BCB8-651A-473F-B979-9A5C6E3D310B),
+	  helpstring("Event interface for PtEmtDyt Control") ]
+	dispinterface _DPtEmtDytEvents
+	{
+		properties:
+			//  Event interface has no properties
+
+		methods:
+			// NOTE - ClassWizard will maintain event information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_EVENT(CPtEmtDytCtrl)
+			//}}AFX_ODL_EVENT
+	};
+
+	//  Class information for CPtEmtDytCtrl
+
+	[ uuid(11D06F82-3393-48C4-B045-90DB05CEAEA8),
+	  helpstring("PtEmtDyt Control"), control ]
+	coclass PtEmtDyt
+	{
+		[default] dispinterface _DPtEmtDyt;
+		[default, source] dispinterface _DPtEmtDytEvents;
+	};
+
+	//  Primary dispatch interface for CPtEmtHmCtrl
+
+	[ uuid(3CFC25E5-30D0-4074-A92F-60A17B1AB2A2),
+	  helpstring("Dispatch interface for PtEmtHm Control"), hidden ]
+	dispinterface _DPtEmtHm
+	{
+		properties:
+			// NOTE - ClassWizard will maintain property information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_PROP(CPtEmtHmCtrl)
+			//}}AFX_ODL_PROP
+
+		methods:
+			// NOTE - ClassWizard will maintain method information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_METHOD(CPtEmtHmCtrl)
+			//}}AFX_ODL_METHOD
+	};
+
+	//  Event dispatch interface for CPtEmtHmCtrl
+
+	[ uuid(1893A6C4-C79D-4196-AF5F-560DE39D49EC),
+	  helpstring("Event interface for PtEmtHm Control") ]
+	dispinterface _DPtEmtHmEvents
+	{
+		properties:
+			//  Event interface has no properties
+
+		methods:
+			// NOTE - ClassWizard will maintain event information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_EVENT(CPtEmtHmCtrl)
+			//}}AFX_ODL_EVENT
+	};
+
+	//  Class information for CPtEmtHmCtrl
+
+	[ uuid(36BB9469-B6BD-4ACF-A40E-B09A0720E67A),
+	  helpstring("PtEmtHm Control"), control ]
+	coclass PtEmtHm
+	{
+		[default] dispinterface _DPtEmtHm;
+		[default, source] dispinterface _DPtEmtHmEvents;
+	};
+
+	//  Primary dispatch interface for CPtEmtHsCtrl
+
+	[ uuid(1DECB36A-9EF3-4771-8D27-A169C6900047),
+	  helpstring("Dispatch interface for PtEmtHs Control"), hidden ]
+	dispinterface _DPtEmtHs
+	{
+		properties:
+			// NOTE - ClassWizard will maintain property information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_PROP(CPtEmtHsCtrl)
+			//}}AFX_ODL_PROP
+
+		methods:
+			// NOTE - ClassWizard will maintain method information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_METHOD(CPtEmtHsCtrl)
+			//}}AFX_ODL_METHOD
+	};
+
+	//  Event dispatch interface for CPtEmtHsCtrl
+
+	[ uuid(B1BC8F15-B3B1-436B-8A50-5AB6F2F6246A),
+	  helpstring("Event interface for PtEmtHs Control") ]
+	dispinterface _DPtEmtHsEvents
+	{
+		properties:
+			//  Event interface has no properties
+
+		methods:
+			// NOTE - ClassWizard will maintain event information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_EVENT(CPtEmtHsCtrl)
+			//}}AFX_ODL_EVENT
+	};
+
+	//  Class information for CPtEmtHsCtrl
+
+	[ uuid(0C138F85-8086-444D-86FA-A93715786BFA),
+	  helpstring("PtEmtHs Control"), control ]
+	coclass PtEmtHs
+	{
+		[default] dispinterface _DPtEmtHs;
+		[default, source] dispinterface _DPtEmtHsEvents;
+	};
+
+
+	//{{AFX_APPEND_ODL}}
+	//}}AFX_APPEND_ODL}}
+};

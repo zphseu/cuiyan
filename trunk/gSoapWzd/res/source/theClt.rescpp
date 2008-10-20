@@ -1,0 +1,30 @@
+
+"@nsmap@"
+
+static char* url = "localhost";
+int main(int argc, char* argv[]) 
+{ 
+	struct soap soap;	
+	soap_init(&soap); // initialize runtime environment (only once)
+	
+	if (argc > 1) url = argv[1];
+	//////////////////////////////////////////////////////////////////////////	
+	// this is a simple
+	int quote = 0;	
+	if (SOAP_OK
+	/* call your soap functions that you can find them in @EDSON@Client.cpp to replace the first SOAP_OK
+		for example:
+		soap_call_ns__add(&soap, url, "add", 1, 2, &quote)
+		*/
+		== SOAP_OK) 
+		std::cout << quote << std::endl; 
+	else // an error occurred
+		soap_print_fault(&soap, stderr); // display the SOAP fault message on the stderr stream
+	//////////////////////////////////////////////////////////////////////////
+	
+	soap_destroy(&soap); // delete deserialized class instances (for C++ only)
+	soap_end(&soap); // remove deserialized data and clean up
+	soap_done(&soap); // detach the gSOAP environment
+
+	return 0; 
+}  

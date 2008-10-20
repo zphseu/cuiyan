@@ -1,0 +1,244 @@
+
+"@nsmap@"
+
+/// EDSON START 001
+#include <signal.h>
+
+int bRuning = 1;
+static const char* url = NULL;
+static int port = 80;
+
+static void sendsocket(const char* url, int port)
+{
+	SOCKET hSocket;
+	if ( (hSocket = socket( AF_INET, SOCK_STREAM, IPPROTO_TCP )) == INVALID_SOCKET )
+		return;
+
+	hostent *hostEnt = NULL;
+	long lIPAddress = 0;
+	sockaddr_in sockaddr;
+	hostEnt = gethostbyname( url );
+	
+	if( hostEnt != NULL )	{
+		lIPAddress = ((in_addr*)hostEnt->h_addr)->s_addr;
+		sockaddr.sin_addr.s_addr = lIPAddress;
+	}
+	else
+		sockaddr.sin_addr.s_addr = inet_addr( url );
+	
+	sockaddr.sin_family = AF_INET;
+	sockaddr.sin_port = htons( port );
+	
+	if( connect( hSocket, (SOCKADDR*)&sockaddr, sizeof( sockaddr ) ) == SOCKET_ERROR )
+		return;
+	
+	if( send( hSocket, " ", 1, 0 ) == SOCKET_ERROR )
+		return;
+
+	closesocket( hSocket );
+}
+
+/* The signal handler function */
+static void handler( int signal )
+{
+    bRuning = 0;
+	cerr << "get signal handler for exit..." << endl;
+	sendsocket(url, port);
+} /*handler*/
+
+/// EDSON START 002
+int main(void) 
+{ 
+	soap_serve(soap_new()); // use the remote method request dispatcher 
+	return 0;
+}
+
+/// EDSON START 003
+/// STAND-ALONE
+int main(int argc, char **argv) 
+{
+	struct soap soap; 
+	int m, s; // master and slave sockets 
+
+	if (argc > 1) port = atoi(argv[1]);
+	cerr << "gsoapserver stand-alone start and port: " << port << endl;
+	
+    /* Registering the handler, catching signals */
+    signal( SIGINT, handler );
+	signal( SIGABRT, handler);
+	signal( SIGTERM, handler);
+	signal( SIGBREAK, handler);
+
+	soap_init(&soap); 
+	m = soap_bind(&soap, url, port, 100); 
+	if (m < 0) {
+		soap_print_fault(&soap, stderr); 
+		soap_done(&soap);
+		return -1;
+	}
+
+	cerr << "Socket connection successful: master socket = " << m << endl; 
+	for (int i = 1; bRuning; i++) 
+	{
+		s = soap_accept(&soap); 
+		if (s < 0) 	{ 
+			soap_print_fault(&soap, stderr); 
+			break; 
+		} 
+
+		cerr << i << ": accepted connection from IP="
+			<< int((soap.ip >> 24)&0xFF) << "."
+			<< int((soap.ip >> 16)&0xFF) << "."
+			<< int((soap.ip >> 8)&0xFF) << "."
+			<< int(soap.ip&0xFF) << " socket="
+			<< s << " ";
+		
+		if (soap_serve(&soap) == SOAP_OK) // process RPC request 
+			cerr << "request served.\n";
+		else
+			cerr << "request failed!\n";
+		soap_destroy(&soap); // clean up class instances 
+		soap_end(&soap); // clean up everything and close socket 
+	} 
+ 
+	soap_done(&soap); // close master socket 
+	return 0;
+}
+
+/// EDSON START 004
+/// MTSA
+#include "pthread.h"
+#define BACKLOG (100) // Max. request backlog 
+
+void *process_request(void *soap) 
+{ 
+	pthread_detach(pthread_self()); 
+	soap_serve((struct soap*)soap); 
+	soap_destroy((struct soap*)soap); // dealloc C++ data 
+	soap_end((struct soap*)soap); // dealloc data and clean up 
+	soap_done((struct soap*)soap); // detach soap struct 
+	free(soap); 
+	return NULL; 
+}  
+
+int main(int argc, char **argv) 
+{ 
+	struct soap soap;
+	void *process_request(void*); 
+	struct soap *tsoap; 
+	pthread_t tid; 
+	int m, s; 
+
+ 	if (argc > 1) port = atoi(argv[1]);
+	cerr << "gsoapserver mtsa start and port: " << port << endl;
+
+   /* Registering the handler, catching signals */
+    signal( SIGINT, handler );
+	signal( SIGABRT, handler);
+	signal( SIGTERM, handler);
+	signal( SIGBREAK, handler);
+
+	soap_init(&soap); 
+
+	m = soap_bind(&soap, NULL, port, BACKLOG); 
+	if (m < 0) {
+		soap_print_fault(&soap, stderr); 
+		soap_done(&soap);
+		return -1;
+	}
+
+	cerr << "Socket connection successful " << m << endl;
+	for (int i = 1; bRuning ;i++) 
+	{ 
+		s = soap_accept(&soap); 
+		if (s < 0) 	{ 
+			soap_print_fault(&soap, stderr); 
+			break; 
+		} 
+
+		cerr << "Thread " << i << " accepts socket " << s << " connection from IP "
+			<< int ((soap.ip >> 24)&0xFF) << "."
+			<< int ((soap.ip >> 16)&0xFF) << "."
+			<< int ((soap.ip >> 8)&0xFF) << "."
+			<< int (soap.ip&0xFF) << endl;
+		tsoap = soap_copy(&soap); // make a safe copy 
+		if (!tsoap) 
+			break; 
+		pthread_create(&tid, NULL, (void*(*)(void*))process_request, (void*)tsoap); 
+	} 
+
+	soap_done(&soap); // detach soap struct 
+	return 0; 
+} 
+
+/// EDSON START 005
+/// MTSA-POOL
+#include "pthread.h"
+#define BACKLOG (100) // Max. request backlog 
+#define MAX_THR (8) // Max. threads to serve requests 
+int main(int argc, char **argv) 
+{ 
+	struct soap soap; 
+ 	struct soap *soap_thr[MAX_THR]; // each thread needs a runtime environment 
+	pthread_t tid[MAX_THR]; 
+	int m, s, i; 
+
+	if (argc > 1) port = atoi(argv[1]);
+	cerr << "gsoapserver mtsa-pool start and port: " << port << endl;
+
+   /* Registering the handler, catching signals */
+    signal( SIGINT, handler );
+	signal( SIGABRT, handler);
+	signal( SIGTERM, handler);
+	signal( SIGBREAK, handler);
+
+	soap_init(&soap); 
+	m = soap_bind(&soap, url, port, BACKLOG); 
+	if (m < 0) {
+		soap_print_fault(&soap, stderr); 
+		soap_done(&soap);
+		return -1;
+	}
+
+	cerr << "Socket connection successful " << m << endl;
+	for (i = 0; i < MAX_THR; i++) 
+		soap_thr[i] = NULL; 
+	
+	for (int j = 1; bRuning ; ) 
+	{ 
+		for (i = 0; i < MAX_THR && bRuning; i++, j++) 
+		{ 
+			s = soap_accept(&soap); 
+			if (s < 0) 
+				bRuning = 0;
+				 
+			cerr << j << " : Thread " << i << " accepts socket " << s << " connection from IP "
+				<< int ((soap.ip >> 24)&0xFF) << "."
+				<< int ((soap.ip >> 16)&0xFF) << "."
+				<< int ((soap.ip >> 8)&0xFF) << "."
+				<< int (soap.ip&0xFF) << endl;
+
+			if (!soap_thr[i]) // first time around 
+			{ 
+				soap_thr[i] = soap_copy(&soap); 
+				if (!soap_thr[i]) 
+					bRuning = 0;
+			} 
+			else // recycle soap environment 
+			{ 
+				pthread_join(tid[i], NULL); 
+				cerr << "Thread " << i << " completed." << endl; 
+				soap_destroy(soap_thr[i]); // deallocate C++ data of old thread 
+				soap_end(soap_thr[i]); // deallocate data of old thread 
+			} 
+			soap_thr[i]->socket = s; // new socket fd 
+			pthread_create(&tid[i], NULL, (void*(*)(void*))soap_serve, (void*)soap_thr[i]); 
+		} 
+	} 
+
+	soap_done(&soap); // detach soap struct 
+
+	return 0; 
+} 
+
+/// EDSON END

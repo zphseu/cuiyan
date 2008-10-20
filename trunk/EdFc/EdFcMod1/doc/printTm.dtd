@@ -1,0 +1,23 @@
+<!ELEMENT bsrpter (style,  colfmt?,  (database | data))>
+    <!ELEMENT style (title, headright?, footright?, footleft?, firstcolfixed?, defaultprint?, maxrecordnum?, footsum?)>
+        <!ELEMENT title (#PCDATA)>
+        <!ELEMENT headright (#PCDATA)>
+        <!ELEMENT footright (#PCDATA)>
+        <!ELEMENT footleft (#PCDATA)>
+        <!ELEMENT firstcolfixed (#PCDATA)>
+        <!ELEMENT defaultprint (#PCDATA)>
+        <!ELEMENT maxrecordnum (#PCDATA)>
+        <!ELEMENT footsum (#PCDATA)>
+    <!ELEMENT colfmt (item)*>
+        <!ELEMENT item (width?, name?, format?)>
+        <!ELEMENT width (#PCDATA)>
+        <!ELEMENT name (#PCDATA)>
+        <!ELEMENT format (#PCDATA)>
+    <!ELEMENT database (dsn, uid, pwd, sql)>
+        <!ELEMENT uid (#PCDATA)>
+        <!ELEMENT pwd (#PCDATA)>
+        <!ELEMENT dsn (#PCDATA)>
+        <!ELEMENT sql (#PCDATA)>
+    <!ELEMENT data (col)*>
+        <!ELEMENT col (row)*>
+        <!ELEMENT row (#PCDATA)>

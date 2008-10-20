@@ -1,0 +1,463 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Chinese (P.R.C.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
+#pragma code_page(936)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE MOVEABLE PURE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE MOVEABLE PURE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE MOVEABLE PURE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)\r\n"
+    "LANGUAGE 4, 2\r\n"
+    "#pragma code_page(936)\r\n"
+    "#include ""res\\EdFcMod1.rc2""  // 不是由 Microsoft Visual C++ 编辑过的资源\r\n"
+    "#include ""afxres.rc""     // 标准组件\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x2L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "080403a8"
+        BEGIN
+            VALUE "CompanyName", "TODO: <公司名>\0"
+            VALUE "FileDescription", "TODO: <文件说明>\0"
+            VALUE "FileVersion", "1.0.0.1\0"
+            VALUE "InternalName", "EdFcMod1.so\0"
+            VALUE "LegalCopyright", "TODO: (C) <公司名>。保留所有权利。\0"
+            VALUE "OriginalFilename", "EdFcMod1.so\0"
+            VALUE "ProductName", "TODO: <产品名>\0"
+            VALUE "ProductVersion", "1.0.0.1\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x804, 936
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_EDHTML              BITMAP  MOVEABLE PURE   "res\\EdHtmlTb24.bmp"
+IDR_EDSTAT2D            BITMAP  MOVEABLE PURE   "res\\toolbar.bmp"
+IDR_EDSTAT2S            BITMAP  MOVEABLE PURE   "res\\supper.bmp"
+IDR_EDSTAT2M            BITMAP  MOVEABLE PURE   "res\\manager.bmp"
+IDR_EDHTML              BITMAP  MOVEABLE PURE   "res\\EdHtmlTb.bmp"
+IDB_EDRPTL              BITMAP  MOVEABLE PURE   "res\\largebar.bmp"
+IDB_EDRPTM              BITMAP  MOVEABLE PURE   "res\\mainfram24.bmp"
+IDB_EDRPTS              BITMAP  MOVEABLE PURE   "res\\smailbar.bmp"
+IDR_EDRPTL              BITMAP  MOVEABLE PURE   "res\\largbar.bmp"
+IDR_EDRPTM              BITMAP  MOVEABLE PURE   "res\\mainfram.bmp"
+IDR_EDRPTD              BITMAP  MOVEABLE PURE   "res\\normal.bmp"
+IDR_EDRPTS              BITMAP  MOVEABLE PURE   "res\\smallbar.bmp"
+IDR_EDSTATD             BITMAP  MOVEABLE PURE   "res\\bsstat3.bmp"
+IDR_EDSTATRPT           BITMAP  MOVEABLE PURE   "res\\bsstat1.bmp"
+IDR_EDSTATM             BITMAP  MOVEABLE PURE   "res\\graphall.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_EDHTML              ICON    DISCARDABLE     "res\\EdHtml.ico"
+IDR_EDRPT               ICON    DISCARDABLE     "res\\PrintGlb.ico"
+IDR_EdStat2             ICON    DISCARDABLE     "res\\EdStat2.ico"
+IDI_EDSTAT              ICON    DISCARDABLE     "res\\EdStat.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_EDSTAT2ABOUTBOX DIALOGEX 0, 0, 235, 47
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "通用图表组件"
+FONT 9, "宋体"
+BEGIN
+    ICON            IDR_EdStat2,IDC_STATIC,10,9,20,20
+    LTEXT           "通用图表组件 EdStat2 1.0.1 版",IDC_STATIC,40,10,119,8,
+                    SS_NOPREFIX
+    LTEXT           "版权所有 (C) 2004 Edson 公司",IDC_STATIC,40,26,119,8
+    DEFPUSHBUTTON   "确定",IDOK,178,7,50,14,WS_GROUP
+END
+
+IDD_EDRPTABOUTBOX DIALOGEX 0, 0, 235, 47
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "通用打印组件"
+FONT 9, "宋体"
+BEGIN
+    ICON            IDR_EDRPT,IDC_STATIC,10,9,20,20
+    LTEXT           "通用打印组件 EdRpter 1.1 版",IDC_STATIC,40,10,119,8,
+                    SS_NOPREFIX
+    LTEXT           "版权所有 (C) 2004 Edson 公司",IDC_STATIC,40,26,119,8
+    DEFPUSHBUTTON   "确定",IDOK,178,7,50,14,WS_GROUP
+END
+
+IDD_BSIMPORT DIALOGEX 0, 0, 303, 67
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "EdImport"
+FONT 9, "宋体", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "确定",IDOK,77,47,50,14
+    PUSHBUTTON      "取消",IDCANCEL,176,45,50,14
+    LTEXT           "数据包：",IDC_STATIC,7,9,33,8
+    LTEXT           "解包到：",IDC_STATIC,7,29,33,8
+    EDITTEXT        IDC_EDIT_FILE,43,7,218,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_DIR,43,27,218,12,ES_AUTOHSCROLL
+    PUSHBUTTON      ">>",IDC_FILE,266,7,30,12
+    PUSHBUTTON      ">>",IDC_DIR,266,27,30,12
+END
+
+IDD_ESSTATABOUTBOX DIALOGEX 0, 0, 235, 47
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "通用打印组件"
+FONT 9, "宋体"
+BEGIN
+    ICON            IDI_EDSTAT,IDI_EDSTAT,10,9,20,20
+    LTEXT           "通用图表组件 EdStat 1.1 版",-1,40,10,119,8,SS_NOPREFIX
+    LTEXT           "版权所有 (C) 2004 Edson 公司",-1,40,26,119,8
+    DEFPUSHBUTTON   "确定",IDOK,178,7,50,14,WS_GROUP
+END
+
+IDD_ESSTATRPTABOUTBOX DIALOGEX 0, 0, 235, 47
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "通用打印组件"
+FONT 9, "宋体"
+BEGIN
+    ICON            IDI_EDSTAT,IDI_EDSTAT,10,9,20,20
+    LTEXT           "通用图表组件 EdRptStat 1.1 版",-1,40,10,119,8,
+                    SS_NOPREFIX
+    LTEXT           "版权所有 (C) 2004 Edson 公司",-1,40,26,119,8
+    DEFPUSHBUTTON   "确定",IDOK,178,7,50,14,WS_GROUP
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Toolbar
+//
+
+IDR_EDSTAT2D TOOLBAR MOVEABLE PURE  16, 15
+BEGIN
+    BUTTON      ID_FILE_PRINT_PREVIEW
+    BUTTON      ID_FILE_PRINT
+    BUTTON      ID_QUERY
+    SEPARATOR
+    BUTTON      ID_LINE
+    BUTTON      ID_BAR
+    BUTTON      ID_PIE
+    SEPARATOR
+    BUTTON      ID_APP_ABOUT
+END
+
+IDR_EDSTAT2S TOOLBAR MOVEABLE PURE  16, 16
+BEGIN
+    BUTTON      ID_FILE_PRINT_PREVIEW
+    BUTTON      ID_FILE_PRINT
+    BUTTON      ID_QUERY
+    SEPARATOR
+    BUTTON      ID_LINE
+    BUTTON      ID_BAR
+    BUTTON      ID_PIE
+    SEPARATOR
+    BUTTON      ID_3DSTYLE
+    BUTTON      ID_INVERT
+    BUTTON      ID_ALARMZONE
+    SEPARATOR
+    BUTTON      ID_APP_ABOUT
+END
+
+IDR_EDSTAT2M TOOLBAR MOVEABLE PURE  16, 16
+BEGIN
+    BUTTON      ID_FILE_PRINT_PREVIEW
+    BUTTON      ID_FILE_PRINT
+    BUTTON      ID_QUERY
+    SEPARATOR
+    BUTTON      ID_LINE
+    BUTTON      ID_BAR
+    BUTTON      ID_PIE
+    SEPARATOR
+    BUTTON      ID_3DSTYLE
+    BUTTON      ID_INVERT
+    BUTTON      ID_ALARMZONE
+    SEPARATOR
+    BUTTON      ID_SAVEAS
+    BUTTON      ID_EXCEL
+    SEPARATOR
+    BUTTON      ID_APP_ABOUT
+END
+
+IDR_EDHTML TOOLBAR MOVEABLE PURE  16, 16
+BEGIN
+    BUTTON      ID_BUTTON0
+    BUTTON      ID_BUTTON1
+    BUTTON      ID_BUTTON2
+    BUTTON      ID_BUTTON3
+    BUTTON      ID_BUTTON4
+    BUTTON      ID_BUTTON5
+    BUTTON      ID_BUTTON6
+END
+
+IDR_EDRPTL TOOLBAR MOVEABLE PURE  24, 24
+BEGIN
+    BUTTON      ID_FILE_PRINT_PREVIEW
+    BUTTON      ID_FILE_PRINT_DIRECT
+    BUTTON      ID_FILE_EXPORT
+    BUTTON      ID_FILE_QUERY
+    BUTTON      ID_APP_ABOUT
+    SEPARATOR
+    BUTTON      ID_FILE_PROGRESS
+END
+
+IDR_EDRPTM TOOLBAR MOVEABLE PURE  24, 24
+BEGIN
+    BUTTON      ID_FILE_PRINT_PREVIEW
+    BUTTON      ID_FILE_PRINT
+    BUTTON      ID_FILE_EXPORT
+    BUTTON      ID_FILE_IMPORT
+    BUTTON      ID_FILE_QUERY
+    BUTTON      ID_APP_ABOUT
+    SEPARATOR
+    BUTTON      ID_FILE_PROGRESS
+END
+
+IDR_EDRPTD TOOLBAR MOVEABLE PURE  16, 16
+BEGIN
+    BUTTON      ID_FILE_PRINT_PREVIEW
+    BUTTON      ID_FILE_PRINT
+    BUTTON      ID_FILE_QUERY
+    BUTTON      ID_APP_ABOUT
+    SEPARATOR
+    BUTTON      ID_FILE_PROGRESS
+END
+
+IDR_EDRPTS TOOLBAR MOVEABLE PURE  16, 16
+BEGIN
+    BUTTON      ID_FILE_PRINT_PREVIEW
+    BUTTON      ID_FILE_PRINT
+    BUTTON      ID_FILE_EXPORT
+    BUTTON      ID_FILE_QUERY
+    BUTTON      ID_APP_ABOUT
+    SEPARATOR
+    BUTTON      ID_FILE_PROGRESS
+END
+
+IDR_EDSTATD TOOLBAR MOVEABLE PURE  16, 16
+BEGIN
+    BUTTON      ID_FILE_PRINT_PREVIEW
+    BUTTON      ID_FILE_PRINT
+    BUTTON      ID_QUERY
+    SEPARATOR
+    BUTTON      ID_LINE
+    BUTTON      ID_BAR
+    BUTTON      ID_BAR3D
+    SEPARATOR
+    BUTTON      ID_APP_ABOUT
+END
+
+IDR_EDSTATRPT TOOLBAR MOVEABLE PURE  16, 16
+BEGIN
+    BUTTON      ID_FILE_PRINT_PREVIEW
+    BUTTON      ID_FILE_PRINT
+    BUTTON      ID_FILE_QUERY
+    SEPARATOR
+    BUTTON      ID_FIRSTPAGE
+    BUTTON      ID_PREPAGE
+    BUTTON      ID_NEXTPAGE
+    BUTTON      ID_LASTPAGE
+    SEPARATOR
+    BUTTON      ID_APP_ABOUT
+END
+
+IDR_EDSTATM TOOLBAR MOVEABLE PURE  16, 16
+BEGIN
+    BUTTON      ID_FILE_PRINT_PREVIEW
+    BUTTON      ID_FILE_PRINT
+    BUTTON      ID_QUERY
+    SEPARATOR
+    BUTTON      ID_LINE
+    BUTTON      ID_BAR
+    BUTTON      ID_BAR3D
+    BUTTON      ID_PIE
+    BUTTON      ID_CUTPIE
+    SEPARATOR
+    BUTTON      ID_APP_ABOUT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO MOVEABLE PURE 
+BEGIN
+    IDD_EDSTAT2ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_BUTTON0              "移动到前一页\n前一页"
+    ID_BUTTON1              "移动到后一页\n后一页"
+    ID_BUTTON2              "停止下载\n停止"
+    ID_BUTTON3              "刷新\n刷新"
+    ID_BUTTON4              "回到主页\n主页"
+    ID_BUTTON5              "打印当前页\n打印"
+    ID_QUERY                "重新生成图表\n生成图表"
+    ID_3DSTYLE              "平面立体切换\n平面立体切换"
+    ID_ALARMZONE            "警戒线显示切换\n警戒线显示切换"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_INVERT               "转置\n转置"
+    ID_SAVEAS               "保存为图片\n保存为图片"
+    ID_EXCEL                "数据保存到Excel表\n保存为Excel"
+    ID_FILE_EXPORT          "导出当前数据\n导出"
+    ID_PROGRESS             "数据载入进度显示\n进度"
+    ID_FILE_QUERY           "重新生成报表\n生成报表"
+    ID_FILE_IMPORT          "解开导出数据包\n解包"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_TIMESTAT_SQL        "select to_Number(to_char(%s, '%s')) as NUM, count(*) from %s %s group by to_char(%s, '%s') order by NUM"
+    ID_LINE                 "显示折线图\n折线图"
+    ID_BAR                  "显示柱状图\n柱状图"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_BAR3D                "显示立体柱状图\n立体柱状图"
+    ID_PIE                  "显示饼图\n饼图"
+    ID_CUTPIE               "显示切饼图\n切饼图"
+    ID_FIRSTPAGE            "显示第一页\n第一页"
+    ID_PREPAGE              "显示前一页\n前一页"
+    ID_NEXTPAGE             "显示后一页\n后一页"
+    ID_LASTPAGE             "显示最末页\n最末页"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_FILE_PRINT           "打印\n打印"
+    ID_FILE_PRINT_DIRECT    "打印当前报表\n打印"
+    ID_FILE_PRINT_PREVIEW   "预览\n预览"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_APP_ABOUT            "显示程序信息，版本号和版权\n关于"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_BUTTON6              "隐藏按钮栏\n隐藏按钮栏"
+END
+
+#endif    // Chinese (P.R.C.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+LANGUAGE 4, 2
+#pragma code_page(936)
+#include "res\EdFcMod1.rc2"  // 不是由 Microsoft Visual C++ 编辑过的资源
+#include "afxres.rc"     // 标准组件
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

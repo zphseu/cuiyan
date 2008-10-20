@@ -1,0 +1,13 @@
+; EdFcMod1.def : 声明 DLL 的模块参数。
+
+LIBRARY      "EdFcMod1"
+
+EXPORTS
+    ; 此处可以是显式导出
+GetView
+GetSubString
+getDBDriver
+BSImportDlg
+AutoExport
+AutoImport
+AutoRpt

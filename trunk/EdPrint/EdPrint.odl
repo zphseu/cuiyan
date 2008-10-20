@@ -1,0 +1,147 @@
+// EdPrint.odl : type library source for ActiveX Control project.
+
+// This file will be processed by the Make Type Library (mktyplib) tool to
+// produce the type library (EdPrint.tlb) that will become a resource in
+// EdPrint.ocx.
+
+#include <olectl.h>
+#include <idispids.h>
+
+[ uuid(734AA901-7066-4095-A46B-41F22AA68331), version(1.0),
+  helpfile("EdPrint.hlp"),
+  helpstring("EdPrint ActiveX Control module"),
+  control ]
+library EDPRINTLib
+{
+	importlib(STDOLE_TLB);
+	importlib(STDTYPE_TLB);
+
+	//  Primary dispatch interface for CEdGridCtrl
+
+	[ uuid(EB4553D3-3DC5-460A-9F11-E23E9F728570),
+	  helpstring("Dispatch interface for EdGrid Control"), hidden ]
+	dispinterface _DEdGrid
+	{
+		properties:
+			// NOTE - ClassWizard will maintain property information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_PROP(CEdGridCtrl)
+			[id(1)] long VisualWidth;
+			[id(2)] BSTR FontName;
+			[id(3)] BSTR Title;
+			[id(4)] BSTR HeadRight;
+			[id(5)] BSTR FootLeft;
+			[id(6)] BSTR FootRight;
+			[id(8)] long FixedCols;
+			[id(7)] BSTR ColsWidthStr;
+			//}}AFX_ODL_PROP
+
+		methods:
+			// NOTE - ClassWizard will maintain method information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_METHOD(CEdGridCtrl)
+			[id(9)] long ReadFile(BSTR lpszFileName, BSTR lpszTableName);
+			[id(10)] long ReadDB(BSTR lpszConnectString, BSTR lpszUserName, BSTR lpszPassword, BSTR lpszRecordSource);
+			[id(11)] void doPrint(BSTR lpszPrinterName);
+			[id(12)] void doPrintPreview();
+			//}}AFX_ODL_METHOD
+
+			[id(DISPID_ABOUTBOX)] void AboutBox();
+	};
+
+	//  Event dispatch interface for CEdGridCtrl
+
+	[ uuid(D0B0C48E-F79F-4E06-B4E3-F450EBB40E8F),
+	  helpstring("Event interface for EdGrid Control") ]
+	dispinterface _DEdGridEvents
+	{
+		properties:
+			//  Event interface has no properties
+
+		methods:
+			// NOTE - ClassWizard will maintain event information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_EVENT(CEdGridCtrl)
+			//}}AFX_ODL_EVENT
+	};
+
+	//  Class information for CEdGridCtrl
+
+	[ uuid(E9BFB9F4-C756-48AA-BF27-1C6EC9B3C712),
+	  helpstring("EdGrid Control"), control ]
+	coclass EdGrid
+	{
+		[default] dispinterface _DEdGrid;
+		[default, source] dispinterface _DEdGridEvents;
+	};
+
+	//  Primary dispatch interface for CEdChartCtrl
+
+	[ uuid(A709FFAB-2B60-47FA-9A19-770DE7814B6D),
+	  helpstring("Dispatch interface for EdChart Control"), hidden ]
+	dispinterface _DEdChart
+	{
+		properties:
+			// NOTE - ClassWizard will maintain property information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_PROP(CEdChartCtrl)
+			[id(1)] BSTR HeaderFont;
+			[id(2)] BSTR HeaderStr;
+			[id(3)] BSTR FooterFont;
+			[id(4)] BSTR FooterStr;
+			[id(5)] BSTR XTitle;
+			[id(6)] BSTR YTitle;
+			[id(7)] BSTR LengendTitle;
+			[id(8)] OLE_COLOR BackColor;
+			[id(9)] OLE_COLOR GraphBackColor;
+			[id(10)] OLE_COLOR AreaColor;
+			[id(11)] BSTR XPointNames;
+			[id(12)] boolean InvertOrientation;
+			[id(13)] boolean Style3D;
+			[id(14)] long ChartType;
+			[id(15)] BSTR YSetNames;
+			[id(16)] boolean AlarmZone;
+			//}}AFX_ODL_PROP
+
+		methods:
+			// NOTE - ClassWizard will maintain method information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_METHOD(CEdChartCtrl)
+			[id(17)] void doPrint(BSTR lpszPrinterName);
+			[id(18)] void doPrintPreview();
+			[id(19)] long ReadFile(BSTR lpszFileName);
+			[id(20)] void SaveAs(BSTR lpszPrinterName);
+			//}}AFX_ODL_METHOD
+			[id(DISPID_ABOUTBOX)] void AboutBox();
+	};
+
+	//  Event dispatch interface for CEdChartCtrl
+
+	[ uuid(1984C117-4BC2-4B32-B8FA-E09ECC8F3CD2),
+	  helpstring("Event interface for EdChart Control") ]
+	dispinterface _DEdChartEvents
+	{
+		properties:
+			//  Event interface has no properties
+
+		methods:
+			// NOTE - ClassWizard will maintain event information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_EVENT(CEdChartCtrl)
+			//}}AFX_ODL_EVENT
+	};
+
+	//  Class information for CEdChartCtrl
+
+	[ uuid(D294DB4A-1A1A-4461-8548-8DDA92BB66DD),
+	  helpstring("EdChart Control"), control ]
+	coclass EdChart
+	{
+		[default] dispinterface _DEdChart;
+		[default, source] dispinterface _DEdChartEvents;
+	};
+
+
+	//{{AFX_APPEND_ODL}}
+	//}}AFX_APPEND_ODL}}
+};

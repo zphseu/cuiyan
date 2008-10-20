@@ -1,0 +1,15 @@
+Stat2
+	default
+	manager
+	supper
+Stat
+	default
+	manager
+StatRpt
+	default
+Report
+	manager
+	bigbar
+	smallbar
+Html
+	default

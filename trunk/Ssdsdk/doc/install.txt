@@ -1,0 +1,16 @@
+copy src 中的ssdsdk.h到你的include目录，并修改你的信息。
+copy ssdsdk.lib到你的lib目录。
+
+
+如果进行调试，则必须先修改上述两个文件。
+
+ssdsdk为MD编译。
+ssdsdkd为MDd编译。
+
+
+[2004/03/19]
+由于使用ssdsdk，所以应用程序定义的注册表路径必须和资源中的ProductName一致。
+比如
+LPCSTR EDVFCREGPATH = "SOFTWARE\\Edson\\Edvfc";
+则Resource.h中的
+ProductName	Edson\\Edvfc

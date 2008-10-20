@@ -1,0 +1,130 @@
+// EdComs.idl : IDL source for EdComs.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (EdComs.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+	[
+		object,
+		uuid(BE4067E4-FBB6-4378-A166-222FC313ADB0),
+		dual,
+		helpstring("IEdSPath Interface"),
+		pointer_default(unique)
+	]
+	interface IEdSPath : IDispatch
+	{
+		[id(1), helpstring("method SetMapFile")] HRESULT SetMapFile(BSTR mpfn);
+		[id(2), helpstring("method GetLink")] HRESULT GetLink([in]BSTR nds, [in]unsigned int n, [out]BSTR* pShortLink, [out]BSTR* pShortNode);
+		[id(3), helpstring("method SetMapDb")] HRESULT SetMapDb(BSTR strDbLk, BSTR strLkSql, BSTR strNdSql, BSTR strNRl);
+		[id(4), helpstring("method SetW")] HRESULT SetW([in]long lSize, [in, size_is(lSize)] long *lW);
+		[id(5), helpstring("method GetLinks")] HRESULT GetLinks([in]long op, [in]long dp, [in]unsigned int n, [out]BSTR* pShortLink, [out]BSTR* pShortNode, [out]BSTR* pPathW);
+	};
+	[
+		object,
+		uuid(B1E2CB46-A52C-47BD-BB03-27F1488B6B3D),
+		dual,
+		helpstring("IEdMtrData Interface"),
+		pointer_default(unique)
+	]
+	interface IEdMtrData : IDispatch
+	{
+		[id(1), helpstring("method ReadFile")] HRESULT ReadFile([in]BSTR bstrFileName, [in]BSTR bstrTableName);
+		[id(2), helpstring("method ReadDB")] HRESULT ReadDB([in]BSTR bstrConnect, [in]BSTR bstrSQL);
+		[id(3), helpstring("method SetParams")] HRESULT SetParams(
+			[in]BSTR bstrTitle, [in]BSTR bstrHeadRight, [in]BSTR bstrFootLeft, [in]BSTR bstrFootRight, 
+			[in]BSTR bstrFontName, [in]BSTR bstrColsWidthStr, [in]long lFixedCols);
+		[id(4), helpstring("method DoPrint")] HRESULT DoPrint([in]BSTR bstrPrinterName);
+		[propget, id(5), helpstring("property Cols")] HRESULT Cols([out, retval] long *pVal);
+		[propget, id(6), helpstring("property Rows")] HRESULT Rows([out, retval] long *pVal);
+		[propget, id(7), helpstring("property Data")] HRESULT Data(long row, long col, [out, retval] BSTR *pVal);
+		[propput, id(7), helpstring("property Data")] HRESULT Data(long row, long col, [in] BSTR newVal);
+		[id(8), helpstring("method SetSize")] HRESULT SetSize([in]long row, [in]long col);
+	};
+	[
+		object,
+		uuid(6BDCAFD8-6B6B-4B0C-9226-1416459DDD2D),
+		dual,
+		helpstring("IEdMtrNums Interface"),
+		pointer_default(unique)
+	]
+	interface IEdMtrNums : IDispatch
+	{
+		[id(1), helpstring("method ReadFile")] HRESULT ReadFile([in]BSTR bstrFileName, [in]BSTR bstrTableName);
+		[id(2), helpstring("method ReadDB")] HRESULT ReadDB([in]BSTR bstrConnect, [in]BSTR bstrDataSQL, 
+				[in]BSTR bstrPointSQL, [in]BSTR bstrGroupSQL);
+		[propget, id(3), helpstring("property ColName")] HRESULT ColName(long col, [out, retval] BSTR *pVal);
+		[propput, id(3), helpstring("property ColName")] HRESULT ColName(long col, [in] BSTR newVal);
+		[propget, id(4), helpstring("property RowName")] HRESULT RowName(long row, [out, retval] BSTR *pVal);
+		[propput, id(4), helpstring("property RowName")] HRESULT RowName(long row, [in] BSTR newVal);
+		[propget, id(5), helpstring("property Data")] HRESULT Data(long row, long col, [out, retval] double *pVal);
+		[propput, id(5), helpstring("property Data")] HRESULT Data(long row, long col, [in] double newVal);
+		[propget, id(6), helpstring("property Cols")] HRESULT Cols([out, retval] long *pVal);
+		[propget, id(7), helpstring("property Rows")] HRESULT Rows([out, retval] long *pVal);
+		[id(8), helpstring("method SetSize")] HRESULT SetSize([in]long row, [in]long col);
+		[id(9), helpstring("method SetColNames")] HRESULT SetColNames([in]BSTR bstrColNames);
+		[id(10), helpstring("method SetRowNames")] HRESULT SetRowNames([in]BSTR bstrRowNames);
+		[id(11), helpstring("method Save")] HRESULT Save([in]BSTR bstrFileName);
+	};
+	[
+		object,
+		uuid(80B01CAC-DFE1-43F3-8D68-9249BD2AD6CE),
+		dual,
+		helpstring("IEdFun Interface"),
+		pointer_default(unique)
+	]
+	interface IEdFun : IDispatch
+	{
+		[id(1), helpstring("method GetPrintHDC")] HRESULT GetPrintHDC([in]BSTR bstrPrinterName, [out]long* hDC);
+		[id(2), helpstring("method GetFile")] HRESULT GetFile([in]BSTR btrFileName, [out]BSTR* bstrData);
+		[id(3), helpstring("method GetHttpPage")] HRESULT GetHttpPage([in]BSTR bstrUrl, [out]BSTR* bstrData);
+		[id(4), helpstring("method GetFtpFile")] HRESULT GetFtpFile([in]BSTR bstrUrl, [out]BSTR* bstrData);
+		[id(5), helpstring("method UrlEncode")] HRESULT UrlEncode([in]BSTR bstrIn, [out]BSTR* bstrOut);
+		[id(6), helpstring("method SendMsg")] HRESULT SendMsg([in]long ip, [in]BSTR from, [in]BSTR machine, [in]BSTR msg);
+	};
+
+[
+	uuid(1ED6BBAD-F361-472F-BF9F-F4A3FE61F4D2),
+	version(1.0),
+	helpstring("EdComs 1.0 Type Library")
+]
+library EDCOMSLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(82E8B63A-A7AF-466D-98C3-432C79E0F8CF),
+		helpstring("EdSPath Class")
+	]
+	coclass EdSPath
+	{
+		[default] interface IEdSPath;
+	};
+	[
+		uuid(C5D8618E-4806-4F7D-B321-98AA1DBBD458),
+		helpstring("EdMtrData Class")
+	]
+	coclass EdMtrData
+	{
+		[default] interface IEdMtrData;
+	};
+	[
+		uuid(BC40ABF4-E9ED-4CF2-868B-A2B167171704),
+		helpstring("EdMtrNums Class")
+	]
+	coclass EdMtrNums
+	{
+		[default] interface IEdMtrNums;
+	};
+	[
+		uuid(426DF050-B7EE-4BFB-AA76-173841DF8A9C),
+		helpstring("EdFun Class")
+	]
+	coclass EdFun
+	{
+		[default] interface IEdFun;
+	};
+};

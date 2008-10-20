@@ -1,0 +1,183 @@
+<HTML>
+<HEAD>
+<META NAME="GENERATOR" Content="">
+<META HTTP-EQUIV="Content-Type" content="text/html; charset=gb2312">
+<TITLE>EdChart Windows in an Active X Control</TITLE>
+<SCRIPT LANGUAGE=javascript>
+<!--
+
+function btReadFile() 
+{
+	i = EdChart.ReadFile(Form1.Template.value);
+	if (i != 0)
+		alert(i);
+}
+
+function btChartTypeChange(lChartType) 
+{
+	EdChart.ChartType = lChartType;
+}
+
+function btChartStyle(i) 
+{
+	switch(i)
+	{
+	case 1:
+		EdChart.Style3D = !EdChart.Style3D;
+		break;
+	case 2:
+		EdChart.AlarmZone = !EdChart.AlarmZone;
+		break;
+	case 3:	
+		EdChart.InvertOrientation = !EdChart.InvertOrientation;
+		break;
+	default:
+		;
+	}
+}
+
+function btPrintPreview() 
+{
+	EdChart.doPrintPreview();
+}
+
+function btPrint() 
+{
+	EdChart.doPrint(Form1.printer.value);
+}
+
+function btProperyChanged(i)
+{
+	switch(i)
+	{
+	case 1:
+		EdChart.HeaderStr = Form1.Header.value;
+		break;
+	case 2:
+		EdChart.FooterStr = Form1.Footer.value;
+		break;
+	case 3:
+		EdChart.XPointNames = Form1.Point.value;
+		break;
+	case 4:
+		EdChart.YSetNames = Form1.Set.value;
+		break;
+	case 5:
+		EdChart.HeaderFont = Form1.HeadFont.value;
+		break;
+	case 6:
+		EdChart.FooterFont = Form1.FootFont.value;
+		break;
+	case 7:
+		EdChart.XTitle = Form1.XTitle.value;
+		break;
+	case 8:
+		EdChart.YTitle = Form1.YTitle.value;
+		break;
+	case 9:
+		EdChart.LengendTitle = Form1.LengendTitle.value;
+		break;
+	case 10:
+		EdChart.BackColor = Form1.BackColor.value;
+		break;
+	case 11:
+		EdChart.GraphBackColor = Form1.GraphBackColor.value;
+		break;
+	case 12:
+		EdChart.AreaColor = Form1.AreaColor.value;
+		break;
+	default:
+
+	}
+}
+//-->
+</SCRIPT>
+</HEAD>
+<BODY>
+<H1>EdChart Test.</H1>
+<OBJECT 
+	ID = "EdChart"
+	CLASSID = "CLSID:D294DB4A-1A1A-4461-8548-8DDA92BB66DD"
+	WIDTH = "500"
+	HEIGHT = "500">
+If you see this text, your browser doesn't support the OBJECT tag.<br>
+</OBJECT>
+<form name="Form1">
+<HR>
+ChartType:&nbsp;&nbsp;&nbsp;
+<input type="button" value="PLOT" LANGUAGE=javascript onclick="return btChartTypeChange(1)">
+<input type="button" value="BAR" LANGUAGE=javascript onclick="return btChartTypeChange(2)">
+<input type="button" value="PIE" LANGUAGE=javascript onclick="return btChartTypeChange(3)">
+<input type="button" value="STACKING_BAR" LANGUAGE=javascript onclick="return btChartTypeChange(4)">
+<input type="button" value="AREA" LANGUAGE=javascript onclick="return btChartTypeChange(5)">
+<input type="button" value="HILO" LANGUAGE=javascript onclick="return btChartTypeChange(6)">
+<input type="button" value="HILO_OPEN_CLOSE" LANGUAGE=javascript onclick="return btChartTypeChange(7)">
+<input type="button" value="CANDLE" LANGUAGE=javascript onclick="return btChartTypeChange(8)">
+<input type="button" value="POLAR" LANGUAGE=javascript onclick="return btChartTypeChange(9)">
+<input type="button" value="RADAR" LANGUAGE=javascript onclick="return btChartTypeChange(10)">
+<input type="button" value="FILLED_RADAR" LANGUAGE=javascript onclick="return btChartTypeChange(11)">
+<input type="button" value="BUBBLE" LANGUAGE=javascript onclick="return btChartTypeChange(12)">
+<P>
+Style:&nbsp;&nbsp;&nbsp;
+<input type="button" value="Sytle3D" LANGUAGE=javascript onclick="return btChartStyle(1)">
+<input type="button" value="AlarmZone" LANGUAGE=javascript onclick="return btChartStyle(2)">
+<input type="button" value="InvertOrg" LANGUAGE=javascript onclick="return btChartStyle(3)">
+<P>
+<input type="button" value="Header" LANGUAGE=javascript onclick="return btProperyChanged(1)">
+<INPUT TYPE="text" name="Header" value="This is a chart1!" size=100><P>
+
+<input type="button" value="Footer" LANGUAGE=javascript onclick="return btProperyChanged(2)">
+<INPUT TYPE="text" name="Footer" value="This is a footer1!" size=100><P>
+
+<input type="button" value="Point" LANGUAGE=javascript onclick="return btProperyChanged(3)">
+<INPUT TYPE="text" name="Point" value="X1~X2~X3~X4~X5~X6" size=50>&nbsp;&nbsp;&nbsp;&nbsp;
+
+<input type="button" value="Set" LANGUAGE=javascript onclick="return btProperyChanged(4)">
+<INPUT TYPE="text" name="Set" value="Y1~Y2~Y3~Y4~Y5~Y6" size=50><P>
+
+<input type="button" value="HeadFont" LANGUAGE=javascript onclick="return btProperyChanged(5)">
+<INPUT TYPE="text" name="HeadFont" value="Arial, 18, Bold" size=50>&nbsp;&nbsp;&nbsp;&nbsp;
+
+<input type="button" value="FootFont" LANGUAGE=javascript onclick="return btProperyChanged(6)">
+<INPUT TYPE="text" name="FootFont" value="Arial, 10, Bold" size=50><P>
+
+<input type="button" value="XTitle" LANGUAGE=javascript onclick="return btProperyChanged(7)">
+<INPUT TYPE="text" name="XTitle" value="天Y" size=30>&nbsp;&nbsp;&nbsp;&nbsp;
+
+<input type="button" value="YTitle" LANGUAGE=javascript onclick="return btProperyChanged(8)">
+<INPUT TYPE="text" name="YTitle" value="车辆数Y" size=30>&nbsp;&nbsp;&nbsp;&nbsp;
+
+<input type="button" value="LengendTitle" LANGUAGE=javascript onclick="return btProperyChanged(9)">
+<INPUT TYPE="text" name="LengendTitle" value="Lengend图例" size=30><P>
+
+<input type="button" value="BackColor" LANGUAGE=javascript onclick="return btProperyChanged(10)">
+<INPUT TYPE="text" name="BackColor" value="3381759"><P>
+
+<input type="button" value="GraphBackColor" LANGUAGE=javascript onclick="return btProperyChanged(11)">
+<INPUT TYPE="text" name="GraphBackColor" value="13434879"><P>
+
+<input type="button" value="AreaColor" LANGUAGE=javascript onclick="return btProperyChanged(12)">
+<INPUT TYPE="text" name="AreaColor" value="16777113"><P>
+
+<HR>
+<input type="button" name="ReadFile" value="Read FromFile" LANGUAGE=javascript onclick="return btReadFile()"><P>
+<H3>Return Value:</H3>
+ <PRE>
+ *  @return 0 - success.
+ *  @return 1 - File is not exist.
+ *  @return 2 - xml parse error.
+ *  @return 3 - html flag is not exist and config infomation can not be received.
+ *  @return 4 - can not fine the table.
+ *  @return 5 - col or row is zero.
+ </PRE>
+FILENAME: <INPUT TYPE="text" name="Template" value="E:\EdWork\myproj\EdPrint\VBTest\GraphTm2.fmt" size=100><P>
+
+<HR>
+<H3>Print & PrintPreview</H3>
+<input type="button" name="PrintPreview" value="PrintPreview" LANGUAGE=javascript onclick="return btPrintPreview()"><P>
+<input type="button" name="Print" value="      Print     " LANGUAGE=javascript onclick="return btPrint()">&nbsp;&nbsp;&nbsp;
+PRINTERNAME: <INPUT TYPE="text" name="printer" value="Default" size=100><P>
+
+</form>
+</BODY>
+</HTML>

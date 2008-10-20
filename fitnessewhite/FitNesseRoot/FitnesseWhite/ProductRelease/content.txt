@@ -1,6 +1,6 @@
 [2008-10-13~2008-10-19]
  * [[Combobox][ProductFeatures.SelfFeatures.ComboBox]]
- * [[Listbox][ProductFeatures.SelfFeatures.ListBox]]
+ * [[Listview][ProductFeatures.SelfFeatures.ListView]]
  * [[Menu][ProductFeatures.SelfFeatures.MeNu]]
  * [[Dialog][ProductFeatures.SelfFeatures.DiaLog]]
 

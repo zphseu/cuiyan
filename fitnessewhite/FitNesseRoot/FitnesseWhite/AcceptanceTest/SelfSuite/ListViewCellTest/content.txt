@@ -1,0 +1,14 @@
+!include -c .LocalDefine.FitnesseWhiteVariables
+!|fitnessewhite.Guifixture |
+|Application |Launch |${fitdotpath}Demo.exe | |
+|Application |Waitwhilebusy | | |
+|Window |Getbytext |Controls_Demo | |
+|Window|Focus|||
+|Listview|GetById|1012|选择列表控件|
+|Listview|Select |1 |选择第二列 |
+|Listview|RowCount|3 | |
+|Listview|ColumnCount|2 | |
+|Listviewcell |Getbyindex |1;1 | |
+|Listviewcell|Text|1,000k||
+|Window|Close|||
+

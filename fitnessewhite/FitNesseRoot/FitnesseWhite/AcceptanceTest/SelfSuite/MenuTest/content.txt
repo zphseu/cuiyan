@@ -6,7 +6,8 @@
 |Button|RightClickByText|7 |右键点击按钮“7”，弹出菜单“这是什么”|
 |Menu|PopupMenu|这是什么?(W)||
 |Menu|Click||点击弹出菜单|
-|Menu|Menubar|帮助(H)||
+|Menu|MenubarMenu|应用程序;帮助(H);关于计算器(A)||
 |Menu|Click|||
+|Inputdevice |EnterWithAutoItX |{ENTER}||
 |Menu|IsVisible|True||
 |Window |Close | | |

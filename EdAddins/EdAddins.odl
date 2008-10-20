@@ -1,0 +1,66 @@
+// EdAddins.odl : type library source for EdAddins.dll
+
+// This file will be processed by the Make Type Library (mktyplib) tool to
+// produce the type library (EdAddins.tlb).
+
+[	uuid(01D2ACA1-0306-4AE7-B572-B503E42980D9), version(1.0),
+	helpstring ("EDADDINS Developer Studio Add-in") ]
+library EdAddins
+{
+	importlib("stdole32.tlb");
+	importlib("devshl.dll");
+	importlib("ide\devdbg.pkg");
+	
+
+	//  Dual interface for CCommands
+	//
+	//  All commands that your add-in adds to DevStudio
+	//   must appear in this interface.  You may use the
+	//   ClassView to add methods to this interface, which
+	//   will cause stub implementations of those methods to
+	//   appear in your CCommands class.
+	
+	[	uuid(2F7418F6-44FB-463C-8FD3-D45EAB0D63E0),
+		oleautomation,
+		dual
+	]
+
+	interface ICommands : IDispatch
+	{
+		// methods
+		[id(1), helpstring("method MsgBoxWiz")] HRESULT MsgBoxWiz();
+		[id(2), helpstring("method LineCount")] HRESULT LineCount();
+		[id(3), helpstring("method Config")] HRESULT Config();
+		[id(4), helpstring("method CreateHelpHtml")] HRESULT CreateHelpHtml();
+		[id(5), helpstring("method InsertCommentFile")] HRESULT InsertCommentFile();
+		[id(6), helpstring("method InsertCommentFun")] HRESULT InsertCommentFun();
+		[id(7), helpstring("method InsertCommentHis")] HRESULT InsertCommentHis();
+		[id(8), helpstring("method InsertCommentSx")] HRESULT InsertCommentSx();
+		[id(9), helpstring("method InsertCommentSMore")] HRESULT InsertCommentSMore();
+		[id(10), helpstring("method InsertCommentSLine")] HRESULT InsertCommentSLine();
+		[id(11), helpstring("method SwitchCmt")] HRESULT SwitchCmt();
+	};
+
+	//  Class information for CCommands
+
+	[ uuid(26A04A11-8535-488E-AE26-4ECDCA12718C) ]
+	coclass Commands
+	{
+		[default] interface ICommands;
+	};
+
+	[ hidden, uuid(9B7678AD-44A9-466E-B1BB-2212C6296EA8) ]
+	coclass ApplicationEvents
+	{
+		[default] interface IApplicationEvents;
+	}
+
+	[ hidden, uuid(87BFC5BF-0138-4025-9E1C-121CFCC49560) ]
+	coclass DebuggerEvents
+	{
+		[default] interface IDebuggerEvents;
+	}
+
+	//{{AFX_APPEND_ODL}}
+	//}}AFX_APPEND_ODL}}
+};

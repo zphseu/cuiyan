@@ -1,0 +1,26 @@
+HKCR
+{
+	EdComs.EdSPath.1 = s 'EdSPath Class'
+	{
+		CLSID = s '{82E8B63A-A7AF-466D-98C3-432C79E0F8CF}'
+	}
+	EdComs.EdSPath = s 'EdSPath Class'
+	{
+		CLSID = s '{82E8B63A-A7AF-466D-98C3-432C79E0F8CF}'
+		CurVer = s 'EdComs.EdSPath.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {82E8B63A-A7AF-466D-98C3-432C79E0F8CF} = s 'EdSPath Class'
+		{
+			ProgID = s 'EdComs.EdSPath.1'
+			VersionIndependentProgID = s 'EdComs.EdSPath'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{1ED6BBAD-F361-472F-BF9F-F4A3FE61F4D2}'
+		}
+	}
+}

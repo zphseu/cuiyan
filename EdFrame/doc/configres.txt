@@ -1,0 +1,5 @@
+so filename		path search		config
+doctemplate		add any			point id
+icon			def, dll		def, dll, config
+text			dll			dll, config
+open ext name		dll			dll, config+dll

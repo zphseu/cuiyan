@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="gb2312"?>
+<edfc name="edfc test" bkcolor="10841658" textcolor="16777215">
+    <folder name="EdFcMod1">
+        <item name="HtmlView">
+            <dll>EdFcMod1.so</dll>
+            <view>Html</view>
+            <icon>icon2.ico</icon>
+        </item>
+        <item name="Stat">
+            <dll>EdFcMod1.so</dll>
+            <view>Stat</view>
+            <icon>icon1.ico</icon>
+            <data>;EdDlgs.dll;</data>
+        </item>
+        <item name="Stat">
+            <dll>EdFcMod1.so</dll>
+            <view>Stat</view>
+            <icon>icon1.ico</icon>
+            <data>manager;EdDlgs.dll;</data>
+        </item>
+       <item name="StatRpt">
+            <dll>EdFcMod1.so</dll>
+            <view>StatRpt</view>
+            <icon>icon1.ico</icon>
+            <data>;EdDlgs.dll;</data>
+        </item>
+    </folder>
+    <folder name="Stat2">
+        <item name="Stat2">
+            <dll>EdFcMod1.so</dll>
+            <view>Stat2</view>
+            <icon>icon1.ico</icon>
+            <data>;EdDlgs.dll;</data>
+        </item>
+        <item name="Stat2">
+            <dll>EdFcMod1.so</dll>
+            <view>Stat2</view>
+            <icon>icon1.ico</icon>
+            <data>supper;EdDlgs.dll;</data>
+        </item>
+        <item name="Stat2">
+            <dll>EdFcMod1.so</dll>
+            <view>Stat2</view>
+            <icon>icon1.ico</icon>
+            <data>manager;EdDlgs.dll;</data>
+        </item>
+    </folder>
+    <folder name="Report">
+        <item name="Report">
+            <dll>EdFcMod1.so</dll>
+            <view>Report</view>
+            <icon>icon1.ico</icon>
+            <data>;EdDlgs.dll;</data>
+        </item>
+        <item name="Report1">
+            <dll>EdFcMod1.so</dll>
+            <view>Report</view>
+            <icon>icon1.ico</icon>
+            <data>manager;EdDlgs.dll;</data>
+        </item>
+        <item name="Report2">
+            <dll>EdFcMod1.so</dll>
+            <view>Report</view>
+            <icon>icon1.ico</icon>
+            <data>bigbar;EdDlgs.dll;</data>
+        </item>
+        <item name="Report3">
+            <dll>EdFcMod1.so</dll>
+            <view>Report</view>
+            <icon>icon1.ico</icon>
+            <data>smallbar;EdDlgs.dll;</data>
+        </item>
+    </folder>
+    <folder name="测试">
+        <item name="ListView">
+            <dll>Views.so</dll>
+            <view>ListView</view>
+            <icon>icon2.ico</icon>
+        </item>
+        <item name="Custom">
+            <dll>Views.so</dll>
+            <view>Custom</view>
+            <icon>icon1.ico</icon>
+        </item>
+    </folder>
+</edfc>

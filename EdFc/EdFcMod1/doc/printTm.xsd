@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="bsrpter">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="style"/>
+        <xs:element minOccurs="0" ref="colfmt"/>
+        <xs:choice>
+          <xs:element ref="database"/>
+          <xs:element ref="data"/>
+        </xs:choice>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="style">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="title"/>
+        <xs:element minOccurs="0" ref="headright"/>
+        <xs:element minOccurs="0" ref="footright"/>
+        <xs:element minOccurs="0" ref="footleft"/>
+        <xs:element minOccurs="0" ref="firstcolfixed"/>
+        <xs:element minOccurs="0" ref="defaultprint"/>
+        <xs:element minOccurs="0" ref="maxrecordnum"/>
+        <xs:element minOccurs="0" ref="footsum"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="title" type="xs:string"/>
+  <xs:element name="headright" type="xs:string"/>
+  <xs:element name="footright" type="xs:string"/>
+  <xs:element name="footleft" type="xs:string"/>
+  <xs:element name="firstcolfixed" type="xs:string"/>
+  <xs:element name="defaultprint" type="xs:string"/>
+  <xs:element name="maxrecordnum" type="xs:string"/>
+  <xs:element name="footsum" type="xs:string"/>
+  <xs:element name="colfmt">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="item"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="item">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="width"/>
+        <xs:element minOccurs="0" ref="name"/>
+        <xs:element minOccurs="0" ref="format"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="width" type="xs:string"/>
+  <xs:element name="name" type="xs:string"/>
+  <xs:element name="format" type="xs:string"/>
+  <xs:element name="database">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="dsn"/>
+        <xs:element ref="uid"/>
+        <xs:element ref="pwd"/>
+        <xs:element ref="sql"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="uid" type="xs:string"/>
+  <xs:element name="pwd" type="xs:string"/>
+  <xs:element name="dsn" type="xs:string"/>
+  <xs:element name="sql" type="xs:string"/>
+  <xs:element name="data">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="col"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="col">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="row"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="row" type="xs:string"/>
+</xs:schema>

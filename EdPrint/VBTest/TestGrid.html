@@ -1,0 +1,93 @@
+<HTML>
+<HEAD>
+<META NAME="GENERATOR" Content="">
+<META HTTP-EQUIV="Content-Type" content="text/html; charset=iso-8859-1">
+<TITLE>EdGrid Windows in an Active X Control</TITLE>
+<SCRIPT LANGUAGE=javascript>
+<!--
+
+function btReadFile() 
+{
+	i = EdGrid.ReadFile(Form1.Template.value, Form1.Table.value);
+	if (i != 0)
+		alert(i);
+}
+
+function btReadDB() 
+{
+	i = EdGrid.ReadDB(Form1.constr.value, Form1.uid.value, Form1.pwd.value, Form1.sql.value);
+	if (i != 0)	alert(i);
+}
+
+function btPrintPreview() 
+{
+	EdGrid.doPrintPreview();
+}
+
+function btSetColsWidth() 
+{
+	EdGrid.ColsWidthStr = Form1.ColsWidthStr.value;
+}
+
+function btPrint() 
+{
+	EdGrid.doPrint(Form1.printer.value);
+}
+//-->
+</SCRIPT>
+</HEAD>
+<BODY>
+<H1>EdGrid Test.</H1>
+<OBJECT 
+	ID = "EdGrid"
+	CLASSID = "CLSID:E9BFB9F4-C756-48AA-BF27-1C6EC9B3C712"
+	WIDTH = "500"
+	HEIGHT = "200">
+If you see this text, your browser doesn't support the OBJECT tag.<br>
+</OBJECT>
+<form name="Form1">
+<HR>
+<input type="button" name="ReadFile" value="Read FromFile" LANGUAGE=javascript onclick="return btReadFile()"><P>
+<H3>Return Value:</H3>
+ <PRE>
+ *  @return 0 - success.
+ *  @return 1 - File is not exist.
+ *  @return 2 - xml parse error.
+ *  @return 3 - html flag is not exist and config infomation can not be received.
+ *  @return 4 - can not fine the table.
+ *  @return 5 - col or row is zero.
+ </PRE>
+FILENAME: <INPUT TYPE="text" name="Template" value="E:\EdWork\myproj\EdPrint\VBTest\Template.xml" size=100><P>
+TABLENAME: <INPUT TYPE="text" name="Table" value="Test2"><P>
+
+<HR>
+<input type="button" name="ReadDB" value="Read From Database" LANGUAGE=javascript onclick="return btReadDB()"><P>
+<H3>Return Value:</H3>
+ <PRE>
+ *  @return 0 - success.
+ *  @return 1 - Connection can not be created.
+ *  @return 2 - Recordset can not be created.
+ *  @return 3 - Connection can not be opened.
+ *  @return 4 - Recordset can not be opened.
+ *  @return 5 - Recordset can not be opened again.
+ </PRE>
+
+CONSTR: <INPUT TYPE="text" name="constr" value="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=E:\EdDoc\Demo.mdb" size=100><P>
+UID: <INPUT TYPE="text" name="uid" value=""><P>
+PWD: <INPUT TYPE="text" name="pwd" value=""><P>
+SQL: <INPUT TYPE="text" name="sql" value="SELECT * FROM DemoTable" size=100><P>
+
+<HR>
+<input type="button" name="SetColsWidth" value="SetColsWidth" LANGUAGE=javascript onclick="return btSetColsWidth()"><P>
+ColsWidthStr: <INPUT TYPE="text" name="ColsWidthStr" value="100;200;300|40|70|80"><P>
+
+<HR>
+<input type="button" name="PrintPreview" value="PrintPreview" LANGUAGE=javascript onclick="return btPrintPreview()"><P>
+
+<HR>
+<input type="button" name="Print" value="      Print     " LANGUAGE=javascript onclick="return btPrint()"><P>
+PRINTERNAME: <INPUT TYPE="text" name="printer" value="Default" size=100><P>
+
+</form>
+</BODY>
+</HTML>

@@ -1,0 +1,14 @@
+ARRAY 3 5
+
+1 2 3 4 5
+5 8 14 19 24
+11 15 18 21 22.
+14 16 15.5 15.2 15.4
+
+#FONT=Arial, 18, Bold~Arial, 10, Bold
+#HEADER=This is a chart1!~This is a chart2!~This is a chart3!
+#FOOTER=This is a footer1!~This is a footer2!~This is a footer3!
+#TITLE=Ìì~³µÁ¾Êý~Í¼Àý
+#COLOR=AABBCC~BBCCDD~DDDDEE
+#POINT=aa~bb~cc~dd
+#SET=

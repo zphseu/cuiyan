@@ -1,0 +1,90 @@
+;BSStat模板，必须保存为系统Temp目录下的GraphTm.fmt，由BSStat进行调用。
+
+[COMMON]
+;统计表名，串
+Title=产品统计
+
+;ODBC连接字串，串
+ODBC=DSN=DLL;UID=DLL;PWD=DLL
+
+;报表数字显示格式，串，如：10.2。注意：该宽度应小于ColWidth中的最小宽度
+Format=10.3
+
+;报表列宽度，串，如：20;20;20;18。注意：
+;  1. 宽度总计不得大于77，否则不显示后面的数据
+;  2. 最小宽度应大于Format的宽度值
+;  3. 名称列，总计列也需设定宽度
+;  4. 默认值为：13;10;10;10;10;10;10
+ColWidth=20;20;20;20
+
+;纵坐标单位，串
+VerUint=
+
+;横坐标单位，串
+HorUint=
+
+;注脚，串
+FootTitle=FootTitle
+
+;条件，串
+Where=
+
+;查询语句的文字版，用于显示；如果不赋值省却为szWhere.
+TextWhere=TextWhere
+
+;在报表底部使用总计，1为统计，0为不统计
+FootSum=1
+;在报表右侧使用总计，1为统计，0为不统计
+RightSum=1
+
+[DATA]
+;如果RowNum>0 && ColNum > 0,则首先使用此数据
+
+;数据行数，整数
+RowNum=2
+
+;数据列数，不包括名称列，整数
+ColNum=2
+
+;名称列信息，共RowNum个，串
+RowName0=A
+RowName1=B
+
+;字段名，注意：ColName0为第名称列的字段名，因此共有ColNum+1个，串
+ColName0=TEST
+ColName1=T1
+ColName2=T2
+
+;数据，浮点数
+Data(0/0)=100
+Data(1/0)=200
+Data(0/1)=300
+Data(1/1)=400
+
+[TIME]
+;如果Type不等于零，则使用此数据
+;该方法目前只支持Oracle。
+
+;时间统计类型，，整数。0，无效；1，日统计；2，日统计；3，年统计。
+Type=1
+
+;表名，串
+Table=EQUIP_ALARM
+
+;时间字段名，串
+Field=APPTIME
+
+;查询的时间，串
+Time=2003/06/01
+
+[DATABASE]
+;数据SQL
+DataSQL=select substr(wzsj,5,2),clbj,count(*) from vio_zhidwtcl where substr(wzsj, 0, 4)='2003' group by clbj,substr(wzsj,5,2)
+
+;填充SQL
+;格式也可以是：edson:m1;m2;m3; ... m31
+PointSQL=edson:1;2;3;4;5;6;7;8;9;10;11;12
+
+;分组SQL
+GroupSQL=select distinct clbj from vio_zhidwtcl
+

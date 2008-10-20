@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE bsrpter SYSTEM "printTm.dtd">
+<bsrpter>
+    <style>
+        <title>产品名称</title>
+        <headright/>
+        <footright/>
+        <footleft/>
+        <firstcolfixed>1</firstcolfixed>
+        <defaultprint>1</defaultprint>
+        <maxrecordnum>1024</maxrecordnum>
+        <footsum>1</footsum>
+    </style>
+    <colfmt>
+        <item>
+            <width>100</width>
+            <name>Hello0</name>
+            <format>%10.2f</format>
+        </item>
+        <item>
+            <width>200</width>
+            <name>Hello1</name>
+            <format>%10.2f</format>
+        </item>
+        <item>
+            <width>400</width>
+            <name>Hello2</name>
+            <format>%d</format>
+        </item>
+    </colfmt>
+    <database>
+        <dsn>dll</dsn>
+        <uid>dll</uid>
+        <pwd>dll</pwd>
+        <sql>select * from vio_log where czbz is not null</sql>
+    </database>
+    <data>
+        <col>
+            <row>Test</row>
+            <row>A</row>
+            <row>B</row>
+        </col>
+        <col>
+            <row>T1</row>
+            <row>100</row>
+            <row>200</row>
+        </col>
+        <col>
+            <row>T2</row>
+            <row>300</row>
+            <row>400</row>
+        </col>
+    </data>
+</bsrpter>

@@ -1,0 +1,26 @@
+HKCR
+{
+	EdComs.EdFun.1 = s 'EdFun Class'
+	{
+		CLSID = s '{2473C0A2-D08A-4CA3-885D-0AD643E4555D}'
+	}
+	EdComs.EdFun = s 'EdFun Class'
+	{
+		CLSID = s '{2473C0A2-D08A-4CA3-885D-0AD643E4555D}'
+		CurVer = s 'EdComs.EdFun.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {2473C0A2-D08A-4CA3-885D-0AD643E4555D} = s 'EdFun Class'
+		{
+			ProgID = s 'EdComs.EdFun.1'
+			VersionIndependentProgID = s 'EdComs.EdFun'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{1ED6BBAD-F361-472F-BF9F-F4A3FE61F4D2}'
+		}
+	}
+}

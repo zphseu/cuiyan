@@ -1,0 +1,11 @@
+|继承自[[FitUItem][FitUitem]]|
+!|返回值类型|方法名|参数|注释|
+|void |GetByText|string value|根据文本获取ListView，参数为文本信息|
+|void |GetById|string value|根据Id获取ListView，参数为文本信息|
+|void |Select|int index|选中当前ListView的行，参数为从0开始的行序号|
+|void |ClickHeader|int index|单击当前ListView的列标签，参数为从0开始的列序号|
+|int |RowCount|void|返回当前ListView的行数|
+|int|ColumnCount|void|返回当前ListView的列数|
+|int|SelectedRowCount|void|返回当前ListView的选中的行数|
+
+参考 ListViewCell

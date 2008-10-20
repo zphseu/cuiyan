@@ -6,4 +6,4 @@
 |Kill |关闭应用程序 |
 |Waitwhilebusy |等待直到应用程序忙 |
 
-其他应用请参考[.FitnesseWhite.ProductFeatures.IcentroView50.LoGin]的设计
+其他应用请参考[.FitnesseWhite.ProductFeatures.ExternFeatures.Icv50Login]的设计

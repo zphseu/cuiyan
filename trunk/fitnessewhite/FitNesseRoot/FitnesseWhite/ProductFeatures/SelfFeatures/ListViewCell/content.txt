@@ -1,0 +1,7 @@
+|继承自[[FitUItem][FitUitem]]|
+!|返回值类型|方法名|参数|注释|
+|void |GetByIndexName|string value|根据文本获取当前ListView的Cell，参数为文本，个数为从0开始的 "行名称;列头名称"|
+|void |GetByIndex|string value|根据文本获取当前ListView的Cell，参数为文本，个数为从0开始的 "行号;列号"|
+|string|Text|void|返回当前ListView的选中的行数|
+
+参考 ListView

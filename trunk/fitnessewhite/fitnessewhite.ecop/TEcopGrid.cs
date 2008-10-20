@@ -22,34 +22,34 @@ namespace fitnessewhite
 		private ListView item = null;
 		private int selectindex = -1;
 		
-        [MethodAttribute("根据文本获取ListView，参数为文本信息")]
+        [MethodAttribute("根据文本获取EcopGrid，参数为文本信息")]
         public void GetByText(string value)
         {
             SearchCriteria searchCriteria = SearchCriteria.ByText(value);
             item = uitemcontainer.Get<ListView>(searchCriteria);
         }
 
-        [MethodAttribute("根据Id获取ListView，参数为文本信息")]
+        [MethodAttribute("根据Id获取EcopGrid，参数为文本信息")]
         public void GetById(string value)
         {
             SearchCriteria searchCriteria = SearchCriteria.ByAutomationId(value);
             item = uitemcontainer.Get<ListView>(searchCriteria);
         }
 
-        [MethodAttribute("选中当前ListView的行，参数为从0开始的行序号")]
+        [MethodAttribute("选中当前EcopGrid的行，参数为从0开始的行序号")]
         public void Select(int index)
         {
             item.Select(index);
         	selectindex = index;
         }
-     
-        [MethodAttribute("返回当前ListView的行数")]
+
+        [MethodAttribute("返回当前EcopGrid的行数")]
         public int RowCount()
         {
             return item.Rows.Count;
         }
 
-        [MethodAttribute("返回当前ListView的列数")]
+        [MethodAttribute("返回当前EcopGrid的列数")]
         public int ColumnCount()
         {
            return item.Header.Columns.Count; 
@@ -66,10 +66,8 @@ namespace fitnessewhite
     	
         private CheckBox searchCheckBox(int rowIndex)
         {
-        	AutomationElementFinder rowfinder = new AutomationElementFinder(item.AutomationElement);
-        	AutomationElementCollection collection = rowfinder.Descendants(AutomationSearchCondition.ByControlType(ControlType.DataItem));
-        	AutomationElementFinder cellfinder = new AutomationElementFinder(collection[rowIndex]);
-        	collection = cellfinder.Children(AutomationSearchCondition.ByControlType(ControlType.CheckBox));
+        	AutomationElementFinder cellfinder = new AutomationElementFinder(item.Rows[rowIndex].AutomationElement);
+            AutomationElementCollection collection = cellfinder.Children(AutomationSearchCondition.ByControlType(ControlType.CheckBox));
         	return new CheckBox(collection[0], item.ActionListener);
         }
         

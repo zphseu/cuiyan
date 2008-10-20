@@ -1,0 +1,18 @@
+!include -c .LocalDefine.FitnesseWhiteVariables
+
+!|fitnessewhite.Guifixture |
+|Application |Launch |${fitdotpath}Demo.exe | |
+|Application |Waitwhilebusy | | |
+|Window |Getbytext |Controls_Demo | |
+|Window|Focus|||
+|Listview|GetById|1012|选择列表控件|
+|Listview|GetByText|IP地址控件||
+|Listview|RowCount|3|检查列表总行数|
+|Listview|ColumnCount|2|验证列表总列数|
+|Listview|select|0|选择第一行|
+|Listview|ClickHeader|1|选择第二列|
+|Listviewcell|Getbyindex|1;1||
+|Listviewcell|Text|1,000k||
+|Listview|SelectedRowCount|1|验证所选行数|
+|Application|kill|||
+

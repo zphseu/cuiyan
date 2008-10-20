@@ -3,6 +3,7 @@
 !|fitnessewhite.Guifixture |
 |Application |Launch |${fitdotpath}Demo.exe | |
 |Application |Waitwhilebusy | | |
+|Application |Name|Demo||
 |Window |Getbytext |Controls_Demo | |
 |Window|Focus|||
 |Tab |Getbyid |12320 ||

@@ -1,0 +1,9 @@
+; PtEmt.def : Declares the module parameters.
+
+LIBRARY      "PTEMT.OCX"
+
+EXPORTS
+	DllCanUnloadNow     PRIVATE
+	DllGetClassObject   PRIVATE
+	DllRegisterServer   PRIVATE
+	DllUnregisterServer PRIVATE

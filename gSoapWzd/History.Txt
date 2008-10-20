@@ -1,0 +1,14 @@
+[2004/10/12] 0.0.2.0
+0.更新为gsoap 2.7.0c
+1.修改了整个代码生成的结构
+2.给server stand-alone和mtsa添加了信号，解决服务退出时的内存溢出
+3.由于server mtsa-pool在退出时，存在比较严重的内存问题，并且现在没有解决，暂时关闭。
+4.添加apache-mode server
+
+[2004/9/18] 0.0.1.2
+1. 根据.h自动添加PrjPath和PrjName。
+2. 使用全路径名称调用soapcpp2。
+3. 修改client application。theClt.c和theClt.c/cpp, 不再使用例子中的函数，而是给出注释，来提醒添加需要的函数
+4. 修改server生成，生成theSvrFuns.cpp，并添加了需要实现的Remote Methods。
+5. 修改了client dll，添加theCltps.h和theCltps.c/cpp，用于实现不包括stdsoap2.h的dll，使dll真正有效
+	(既只需要theCltps.h、theCltps.lib和theCltps.dll即可)。

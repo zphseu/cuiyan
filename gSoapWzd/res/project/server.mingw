@@ -1,0 +1,72 @@
+# Makefile - @EDSON@Svr.dsp
+
+ifndef CFG
+CFG=@EDSON@Svr - Win32 Release
+endif
+CC=gcc
+CFLAGS=
+CXX=g++
+CXXFLAGS=$(CFLAGS)
+RC=windres -O COFF
+ifeq "$(CFG)"  "@EDSON@Svr - Win32 Release"
+CFLAGS+=-fexceptions -O2 -DWIN32 -DNDEBUG -D_CONSOLE
+LD=$(CXX) $(CXXFLAGS)
+LDFLAGS=
+LDFLAGS+=-Wl,--subsystem,console
+LIBS+=-lwsock32 
+else
+ifeq "$(CFG)"  "@EDSON@Svr - Win32 Debug"
+CFLAGS+=-fexceptions -g -O0 -DWIN32 -D_DEBUG -D_CONSOLE
+LD=$(CXX) $(CXXFLAGS)
+LDFLAGS=
+LDFLAGS+=-Wl,--subsystem,console
+LIBS+=-lwsock32 
+endif
+endif
+
+ifndef TARGET
+TARGET=@EDSON@Svr.exe
+endif
+
+.PHONY: all
+all: $(TARGET)
+
+%.o: %.c
+	$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ -c $<
+
+%.o: %.cc
+	$(CXX) $(CXXFLAGS) $(CPPFLAGS) -o $@ -c $<
+
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) $(CPPFLAGS) -o $@ -c $<
+
+%.o: %.cxx
+	$(CXX) $(CXXFLAGS) $(CPPFLAGS) -o $@ -c $<
+
+%.res: %.rc
+	$(RC) $(CPPFLAGS) -o $@ -i $<
+
+stdsoap2.o : stdsoap2.@CPP@
+
+SRCS= \
+	@EDSON@Svr.@CPP@ \
+	@EDSON@C.@CPP@ \
+	@EDSON@Server.@CPP@ \
+	@EDSON@SvrFun.@CPP@ \
+	stdsoap2.@CPP@
+
+OBJS=$(patsubst %.rc,%.res,$(patsubst %.cxx,%.o,$(patsubst %.cpp,%.o,$(patsubst %.cc,%.o,$(patsubst %.c,%.o,$(filter %.c %.cc %.cpp %.cxx %.rc,$(SRCS)))))))
+
+$(TARGET): $(OBJS)
+	$(LD) $(LDFLAGS) -o $@ $(OBJS) $(LIBS)
+
+.PHONY: clean
+clean:
+	-rm -f $(OBJS) $(TARGET) @EDSON@Svr.dep
+
+.PHONY: depends
+depends:
+	-$(CXX) $(CXXFLAGS) $(CPPFLAGS) -MM $(filter %.c %.cc %.cpp %.cxx,$(SRCS)) > @EDSON@Svr.dep
+
+-include @EDSON@Svr.dep
+

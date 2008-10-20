@@ -1,0 +1,64 @@
+# Makefile - mod_@EDSON@.mak
+
+ifndef CFG
+CFG=mod_@EDSON@ - Win32 Release
+endif
+CC=gcc
+ifeq "$(CFG)"  "mod_@EDSON@ - Win32 Release"
+CFLAGS=-W -fexceptions -O2 -DWIN32 -D_WINDOWS
+LD=dllwrap
+LIBS+=-lwsock32 -lstdc++
+else
+ifeq "$(CFG)"  "mod_@EDSON@ - Win32 Debug"
+CFLAGS=-W -fexceptions -g -O0 -DWIN32 -D_WINDOWS
+LD=dllwrap
+LIBS+=-lwsock32 -lstdc++
+endif
+endif
+
+ifndef TARGET
+TARGET=mod_@EDSON@.dll
+endif
+
+.PHONY: all
+all: $(TARGET)
+
+@EDSON@C.o: @EDSON@C.@CPP@
+	$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ -c $<
+
+@EDSON@Server.o: @EDSON@Server.@CPP@
+	$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ -c $<
+
+mod_@EDSON@.o: mod_@EDSON@.@CPP@
+	$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ -c $<
+
+STDSOAP2.o: STDSOAP2.@CPP@
+	$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ -c $<
+
+
+SOURCE_FILES= \
+	@EDSON@C.@CPP@ \
+	@EDSON@Server.@CPP@ \
+	mod_@EDSON@.@CPP@ \
+	STDSOAP2.@CPP@
+
+SRCS=$(SOURCE_FILES) 
+
+OBJS=$(patsubst %.rc,%.res,$(patsubst %.cxx,%.o,$(patsubst %.cpp,%.o,$(patsubst %.cc,%.o,$(patsubst %.c,%.o,$(filter %.c %.cc %.cpp %.cxx %.rc,$(SRCS)))))))
+
+DEFFILE=mod_@EDSON@.def
+STATICLIB=libmod_@EDSON@.a
+
+$(TARGET): $(OBJS)
+	$(LD) --output-def $(DEFFILE) --implib $(STATICLIB) $(OBJS) $(LIBS) -o $(TARGET)
+
+.PHONY: clean
+clean:
+	-rm -f $(OBJS) $(TARGET) mod_@EDSON@.dep
+
+.PHONY: depends
+depends:
+	-$(CXX) $(CXXFLAGS) $(CPPFLAGS) -MM $(filter %.c %.cc %.cpp %.cxx,$(SRCS)) > mod_@EDSON@.dep
+
+-include mod_@EDSON@.dep
+

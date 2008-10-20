@@ -1,0 +1,28 @@
+
+"@nsmap@"
+
+static char* url = "localhost";
+int main(int argc, char* argv[]) 
+{ 
+	struct soap soap;	
+	int quote = 0;		/* for sample */
+	soap_init(&soap);	/* initialize runtime environment (only once) */
+	
+	if (argc > 1) url = argv[1];
+	if (SOAP_OK
+	/* call your soap functions that you can find them in @EDSON@Client.c to replace the first SOAP_OK
+		for example:
+		soap_call_ns__add(&soap, url, "add", 1, 2, &quote)
+		*/	
+		== SOAP_OK) 
+		printf("quote: %f\n", quote); 
+	else /* an error occurred */
+		soap_print_fault(&soap, stderr); /* display the SOAP fault message on the stderr stream */
+
+	soap_destroy(&soap); /* delete deserialized class instances */
+	soap_end(&soap); /* remove deserialized data and clean up */
+	soap_done(&soap); /* detach the gSOAP environment */
+	
+	return 0; 
+}
+

@@ -67,12 +67,6 @@ namespace fitnessewhite
              return Item.IsSelected;
         }
 
-        [MethodAttribute("从当前Tree中根据路径获取当前节点对象，返回该节点")]
-        public bool IsSelectedByPath(string path)
-        {
-            return Item.IsSelected;
-        }
-
         [MethodAttribute("返回当前节点的文本信息")]
         public string Text()
         {

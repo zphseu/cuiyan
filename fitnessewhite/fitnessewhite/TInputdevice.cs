@@ -21,7 +21,7 @@ namespace fitnessewhite
         private Thread thread;
 
         [MethodAttribute("输入字符串")]
-        static public void Enter(string keysToType)
+        static private void Enter(string keysToType)
         {
             mainwin.Keyboard.Enter(keysToType);
         }
@@ -59,23 +59,23 @@ namespace fitnessewhite
         [MethodAttribute("输入一个特殊键，包括SHIFT, CONTROL, ALT, LEFT_ALT, " + 
                          "RIGHT_ALT, RETURN, RIGHT, BACKSPACE, LEFT, ESCAPE, " +
                          "TAB, HOME, END, UP, DOWN, INSERT, DELETE, CAPS, F1-F12")]
-        static public void PressSpecialKey(string key)
+        static private void PressSpecialKey(string key)
         {
         	mainwin.Keyboard.PressSpecialKey(SpecialKey(key));
         }
 
         [MethodAttribute("保持按住一个特殊键，包括SHIFT, CONTROL, ALT, LEFT_ALT, " + 
                          "RIGHT_ALT, RETURN, RIGHT, BACKSPACE, LEFT, ESCAPE, " +
-                         "TAB, HOME, END, UP, DOWN, INSERT, DELETE, CAPS, F1-F12")]        
-        static public void HoldKey(string key)
+                         "TAB, HOME, END, UP, DOWN, INSERT, DELETE, CAPS, F1-F12")]
+        static private void HoldKey(string key)
         {
             mainwin.Keyboard.HoldKey(SpecialKey(key));
         }
 
         [MethodAttribute("释放之前按下的特殊键，包括SHIFT, CONTROL, ALT, LEFT_ALT, " + 
                          "RIGHT_ALT, RETURN, RIGHT, BACKSPACE, LEFT, ESCAPE, " +
-                         "TAB, HOME, END, UP, DOWN, INSERT, DELETE, CAPS, F1-F12")]   
-        static public void LeaveKey(string key)
+                         "TAB, HOME, END, UP, DOWN, INSERT, DELETE, CAPS, F1-F12")]
+        static private void LeaveKey(string key)
         {
             mainwin.Keyboard.LeaveKey(SpecialKey(key));
         }

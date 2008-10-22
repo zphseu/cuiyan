@@ -1,7 +1,0 @@
-|!3 主要内容|
-|!c [[简要介绍][OneMinuteDescription]]|''由此开始...''|
-|!c [[架构设计][ArchitectureDesign]]|''架构设计...''|
-|!c [[产品发布][ProductRelease]]|''发布包管理...''|
-|!c [[产品功能][ProductFeatures]]|''功能索引，明确需求，验证需求...''|
-|!c [[验证测试][AcceptanceTest]]|''组织验证用例...''|
-|!c [[展望未来][AboutFuture]]|''还要做什么...''|

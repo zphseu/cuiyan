@@ -1,9 +1,0 @@
-|Getbytext |根据Title获取对象，参数为Title文本信息 |
-|Isfound |是否发现指定的窗口 |
-|Focus |设置焦点到当前对象 |
-|Close |关闭当前窗口 |
-|Title |返回当前窗口的Title |
-|Isclosed |返回当前窗口是否已经关闭 |
-|Waitwhilebusy |等待直到应用程序忙 |
-|Tooltip |返回当前窗口ToolTip中的文本信息 |
-

@@ -1,6 +1,0 @@
-|继承自[[FitUItem][FitUitem]]|
-!|返回值类型|方法名|参数|注释|
-|void |Select|string value|选中指定文本的项|
-|void |SelectWithKey|string value|使用键盘上下键选中指定文本的项|
-|string|Text|void|返回当前被选中项的文本信息|
-|int|ItemsCount|void|返回当前项的个数|

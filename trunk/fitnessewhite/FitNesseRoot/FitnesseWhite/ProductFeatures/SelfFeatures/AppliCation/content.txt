@@ -1,9 +1,0 @@
-|Launch |启动指定的应用程序，参数为应用程序的全路径名，如VFC的全路径名为：C:\Baosight\CV4PEC\Client\VFC2000.exe|
-|Attach | 附上已经启动的应用程序，参数为应用程序的名称，如VFC的名称为：VFC2000 |
-|Isattach |返回是否当前应用已被附上 |
-|Name |返回应用程序的名称 |
-|Windowscount |返回应用程序包含的窗口个数 |
-|Kill |关闭应用程序 |
-|Waitwhilebusy |等待直到应用程序忙 |
-
-其他应用请参考[.FitnesseWhite.ProductFeatures.ExternFeatures.Icv50Login]的设计

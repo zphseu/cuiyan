@@ -1,8 +1,0 @@
-!|返回值类型|方法名|参数|注释|
-|void |Select|void|选中当前CheckBox|
-|void |SelectByText|string text|根据文本获取当前CheckBox，并选中|
-|void|SelectById|string id|根据Id获取当前CheckBox，并选中|
-|void |UnSelect|void |取消选中当前CheckBox|
-|void|UnSelectByText|string text|根据文本获取当前CheckBox，并取消选中|
-|void |UnSelectById|string id|根据Id获取当前CheckBox，并取消选中|
-|bool |IsSelected|void|返回当前CheckBox是否选中|

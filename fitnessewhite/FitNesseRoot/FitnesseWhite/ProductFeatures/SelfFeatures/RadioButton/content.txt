@@ -1,0 +1,5 @@
+|继承自[[FitUItem][FitUitem]]|
+!|返回值类型|方法名|参数|注释|
+|void |Select|void|选中当前RadioButton|
+|void |SelectById|string id|根据Id获取当前RadioButton，并选中|
+|void |SelectByText|string text|根据文本信息获取当前RadioButton，并选中|

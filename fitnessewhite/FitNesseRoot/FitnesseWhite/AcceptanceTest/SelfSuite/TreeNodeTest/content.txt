@@ -1,0 +1,19 @@
+!include -c .LocalDefine.FitnesseWhiteVariables
+
+!|fitnessewhite.Guifixture |
+|Application |Launch |${fitdotpath}Demo.exe | |
+|Application |Waitwhilebusy | | |
+|Window |Getbytext |Controls_Demo | |
+|Window|Focus|||
+|Tree|Getbyid |1017||
+|Treenode|focusbytext |Family||
+|Treenode|collapse|||
+|Treenode|Expand|||
+|Treenode|collapsebypath|Family||
+|Treenode|expandbypath|Family||
+|Treenode|getbypath|Family;mummy||
+|Treenode|select|||
+|Treenode|isselected|true||
+|Treenode|selectbypath|Family;daddy||
+|Treenode|text|daddy||
+|Window|close|||

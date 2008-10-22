@@ -1,0 +1,11 @@
+|继承自[[FitUItem][FitUitem]]|
+!|返回值类型|方法名|参数|注释|
+|void |Collapse|void|合闭当前节点|
+|void |CollapseByPath|string path|从当前Tree中根据路径获取当前节点对象，并合闭|
+|void |Expand|void|展开当前节点|
+|void|ExpandByPath|string path|从当前Tree中根据路径获取当前节点对象，并展开|
+|void|GetByPath|string path|从当前Tree中根据路径获取当前节点对象，格式为"nodetext1;nodetext2;nodetext3;..."|
+|bool|IsSelected|void|返回当前节点是否被选中|
+|void|Select|void|选中当前节点|
+|void|SelectByPath|string path|从当前Tree中根据路径获取当前节点对象，并选中|
+|string|Text|void|返回当前节点的文本信息|

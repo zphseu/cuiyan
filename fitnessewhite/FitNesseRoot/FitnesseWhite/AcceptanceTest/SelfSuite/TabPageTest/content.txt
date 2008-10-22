@@ -1,0 +1,16 @@
+!include -c .LocalDefine.FitnesseWhiteVariables
+
+!|fitnessewhite.Guifixture |
+|Application |Launch |${fitdotpath}Demo.exe | |
+|Application |Waitwhilebusy | | |
+|Application |Name|Demo||
+|Window |Getbytext |Controls_Demo | |
+|Window|Focus|||
+|Tab |Getbyid |12320 ||
+|Tab|pages|模与非模窗体介绍;控件介绍及基本使用|验证各tab名称|
+|Tab|TabCount|2|验证tab数量|
+|Tab |SelectByTitle |模与非模窗体介绍 ||
+|Tab|selectedtabname|模与非模窗体介绍|验证选择tab正确|
+|Tab |SelectByIndex |1 ||
+|Tab|selectedtabname|控件介绍及基本使用|验证选择tab正确|
+|Window|close|||

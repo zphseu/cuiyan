@@ -1,0 +1,7 @@
+|继承自[[FitUItem][FitUitem]]|
+!|返回值类型|方法名|参数|注释|
+|void|Check|void|Check指定文本的项|
+|int|ItemsCount|void|返回项的个数|
+|void|Select|string text|选中指定文本的项|
+|string|Text|void|返回文本信息|
+|void|UnCheck|void|UnCheck指定文本的项|

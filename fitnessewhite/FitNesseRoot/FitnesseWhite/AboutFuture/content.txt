@@ -1,0 +1,3 @@
+ * 添加一个可视化的编制工具
+  * 完成，已经使用fithtmlwhite.editor可以生成
+ * fithtmlwhite.editor可以获得fitnesse的用例

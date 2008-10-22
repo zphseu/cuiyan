@@ -1,0 +1,18 @@
+!include -c .LocalDefine.FitnesseWhiteVariables
+
+!|fitnessewhite.Guifixture |
+|Application |Launch |${fitdotpath}Demo.exe | |
+|Application |Waitwhilebusy | | |
+|Application |Name|Demo||
+|Window |Getbytext |Controls_Demo | |
+|Window|Focus|||
+|Tab |Getbyid |12320 ||
+|Tab |SelectByIndex |1 ||
+|Radiobutton|SelectById|1024|依id选择单选项|
+|Radiobutton|name|进度条控件||
+|Radiobutton|SelectByText|拖动条控件|依内容选择单选项|
+|Radiobutton|name|拖动条控件||
+|Radiobutton|focusByText|滚动条控件||
+|Radiobutton|select|||
+|Radiobutton|name|滚动条控件||
+|Window|close|||

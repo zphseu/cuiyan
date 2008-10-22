@@ -1,0 +1,4 @@
+对象在fitnessewhite中，也就是我们编程时使用的控件。
+控件可以分为两类
+ * 如果是系统控件，说明可以参考.FitnesseWhite.ProductFeatures.SelfFeatures
+ * 如果是自定义控件，或者你需要将多个系统控件的操作逻辑封装起来，则需要自己进行扩展开发 DoExtensionDevelopment

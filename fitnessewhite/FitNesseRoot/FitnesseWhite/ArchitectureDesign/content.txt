@@ -1,0 +1,1 @@
+fitnesse+white进行封装

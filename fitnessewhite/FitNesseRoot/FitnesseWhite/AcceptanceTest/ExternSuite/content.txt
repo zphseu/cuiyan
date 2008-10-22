@@ -1,7 +1,0 @@
-!include -c .LocalDefine.DotNetConfig
-
-!2 ''!-FitNesse-! acceptance tests suites''
-|!contents -R2 -g -f -h|
-
-!2 ''Classpaths''
-!path ${TEST_PATH}

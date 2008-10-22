@@ -1,6 +1,0 @@
-|继承自[[FitUItem][FitUitem]]|
-!|返回值类型|方法名|参数|注释|
-|void |ClickAtCenter|void|在中间单击|
-|void |ClickAtRightEdge|void|在右侧边缘单击|
-|string |Text|void|返回文本信息|
-

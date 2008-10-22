@@ -1,0 +1,12 @@
+!include -c .LocalDefine.FitnesseWhiteVariables
+
+!|fitnessewhite.Guifixture |
+|Application |Launch |${fitdotpath}Demo.exe | |
+|Application |Waitwhilebusy | | |
+|Window |Getbytext |Controls_Demo | |
+|Window|Focus|||
+|Tab |Getbyid |12320 ||
+|Tab |SelectByIndex |1 ||
+|Label|focusbytext|组合框|聚焦label文字|
+|Label|text|组合框||
+|Window|close|||

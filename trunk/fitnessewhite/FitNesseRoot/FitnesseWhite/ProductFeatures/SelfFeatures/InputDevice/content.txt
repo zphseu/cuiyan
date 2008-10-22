@@ -1,0 +1,9 @@
+!|返回值类型|方法名|参数|注释|
+|void |Click|void|在当前位置点击|
+|void |ClickAt|String location|在指定位置点击，位置格式为"x;y"|
+|string|Cursor|void|返回指针状态，为Pointer、Wait、DefaultAndWait、IShapedCursor和unknown|
+|void |DoubleClickAt|String location|在指定位置双击，位置格式为 "x;y"|
+|void |RightClick|void|在当前位置右键单击|
+|void |RightClickAt|String location|在指定位置右键点击，位置格式为 "x;y"|
+|void|EnterWithAutoItX|string send|依据AutoItX的Send格式输入字符串，这个方式需要注册AutoItX3.DLL，AutoItX可以在http://www.autoitscript.com/autoit3/下载|
+|void|ThreadEnterWithAutoItX|string send|开启一个独立线程，延时指定毫秒发送出，依据AutoItX的Send格式输入字符串，这个方式需要注册AutoItX3.DLL，AutoItX可以在http://www.autoitscript.com/autoit3/下载。参数格式为：keysToType;miSec。如果keysToType中有;，用[@@]代替|

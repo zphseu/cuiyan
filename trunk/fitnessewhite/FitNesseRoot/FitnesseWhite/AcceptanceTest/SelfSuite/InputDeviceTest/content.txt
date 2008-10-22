@@ -1,0 +1,17 @@
+!include -c .LocalDefine.FitnesseWhiteVariables
+
+!|fitnessewhite.Guifixture |
+|Application |Launch |notepad.exe | |
+|Application |Waitwhilebusy | | |
+|Window |Getbytext |无标题 - 记事本| |
+|Window|Focus|||
+|Inputdevice|ThreadEnterWithAutoItX|abcd;500||
+|Inputdevice|click|||
+|Inputdevice|clickat|50;50||
+|Inputdevice|Cursor|IShapedCursor||
+|Inputdevice|doubleclickat|60;60||
+|Inputdevice|EnterWithAutoItX|^n||
+|Inputdevice|RightClick|60;60||
+|Inputdevice|RightClickAt|66;66||
+|Application|kill|||
+

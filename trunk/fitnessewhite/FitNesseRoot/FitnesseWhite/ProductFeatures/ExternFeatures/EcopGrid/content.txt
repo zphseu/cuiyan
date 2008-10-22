@@ -1,0 +1,16 @@
+eCop的客户端助手软件，有个自定义的ListView。
+它的第一列为CheckBox，第二列为空的Label（估计是为了占位），第三列以后为内容。
+
+这样的ListView的CheckBox通过White是无法获取的，因此必须单独定义。
+
+!|返回值类型|方法名|参数|注释|
+|void |GetByText|string value|根据文本获取EcopGrid，参数为文本信息|
+|void |GetById|string value|根据Id获取EcopGrid，参数为文本信息|
+|void|Select|int index|选中当前EcopGrid的行，参数为从0开始的行序号|
+|int|RowCount|void|返回当前EcopGrid的行数|
+|int|ColumnCount|void|返回当前EcopGrid的列数|
+|string |SelectRowStatus|void |返回指定行的状态。格式为：checkBoxStatus;text1;text2;...。注意末尾要写;号。|
+|void |Check|int rowIndex|选中指定行。参数为rowIndex，如果为负数则全选中。|
+|void |UnCheck|int rowIndex|取消选中指定行。参数为rowIndex，如果为负数则全取消选中。|
+|void|Checks|string rowIndexs|选中指定多行。参数格式为：rowIndex1;rowIndex2;rowIndex3;...|
+|void|UnChecks|string rowIndexs|取消选中指定多行。参数格式为：rowIndex1;rowIndex2;rowIndex3;...|

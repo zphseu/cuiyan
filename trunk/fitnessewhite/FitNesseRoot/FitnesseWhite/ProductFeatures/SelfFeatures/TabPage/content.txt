@@ -1,0 +1,7 @@
+|继承自[[FitUItem][FitUitem]]|
+!|返回值类型|方法名|参数|注释|
+|string|pages|void|返回所有Tab页的名称，中间以 ; 间隔|
+|void|SelectByIndex|int index|选中从0开始序号的Tab页|
+|void|SelectByTitle|string title|选中Title的Tab页|
+|string|SelectedTabName|void|返回被选中的Tab页的名称|
+|int|TabCount|void|返回Tab页的个数|

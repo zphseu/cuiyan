@@ -1,0 +1,13 @@
+!include -c .LocalDefine.FitnesseWhiteVariables
+
+!|fitnessewhite.Guifixture |
+|Application |Launch |${fitdotpath}Demo.exe | |
+|Application |Waitwhilebusy | | |
+|Window |Getbytext |Controls_Demo | |
+|Window|Focus|||
+|Tree|Getbyid |1017||
+|Treenode|focusbytext |Family||
+|Treenode|doubleclick|||
+|Treenode|clickbytext|mummy||
+|Treenode|name|mummy||
+|Window|close|||

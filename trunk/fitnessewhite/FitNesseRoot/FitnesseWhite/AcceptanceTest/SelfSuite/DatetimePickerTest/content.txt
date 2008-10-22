@@ -1,0 +1,21 @@
+!include -c .LocalDefine.FitnesseWhiteVariables
+
+!|fitnessewhite.Guifixture |
+|Application |Launch |${fitdotpath}Demo.exe |
+|Application |Waitwhilebusy  | |
+|Window |Getbytext |Controls_Demo |
+|Window |Focus | |
+|Datetimepicker|Getbyid |1027|
+|Datetimepicker|Setdatetime|2008-10-10 14:25:28|
+|Datetimepicker|Getdatetime|2008-10-10 14:25:28|
+|Window |Close| |
+
+!|fitnessewhite.Guifixture |
+|Application |Launch |${fitdotpath}WinFormsTestApp.exe|
+|Application |Waitwhilebusy  | |
+|Window |Getbytext |Form1|
+|Window |Focus | |
+|Datetimepicker|Getbyid |dateTimePicker|
+|Datetimepicker|Setdate|2008-10-10|
+|Datetimepicker|Getdate|2008-10-10|
+|Window |Close| |

@@ -1,0 +1,10 @@
+!include -c .LocalDefine.FitnesseWhiteVariables
+
+!|fitnessewhite.Guifixture |
+|Application |Launch |wab.exe | |
+|Application |Waitwhilebusy | | |
+|Window |Getbytext |通讯簿 - 主标识 | |
+|Window|Focus|||
+|StatusStrip|get||获得状态条|
+|StatusStrip|name|0 项|检查状态条内容|
+|Window|close|||

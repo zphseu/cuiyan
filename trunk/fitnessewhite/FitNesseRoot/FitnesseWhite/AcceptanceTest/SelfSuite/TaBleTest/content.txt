@@ -1,0 +1,14 @@
+!include -c .LocalDefine.FitnesseWhiteVariables
+
+!|fitnessewhite.Guifixture |
+|Application |Launch |${fitdotpath}WinFormsTestApp.exe|
+|Application |Waitwhilebusy  | |
+|Window |Getbytext |Form1|
+|Window |Focus | |
+|Table|Getbyid |people|
+|Table|ColumnCount|12|
+|Table|RowCount|5|
+|Table|Refresh||
+|Table|ClickColumnHeader|0|
+|Table|ClickRowHeader|1|
+#|Window |Close| |

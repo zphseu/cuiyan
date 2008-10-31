@@ -1,0 +1,23 @@
+!include -c .LocalDefine.FitnesseWhiteVariables
+
+!|fitnessewhite.Guifixture|
+|Application |Launch |firewall.cpl|
+|Application |Waitwhilebusy ||
+|Window|Getbytext|Windows 防火墙|
+|Window|Focus||
+|Hyperlink|GetById|107|
+|Hyperlink|Name|有关信息，请访问 Microsoft 网站。|
+|Hyperlink|Click|这里有问题，由于Click点击的是整个控件的中间，而这个Hyperlink的有效部位却在中间的左侧。|
+|Application|kill||
+
+!|fitnessewhite.Guifixture|
+|Application |Launch |${fitdotpath}WinFormsTestApp.exe |
+|Application |Waitwhilebusy ||
+|Window|Getbytext|Form1|
+|Window|Focus||
+|Hyperlink|GetByText|Linque|
+|Hyperlink|Name|Linque|
+|Hyperlink|Click||
+|Inputdevice|ThreadEnterWithAutoItX|{ENTER};500|
+|System|Sleep|1000|
+|Application|kill||

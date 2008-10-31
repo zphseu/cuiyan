@@ -1,1 +1,5 @@
-!contents -R2 -g -p -f -h
+!|返回值类型|方法名|参数|注释|
+|void|ClickByText|string text|点击message box中的按钮，参数为按钮的显示标识|
+|void|Close|void|关闭message box|
+|void|GetByTitle|string title|根据文本获取对象，参数为文本信息|
+|string|Message|void|返回message box信息|

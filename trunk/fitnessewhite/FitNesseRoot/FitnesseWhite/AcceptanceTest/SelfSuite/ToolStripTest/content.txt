@@ -1,0 +1,14 @@
+!include -c .LocalDefine.FitnesseWhiteVariables
+
+!|fitnessewhite.Guifixture |
+|Application |Launch |wab.exe | |
+|Application |Waitwhilebusy | | |
+|Window |Getbytext |通讯簿 - 主标识 | |
+|Window|Focus|||
+|Toolstrip|get|||
+|Toolstrip|id|4876||
+|Button|clickbytext|${varWabFindUserButton}||
+|Dialog|getbytext|${varWabFindUserButton}||
+|Dialog|isfound|true||
+|Dialog|close|||
+|Window|close|||

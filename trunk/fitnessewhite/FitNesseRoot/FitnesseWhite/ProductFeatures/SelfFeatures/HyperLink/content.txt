@@ -1,0 +1,4 @@
+|继承自[[FitUItem][FitUitem]]|
+
+!3 特殊的
+ * Hyperlink长度最好与超链接长度一致，否则有问题如测试中。

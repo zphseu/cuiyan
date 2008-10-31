@@ -1,21 +1,16 @@
 !include -c .LocalDefine.FitnesseWhiteVariables
 
-!|fitnessewhite.Guifixture |
-|Application |Launch |notepad.exe | |
-|Window |Getbytext |无标题 - 记事本 | |
-|Window|Focus|||
-|Inputdevice |EnterWithAutoItX|^o||
-|Dialog|FocusByText|打开||
-|Combobox|ClickByText|查找范围(I):|点击下拉列表|
-|Combobox|Select|我的文档|选择我的文档|
-|Combobox|click|||
-|Listbox|focusbytext|FolderView||
-|Listbox|select|我的音乐||
-|Listbox|isfound|true||
-|Listbox|text|||
-|Listbox|check|我的音乐||
-|Listbox|uncheck|我的音乐||
-|Listbox|check|我的音乐||
-|Application|kill|||
-
-listbox选项尚未完全操作。
+!|fitnessewhite.Guifixture|
+|Application |Launch |${fitdotpath}WinFormsTestApp.exe|
+|Application |Waitwhilebusy  | |
+|Window |Getbytext |Form1|
+|Window |Focus | |
+|Listbox|Focusbyid|checkedListBoxLaunchingModalWindow|
+|Listbox|Itemscount|2|
+|Listbox|select|Bill Gates|
+|Listbox|Text|Bill Gates|
+|Listbox|check|Bill Gates|
+|Listbox|check|Narayan Murthy|
+|Listbox|uncheck|Bill Gates|
+|System|Sleep|2000|
+|Application|kill||

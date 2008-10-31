@@ -1,3 +1,5 @@
+!include -c .LocalDefine.FitnesseWhiteVariables
+
 !|fitnessewhite.Guifixture |
 |Application |Launch |Calc.exe | |
 |Application |Waitwhilebusy | | |
@@ -10,4 +12,15 @@
 |Menu|Click|||
 |Inputdevice |EnterWithAutoItX |{ENTER}||
 |Menu|IsVisible|True||
+|Window |Close | | |
+
+!|fitnessewhite.Guifixture |
+|Application |Launch |${fitdotpath}Demo.exe |
+|Application |Waitwhilebusy  | |
+|Window |Getbytext |Controls_Demo |
+|Window |Focus | |
+|Checkbox|SelectById|1008 ||
+|Listview|GetById|1012|
+|Listviewcell|Getbyindex|1;0||
+|Listviewcell|Rightclick||
 |Window |Close | | |

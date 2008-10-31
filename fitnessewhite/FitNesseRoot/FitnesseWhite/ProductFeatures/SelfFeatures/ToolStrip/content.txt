@@ -1,0 +1,7 @@
+|继承自[[FitUItem][FitUitem]]|
+!|返回值类型|方法名|参数|注释|
+|void |GetById2|string|根据Id获取当前窗口的ToolStrip，参数为Id信息|
+|void |Get|void|获取当前窗口的ToolStrip|
+
+ * 从UISpy上看，ToolStrip上的按钮并不都能够识别出来。目前来看，这个对象的可用性不高。
+ * 在Win32上，发现直接使用GetById2会出现异常。

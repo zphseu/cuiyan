@@ -1,1 +1,7 @@
-!contents -R2 -g -p -f -h
+|继承自[[FitUItem][FitUitem]]|
+!|返回值类型|方法名|参数|注释|
+|void|GetByIndex|string|根据文本获取当前Table的Cell，参数为文本，个数为从0开始的 "行号;列号"|
+|string|GetValue|void|获得值，如：b:true；b:false；i:124；Hello等|
+|void|SetValue|string|设置值，如：b:true；b:false；i:124；Hello等|
+
+参考 TaBle

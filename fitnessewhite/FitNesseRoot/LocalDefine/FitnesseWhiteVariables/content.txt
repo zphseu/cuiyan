@@ -1,3 +1,5 @@
 !define varComboBoxWindow (音频音量)
 !define varApplicationName (calc)
+!define varWabFindUserButton (查找个人)
+!define varMouseCursorName {unknown}
 !define fitdotpath (D:\Java\fitnesse\dotnet\)

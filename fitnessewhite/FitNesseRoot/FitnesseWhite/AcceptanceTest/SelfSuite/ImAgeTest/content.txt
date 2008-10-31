@@ -1,0 +1,11 @@
+!include -c .LocalDefine.FitnesseWhiteVariables
+
+!|fitnessewhite.Guifixture |
+|Application |Launch |${fitdotpath}Demo.exe | |
+|Application |Waitwhilebusy | | |
+|Window |Getbytext |Controls_Demo | |
+|Window|Focus|||
+|Image|GetById|3316|选择图像控件|
+|Image|GetByText|组合框||
+|Image|IsVisible|true|图像是否可见|
+|Application|kill|||

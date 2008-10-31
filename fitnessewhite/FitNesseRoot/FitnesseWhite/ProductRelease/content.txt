@@ -1,14 +1,18 @@
-[2008-10-27~2008-11-2]
- * [[Image][ProductFeatures.SelfFeatures.ImAge]]
- * [[Hyperlink][ProductFeatures.SelfFeatures.HyperLink]]
- * [[Toolstrip][ProductFeatures.SelfFeatures.ToolStrip]]
- * [[Statusstrip][ProductFeatures.SelfFeatures.StatusStrip]]
+[2008-11-9~2008-11-15]
+ * 陶琥：基于iCV5.0进行测试的大屏监控配置
+
+[2008-11-3~2008-11-9]
+ * 李震：发现White中的[[Table][ProductFeatures.SelfFeatures.TaBle]]不好用，研究一下怎么回事！
+ * 陶琥：基于iCV5.0进行测试的视频配置
 
 [2008-10-27~2008-11-2]
  * [[Table][ProductFeatures.SelfFeatures.TaBle]]
  * [[Tablecell][ProductFeatures.SelfFeatures.TableCell]]
+ * [[Image][ProductFeatures.SelfFeatures.ImAge]]
+ * [[Hyperlink][ProductFeatures.SelfFeatures.HyperLink]]
  * [[Messagebox][ProductFeatures.SelfFeatures.MessageBox]]
- * [[Datetimepicker][ProductFeatures.SelfFeatures.DatetimePicker]]
+ * [[Toolstrip][ProductFeatures.SelfFeatures.ToolStrip]]
+ * [[Statusstrip][ProductFeatures.SelfFeatures.StatusStrip]]
 
 [2008-10-20~2008-10-26] 
  * [[Label][ProductFeatures.SelfFeatures.LaBel]]
@@ -18,6 +22,7 @@
  * [[Inputdevice][ProductFeatures.SelfFeatures.InputDevice]]
  * [[Tree][ProductFeatures.SelfFeatures.TrEe]]
  * [[Treenode][ProductFeatures.SelfFeatures.TreeNode]]
+ * [[Datetimepicker][ProductFeatures.SelfFeatures.DatetimePicker]]
 
 [2008-10-13~2008-10-19] 1.0.3215.14976
  * [[Combobox][ProductFeatures.SelfFeatures.ComboBox]]

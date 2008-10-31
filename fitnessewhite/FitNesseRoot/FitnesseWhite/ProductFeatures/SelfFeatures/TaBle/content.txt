@@ -1,0 +1,11 @@
+|继承自[[FitUItem][FitUitem]]|
+!|返回值类型|方法名|参数|注释|
+|void|ClickColumnHeader|int32|返回当前Table的列数|
+|void|ClickRowHeader|int32|单击当前Table的列标签，参数是从0开始的列序号|
+|int32|ColumnCount|void|返回当前Table的列数|
+|void|GetById|string|根据Id获取Table，参数为文本信息|
+|void|GetByText|string|根据文本获取Table，参数为文本信息|
+|void|Refresh|void|刷新当前Table|
+|int32|RowCount|void|返回当前Table的行数|
+
+参考 TableCell

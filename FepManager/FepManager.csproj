@@ -1,0 +1,312 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="2.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{40793A27-478B-4357-B4C3-FC8943131F3D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FepManager</RootNamespace>
+    <AssemblyName>FepManager</AssemblyName>
+    <TargetFrameworkProfile />
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <NoWin32Manifest>False</NoWin32Manifest>
+    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+    <NoStdLib>False</NoStdLib>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
+    <StartupObject>FepManager.Program</StartupObject>
+    <ApplicationIcon>Resources\Artua-Mac-Activity-Monitor.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
+    <BaseAddress>4194304</BaseAddress>
+    <PlatformTarget>x86</PlatformTarget>
+    <RegisterForComInterop>False</RegisterForComInterop>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+    <FileAlignment>4096</FileAlignment>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="NPOI, Version=2.0.5.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.SQLite, Version=1.0.90.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WeifenLuo.WinFormsUI.Docking, Version=2.5.0.28151, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\WeifenLuo.WinFormsUI.Docking.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FepCfg.Designer.cs">
+      <DependentUpon>FepCfg.xsd</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="DialogDriverSelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DialogDriverSelect.designer.cs">
+      <DependentUpon>DialogDriverSelect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDriverCfg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDriverCfg.designer.cs">
+      <DependentUpon>FormDriverCfg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LuisRuiz\DataPropertyGrid.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="LuisRuiz\frmCodigo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DriverXml.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DriverXml.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FormAuthCfg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAuthCfg.Designer.cs">
+      <DependentUpon>FormAuthCfg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DialogAbout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DialogAbout.Designer.cs">
+      <DependentUpon>DialogAbout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBase.Designer.cs">
+      <DependentUpon>FormBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DummyExplorer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DummyExplorer.Designer.cs">
+      <DependentUpon>DummyExplorer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DummyOutput.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DummyOutput.Designer.cs">
+      <DependentUpon>DummyOutput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DummyProperty.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DummyProperty.Designer.cs">
+      <DependentUpon>DummyProperty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="DialogAbout.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>DialogAbout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormBase.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DummyOutput.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>DummyOutput.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DummyProperty.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>DummyProperty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="DummyBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DummyBase.Designer.cs">
+      <DependentUpon>DummyBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HelperRegex.cs" />
+    <Compile Include="HelperNPOI.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="DriverXml.xsc">
+      <DependentUpon>DriverXml.xsd</DependentUpon>
+    </None>
+    <None Include="DriverXml.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DriverXml.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>DataSetXml</CustomToolNamespace>
+    </None>
+    <None Include="DriverXml.xss">
+      <DependentUpon>DriverXml.xsd</DependentUpon>
+    </None>
+    <None Include="DriverXml.xsx">
+      <DependentUpon>DriverXml.xsd</DependentUpon>
+    </None>
+    <None Include="Images\ArrowDown.bmp" />
+    <None Include="Images\ArrowUp.bmp" />
+    <None Include="Images\Bitmap.ico" />
+    <None Include="Images\BlankIcon.ico" />
+    <None Include="Images\ClosedFolder.ICO" />
+    <None Include="Images\CSFile.ico" />
+    <None Include="Images\CSProject.ico" />
+    <None Include="Images\File.ico" />
+    <None Include="Images\Form.ico" />
+    <None Include="Images\Mouse.bmp" />
+    <None Include="Images\msenv22.ico" />
+    <None Include="Images\New.ico" />
+    <None Include="Images\Open.ico" />
+    <None Include="Images\OpenFolder.ICO" />
+    <None Include="Images\OutputWindow.ico" />
+    <None Include="Images\PropertyWindow.ico" />
+    <None Include="Images\Reference.ico" />
+    <None Include="Images\References.ico" />
+    <None Include="Images\SolutionExplorer.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DummyBase.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>DummyBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DummyExplorer.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>DummyExplorer.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\13.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\14.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\41.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\54.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\55.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\59.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="FepCfg.xsc">
+      <DependentUpon>FepCfg.xsd</DependentUpon>
+    </None>
+    <None Include="FepCfg.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FepCfg.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>DataSet</CustomToolNamespace>
+    </None>
+    <None Include="FepCfg.xss">
+      <DependentUpon>FepCfg.xsd</DependentUpon>
+    </None>
+    <None Include="FepCfg.xsx">
+      <DependentUpon>FepCfg.xsd</DependentUpon>
+    </None>
+    <None Include="Images\60.png" />
+    <EmbeddedResource Include="DialogDriverSelect.resx">
+      <DependentUpon>DialogDriverSelect.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDriverCfg.resx">
+      <DependentUpon>FormDriverCfg.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LuisRuiz\DataPropertyGrid.resx">
+      <DependentUpon>DataPropertyGrid.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LuisRuiz\frmCodigo.resx">
+      <DependentUpon>frmCodigo.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAuthCfg.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormAuthCfg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\default.repo" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Artua-Mac-Activity-Monitor.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="PropGridHelper\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

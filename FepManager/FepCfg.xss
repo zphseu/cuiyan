@@ -8,7 +8,7 @@
   <Shapes>
     <Shape ID="DesignTable:t_driver" ZOrder="10" X="77" Y="145" Height="207" Width="194" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="160" />
     <Shape ID="DesignTable:t_device" ZOrder="9" X="316" Y="162" Height="275" Width="194" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="228" />
-    <Shape ID="DesignTable:t_datablock" ZOrder="7" X="561" Y="166" Height="292" Width="271" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="22" SplitterPosition="228" />
+    <Shape ID="DesignTable:t_datablock" ZOrder="7" X="561" Y="166" Height="275" Width="213" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="22" SplitterPosition="228" />
     <Shape ID="DesignTable:t_tag" ZOrder="5" X="110" Y="467" Height="275" Width="175" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="228" />
     <Shape ID="DesignTable:t_tagtype" ZOrder="1" X="322" Y="506" Height="139" Width="200" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="92" />
   </Shapes>

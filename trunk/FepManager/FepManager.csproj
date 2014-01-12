@@ -54,6 +54,7 @@
       <HintPath>lib\NPOI.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.SQLite, Version=1.0.90.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
@@ -187,6 +188,7 @@
     </Compile>
     <Compile Include="HelperRegex.cs" />
     <Compile Include="HelperNPOI.cs" />
+    <Compile Include="PropGridHelper\ModbusTcpDevRow.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -297,9 +299,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\Artua-Mac-Activity-Monitor.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="PropGridHelper\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

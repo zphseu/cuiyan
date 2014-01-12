@@ -68,7 +68,6 @@ namespace FepManager
             btnDevModify_Click(sender, e);
         }
 
-
         private void blockGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             btnBlkModify_Click(sender, e);
@@ -87,7 +86,9 @@ namespace FepManager
             }
 
             DataSet.FepCfg.t_deviceRow row = (devGridView.CurrentRow.DataBoundItem as DataRowView).Row as DataSet.FepCfg.t_deviceRow;
-            parentForm.SetPropertyGridRow(row);
+            //parentForm.SetPropertyGridRow(row);
+            FepManager.PropGridHelper.ModbusEthDevRow devRow = new FepManager.PropGridHelper.ModbusEthDevRow(row);
+            parentForm.SetPropertyGridObject(devRow);
         }
 
 
@@ -112,7 +113,6 @@ namespace FepManager
                     "确认", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     DataSet.FepCfg.t_deviceRow devRow = (devGridView.CurrentRow.DataBoundItem as DataRowView).Row as DataSet.FepCfg.t_deviceRow;
-                    //cycy t_datablockTableAdapter.DeleteByDeviceId((int)row.id);
                     _delDataBlockGridRow(devRow.id);
                     tdeviceBindingSource.RemoveCurrent();
                 }
@@ -125,7 +125,6 @@ namespace FepManager
                     foreach (DataGridViewRow dgvRow in devGridView.SelectedRows)
                     {
                         DataSet.FepCfg.t_deviceRow devRow = (dgvRow.DataBoundItem as DataRowView).Row as DataSet.FepCfg.t_deviceRow;
-                        //cycy t_datablockTableAdapter.DeleteByDeviceId((int)row.id);
                         _delDataBlockGridRow(devRow.id);                        
                         tdeviceBindingSource.RemoveAt(dgvRow.Index);
                     }

@@ -20,10 +20,15 @@ namespace FepManager
             return rex.IsMatch(input);
         }
 
-        static public Boolean IsNumber(String input)
+        static public Boolean IsInt(String input)
         {
             Regex rex = new Regex(@"^\d+$", RegexOptions.Singleline);
             return rex.IsMatch(input);
+        }
+
+        static public Boolean IsRange(Int64 v, int min, int max)
+        {
+            return (v >= min) && (v <= max);
         }
 
         static public Boolean IsDevName(String input)

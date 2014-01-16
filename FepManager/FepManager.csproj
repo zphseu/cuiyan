@@ -194,6 +194,7 @@
     </Compile>
     <Compile Include="HelperRegex.cs" />
     <Compile Include="HelperNPOI.cs" />
+    <Compile Include="PropGridHelper\TagRow.cs" />
     <Compile Include="PropGridHelper\ListConverter.cs" />
     <Compile Include="PropGridHelper\ModbusBlockRow.cs" />
     <Compile Include="PropGridHelper\ModbusEthDevRow.cs" />

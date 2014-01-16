@@ -689,166 +689,7 @@
         <xs:element name="t_driver" msprop:Generator_UserTableName="t_driver" msprop:Generator_RowDeletedName="t_driverRowDeleted" msprop:Generator_RowChangedName="t_driverRowChanged" msprop:Generator_RowClassName="t_driverRow" msprop:Generator_RowChangingName="t_driverRowChanging" msprop:Generator_RowEvArgName="t_driverRowChangeEvent" msprop:Generator_RowEvHandlerName="t_driverRowChangeEventHandler" msprop:Generator_TableClassName="t_driverDataTable" msprop:Generator_TableVarName="tablet_driver" msprop:Generator_RowDeletingName="t_driverRowDeleting" msprop:Generator_TablePropName="t_driver">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="id" msdata:AutoIncrement="true" msprop:Generator_UserColumnName="id" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" type="xs:long" />
-              <xs:element name="name" msprop:Generator_UserColumnName="name" msprop:Generator_ColumnVarNameInTable="columnname" msprop:Generator_ColumnPropNameInRow="name" msprop:Generator_ColumnPropNameInTable="nameColumn">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="2147483647" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="type" msprop:Generator_UserColumnName="type" msprop:Generator_ColumnVarNameInTable="columntype" msprop:Generator_ColumnPropNameInRow="type" msprop:Generator_ColumnPropNameInTable="typeColumn">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="2147483647" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="filename" msprop:Generator_UserColumnName="filename" msprop:Generator_ColumnVarNameInTable="columnfilename" msprop:Generator_ColumnPropNameInRow="filename" msprop:Generator_ColumnPropNameInTable="filenameColumn">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="2147483647" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="visble" msprop:Generator_UserColumnName="visble" msprop:Generator_ColumnVarNameInTable="columnvisble" msprop:Generator_ColumnPropNameInRow="visble" msprop:Generator_ColumnPropNameInTable="visbleColumn" type="xs:short" />
-              <xs:element name="enable" msprop:Generator_UserColumnName="enable" msprop:Generator_ColumnVarNameInTable="columnenable" msprop:Generator_ColumnPropNameInRow="enable" msprop:Generator_ColumnPropNameInTable="enableColumn" type="xs:short" />
-              <xs:element name="desc" msprop:Generator_UserColumnName="desc" msprop:Generator_ColumnVarNameInTable="columndesc" msprop:Generator_ColumnPropNameInRow="desc" msprop:Generator_ColumnPropNameInTable="descColumn" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="2147483647" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="preserve" msprop:Generator_UserColumnName="preserve" msprop:Generator_ColumnVarNameInTable="columnpreserve" msprop:Generator_ColumnPropNameInRow="preserve" msprop:Generator_ColumnPropNameInTable="preserveColumn" type="xs:short" minOccurs="0" />
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="t_device" msprop:Generator_UserTableName="t_device" msprop:Generator_RowDeletedName="t_deviceRowDeleted" msprop:Generator_RowChangedName="t_deviceRowChanged" msprop:Generator_RowClassName="t_deviceRow" msprop:Generator_RowChangingName="t_deviceRowChanging" msprop:Generator_RowEvArgName="t_deviceRowChangeEvent" msprop:Generator_RowEvHandlerName="t_deviceRowChangeEventHandler" msprop:Generator_TableClassName="t_deviceDataTable" msprop:Generator_TableVarName="tablet_device" msprop:Generator_RowDeletingName="t_deviceRowDeleting" msprop:Generator_TablePropName="t_device">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="id" msdata:AutoIncrement="true" msprop:Generator_UserColumnName="id" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" type="xs:long" />
-              <xs:element name="driver_id" msprop:Generator_UserColumnName="driver_id" msprop:Generator_ColumnVarNameInTable="columndriver_id" msprop:Generator_ColumnPropNameInRow="driver_id" msprop:Generator_ColumnPropNameInTable="driver_idColumn" type="xs:long" />
-              <xs:element name="name" msprop:Generator_UserColumnName="name" msprop:Generator_ColumnVarNameInTable="columnname" msprop:Generator_ColumnPropNameInRow="name" msprop:Generator_ColumnPropNameInTable="nameColumn">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="2147483647" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="connparam" msprop:Generator_UserColumnName="connparam" msprop:Generator_ColumnVarNameInTable="columnconnparam" msprop:Generator_ColumnPropNameInRow="connparam" msprop:Generator_ColumnPropNameInTable="connparamColumn">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="2147483647" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="conntype" msprop:Generator_UserColumnName="conntype" msprop:Generator_ColumnVarNameInTable="columnconntype" msprop:Generator_ColumnPropNameInRow="conntype" msprop:Generator_ColumnPropNameInTable="conntypeColumn">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="2147483647" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="cyclerate" msprop:Generator_UserColumnName="cyclerate" msprop:Generator_ColumnVarNameInTable="columncyclerate" msprop:Generator_ColumnPropNameInRow="cyclerate" msprop:Generator_ColumnPropNameInTable="cyclerateColumn" type="xs:long" />
-              <xs:element name="recvtimeout" msprop:Generator_UserColumnName="recvtimeout" msprop:Generator_ColumnVarNameInTable="columnrecvtimeout" msprop:Generator_ColumnPropNameInRow="recvtimeout" msprop:Generator_ColumnPropNameInTable="recvtimeoutColumn" type="xs:long" />
-              <xs:element name="task" msprop:Generator_UserColumnName="task" msprop:Generator_ColumnVarNameInTable="columntask" msprop:Generator_ColumnPropNameInRow="task" msprop:Generator_ColumnPropNameInTable="taskColumn" type="xs:long" />
-              <xs:element name="desc" msprop:Generator_UserColumnName="desc" msprop:Generator_ColumnVarNameInTable="columndesc" msprop:Generator_ColumnPropNameInRow="desc" msprop:Generator_ColumnPropNameInTable="descColumn" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="2147483647" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="param1" msprop:Generator_UserColumnName="param1" msprop:Generator_ColumnVarNameInTable="columnparam1" msprop:Generator_ColumnPropNameInRow="param1" msprop:Generator_ColumnPropNameInTable="param1Column" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="2147483647" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="param2" msprop:Generator_UserColumnName="param2" msprop:Generator_ColumnVarNameInTable="columnparam2" msprop:Generator_ColumnPropNameInRow="param2" msprop:Generator_ColumnPropNameInTable="param2Column" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="2147483647" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="param3" msprop:Generator_UserColumnName="param3" msprop:Generator_ColumnVarNameInTable="columnparam3" msprop:Generator_ColumnPropNameInRow="param3" msprop:Generator_ColumnPropNameInTable="param3Column" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="2147483647" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="t_datablock" msprop:Generator_UserTableName="t_datablock" msprop:Generator_RowDeletedName="t_datablockRowDeleted" msprop:Generator_RowChangedName="t_datablockRowChanged" msprop:Generator_RowClassName="t_datablockRow" msprop:Generator_RowChangingName="t_datablockRowChanging" msprop:Generator_RowEvArgName="t_datablockRowChangeEvent" msprop:Generator_RowEvHandlerName="t_datablockRowChangeEventHandler" msprop:Generator_TableClassName="t_datablockDataTable" msprop:Generator_TableVarName="tablet_datablock" msprop:Generator_RowDeletingName="t_datablockRowDeleting" msprop:Generator_TablePropName="t_datablock">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="id" msdata:AutoIncrement="true" msprop:Generator_UserColumnName="id" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" type="xs:long" />
-              <xs:element name="device_id" msprop:Generator_UserColumnName="device_id" msprop:Generator_ColumnVarNameInTable="columndevice_id" msprop:Generator_ColumnPropNameInRow="device_id" msprop:Generator_ColumnPropNameInTable="device_idColumn" type="xs:long" />
-              <xs:element name="name" msprop:Generator_UserColumnName="name" msprop:Generator_ColumnVarNameInTable="columnname" msprop:Generator_ColumnPropNameInRow="name" msprop:Generator_ColumnPropNameInTable="nameColumn">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="2147483647" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="type" msprop:Generator_UserColumnName="type" msprop:Generator_ColumnVarNameInTable="columntype" msprop:Generator_ColumnPropNameInRow="type" msprop:Generator_ColumnPropNameInTable="typeColumn">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="2147483647" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="address" msprop:Generator_UserColumnName="address" msprop:Generator_ColumnVarNameInTable="columnaddress" msprop:Generator_ColumnPropNameInRow="address" msprop:Generator_ColumnPropNameInTable="addressColumn">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="2147483647" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="cyclerate" msprop:Generator_UserColumnName="cyclerate" msprop:Generator_ColumnVarNameInTable="columncyclerate" msprop:Generator_ColumnPropNameInRow="cyclerate" msprop:Generator_ColumnPropNameInTable="cyclerateColumn" type="xs:long" />
-              <xs:element name="elembytes" msprop:Generator_UserColumnName="elembytes" msprop:Generator_ColumnVarNameInTable="columnelembytes" msprop:Generator_ColumnPropNameInRow="elembytes" msprop:Generator_ColumnPropNameInTable="elembytesColumn" type="xs:long" />
-              <xs:element name="elemcount" msprop:Generator_UserColumnName="elemcount" msprop:Generator_ColumnVarNameInTable="columnelemcount" msprop:Generator_ColumnPropNameInRow="elemcount" msprop:Generator_ColumnPropNameInTable="elemcountColumn" type="xs:long" />
-              <xs:element name="phase" msprop:Generator_UserColumnName="phase" msprop:Generator_ColumnVarNameInTable="columnphase" msprop:Generator_ColumnPropNameInRow="phase" msprop:Generator_ColumnPropNameInTable="phaseColumn" type="xs:long" />
-              <xs:element name="task" msprop:Generator_UserColumnName="task" msprop:Generator_ColumnVarNameInTable="columntask" msprop:Generator_ColumnPropNameInRow="task" msprop:Generator_ColumnPropNameInTable="taskColumn" type="xs:long" />
-              <xs:element name="desc" msprop:Generator_UserColumnName="desc" msprop:Generator_ColumnVarNameInTable="columndesc" msprop:Generator_ColumnPropNameInRow="desc" msprop:Generator_ColumnPropNameInTable="descColumn" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="2147483647" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="param1" msprop:Generator_UserColumnName="param1" msprop:Generator_ColumnVarNameInTable="columnparam1" msprop:Generator_ColumnPropNameInRow="param1" msprop:Generator_ColumnPropNameInTable="param1Column" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="2147483647" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="param2" msprop:Generator_UserColumnName="param2" msprop:Generator_ColumnVarNameInTable="columnparam2" msprop:Generator_ColumnPropNameInRow="param2" msprop:Generator_ColumnPropNameInTable="param2Column" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="2147483647" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="param3" msprop:Generator_UserColumnName="param3" msprop:Generator_ColumnVarNameInTable="columnparam3" msprop:Generator_ColumnPropNameInRow="param3" msprop:Generator_ColumnPropNameInTable="param3Column" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="2147483647" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="t_tag" msprop:Generator_UserTableName="t_tag" msprop:Generator_RowDeletedName="t_tagRowDeleted" msprop:Generator_TableClassName="t_tagDataTable" msprop:Generator_RowChangedName="t_tagRowChanged" msprop:Generator_RowClassName="t_tagRow" msprop:Generator_RowChangingName="t_tagRowChanging" msprop:Generator_RowEvArgName="t_tagRowChangeEvent" msprop:Generator_RowEvHandlerName="t_tagRowChangeEventHandler" msprop:Generator_TablePropName="t_tag" msprop:Generator_TableVarName="tablet_tag" msprop:Generator_RowDeletingName="t_tagRowDeleting">
-          <xs:complexType>
-            <xs:sequence>
+              <xs:element name="id" msdata:AutoIncrement="true" msprop:Generator_UserColumnName="id" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInTable="idColumn" type="xs:long" />
               <xs:element name="name" msprop:Generator_UserColumnName="name" msprop:Generator_ColumnPropNameInRow="name" msprop:Generator_ColumnVarNameInTable="columnname" msprop:Generator_ColumnPropNameInTable="nameColumn">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -856,22 +697,22 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="device_id" msprop:Generator_UserColumnName="device_id" msprop:Generator_ColumnPropNameInRow="device_id" msprop:Generator_ColumnVarNameInTable="columndevice_id" msprop:Generator_ColumnPropNameInTable="device_idColumn" type="xs:long" />
-              <xs:element name="type" msprop:Generator_UserColumnName="type" msprop:Generator_ColumnPropNameInRow="type" msprop:Generator_ColumnVarNameInTable="columntype" msprop:Generator_ColumnPropNameInTable="typeColumn" type="xs:long" minOccurs="0" />
-              <xs:element name="address" msprop:Generator_UserColumnName="address" msprop:Generator_ColumnPropNameInRow="address" msprop:Generator_ColumnVarNameInTable="columnaddress" msprop:Generator_ColumnPropNameInTable="addressColumn" minOccurs="0">
+              <xs:element name="type" msprop:Generator_UserColumnName="type" msprop:Generator_ColumnPropNameInRow="type" msprop:Generator_ColumnVarNameInTable="columntype" msprop:Generator_ColumnPropNameInTable="typeColumn">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="length" msprop:Generator_UserColumnName="length" msprop:Generator_ColumnPropNameInRow="length" msprop:Generator_ColumnVarNameInTable="columnlength" msprop:Generator_ColumnPropNameInTable="lengthColumn" type="xs:long" />
-              <xs:element name="scan_enable" msprop:Generator_UserColumnName="scan_enable" msprop:Generator_ColumnPropNameInRow="scan_enable" msprop:Generator_ColumnVarNameInTable="columnscan_enable" msprop:Generator_ColumnPropNameInTable="scan_enableColumn" type="xs:short" />
-              <xs:element name="scan_intv" msprop:Generator_UserColumnName="scan_intv" msprop:Generator_ColumnPropNameInRow="scan_intv" msprop:Generator_ColumnVarNameInTable="columnscan_intv" msprop:Generator_ColumnPropNameInTable="scan_intvColumn" type="xs:long" />
-              <xs:element name="scan_phs" msprop:Generator_UserColumnName="scan_phs" msprop:Generator_ColumnPropNameInRow="scan_phs" msprop:Generator_ColumnVarNameInTable="columnscan_phs" msprop:Generator_ColumnPropNameInTable="scan_phsColumn" type="xs:long" />
-              <xs:element name="ctrl_enable" msprop:Generator_UserColumnName="ctrl_enable" msprop:Generator_ColumnPropNameInRow="ctrl_enable" msprop:Generator_ColumnVarNameInTable="columnctrl_enable" msprop:Generator_ColumnPropNameInTable="ctrl_enableColumn" type="xs:short" />
-              <xs:element name="evtctrl_enable" msprop:Generator_UserColumnName="evtctrl_enable" msprop:Generator_ColumnPropNameInRow="evtctrl_enable" msprop:Generator_ColumnVarNameInTable="columnevtctrl_enable" msprop:Generator_ColumnPropNameInTable="evtctrl_enableColumn" type="xs:short" />
-              <xs:element name="evtctrl_priority" msprop:Generator_UserColumnName="evtctrl_priority" msprop:Generator_ColumnPropNameInRow="evtctrl_priority" msprop:Generator_ColumnVarNameInTable="columnevtctrl_priority" msprop:Generator_ColumnPropNameInTable="evtctrl_priorityColumn" type="xs:long" />
+              <xs:element name="filename" msprop:Generator_UserColumnName="filename" msprop:Generator_ColumnPropNameInRow="filename" msprop:Generator_ColumnVarNameInTable="columnfilename" msprop:Generator_ColumnPropNameInTable="filenameColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="visble" msprop:Generator_UserColumnName="visble" msprop:Generator_ColumnPropNameInRow="visble" msprop:Generator_ColumnVarNameInTable="columnvisble" msprop:Generator_ColumnPropNameInTable="visbleColumn" type="xs:short" />
+              <xs:element name="enable" msprop:Generator_UserColumnName="enable" msprop:Generator_ColumnPropNameInRow="enable" msprop:Generator_ColumnVarNameInTable="columnenable" msprop:Generator_ColumnPropNameInTable="enableColumn" type="xs:short" />
               <xs:element name="desc" msprop:Generator_UserColumnName="desc" msprop:Generator_ColumnPropNameInRow="desc" msprop:Generator_ColumnVarNameInTable="columndesc" msprop:Generator_ColumnPropNameInTable="descColumn" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -879,7 +720,40 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="param0" msprop:Generator_UserColumnName="param0" msprop:Generator_ColumnPropNameInRow="param0" msprop:Generator_ColumnVarNameInTable="columnparam0" msprop:Generator_ColumnPropNameInTable="param0Column" minOccurs="0">
+              <xs:element name="preserve" msprop:Generator_UserColumnName="preserve" msprop:Generator_ColumnPropNameInRow="preserve" msprop:Generator_ColumnVarNameInTable="columnpreserve" msprop:Generator_ColumnPropNameInTable="preserveColumn" type="xs:short" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="t_device" msprop:Generator_UserTableName="t_device" msprop:Generator_RowDeletedName="t_deviceRowDeleted" msprop:Generator_RowChangedName="t_deviceRowChanged" msprop:Generator_RowClassName="t_deviceRow" msprop:Generator_RowChangingName="t_deviceRowChanging" msprop:Generator_RowEvArgName="t_deviceRowChangeEvent" msprop:Generator_RowEvHandlerName="t_deviceRowChangeEventHandler" msprop:Generator_TableClassName="t_deviceDataTable" msprop:Generator_TableVarName="tablet_device" msprop:Generator_RowDeletingName="t_deviceRowDeleting" msprop:Generator_TablePropName="t_device">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msdata:AutoIncrement="true" msprop:Generator_UserColumnName="id" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInTable="idColumn" type="xs:long" />
+              <xs:element name="driver_id" msprop:Generator_UserColumnName="driver_id" msprop:Generator_ColumnPropNameInRow="driver_id" msprop:Generator_ColumnVarNameInTable="columndriver_id" msprop:Generator_ColumnPropNameInTable="driver_idColumn" type="xs:long" />
+              <xs:element name="name" msprop:Generator_UserColumnName="name" msprop:Generator_ColumnPropNameInRow="name" msprop:Generator_ColumnVarNameInTable="columnname" msprop:Generator_ColumnPropNameInTable="nameColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="connparam" msprop:Generator_UserColumnName="connparam" msprop:Generator_ColumnPropNameInRow="connparam" msprop:Generator_ColumnVarNameInTable="columnconnparam" msprop:Generator_ColumnPropNameInTable="connparamColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="conntype" msprop:Generator_UserColumnName="conntype" msprop:Generator_ColumnPropNameInRow="conntype" msprop:Generator_ColumnVarNameInTable="columnconntype" msprop:Generator_ColumnPropNameInTable="conntypeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cyclerate" msprop:Generator_UserColumnName="cyclerate" msprop:Generator_ColumnPropNameInRow="cyclerate" msprop:Generator_ColumnVarNameInTable="columncyclerate" msprop:Generator_ColumnPropNameInTable="cyclerateColumn" type="xs:long" />
+              <xs:element name="recvtimeout" msprop:Generator_UserColumnName="recvtimeout" msprop:Generator_ColumnPropNameInRow="recvtimeout" msprop:Generator_ColumnVarNameInTable="columnrecvtimeout" msprop:Generator_ColumnPropNameInTable="recvtimeoutColumn" type="xs:long" />
+              <xs:element name="task" msprop:Generator_UserColumnName="task" msprop:Generator_ColumnPropNameInRow="task" msprop:Generator_ColumnVarNameInTable="columntask" msprop:Generator_ColumnPropNameInTable="taskColumn" type="xs:long" />
+              <xs:element name="desc" msprop:Generator_UserColumnName="desc" msprop:Generator_ColumnPropNameInRow="desc" msprop:Generator_ColumnVarNameInTable="columndesc" msprop:Generator_ColumnPropNameInTable="descColumn" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
@@ -901,6 +775,132 @@
                 </xs:simpleType>
               </xs:element>
               <xs:element name="param3" msprop:Generator_UserColumnName="param3" msprop:Generator_ColumnPropNameInRow="param3" msprop:Generator_ColumnVarNameInTable="columnparam3" msprop:Generator_ColumnPropNameInTable="param3Column" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="t_datablock" msprop:Generator_UserTableName="t_datablock" msprop:Generator_RowDeletedName="t_datablockRowDeleted" msprop:Generator_RowChangedName="t_datablockRowChanged" msprop:Generator_RowClassName="t_datablockRow" msprop:Generator_RowChangingName="t_datablockRowChanging" msprop:Generator_RowEvArgName="t_datablockRowChangeEvent" msprop:Generator_RowEvHandlerName="t_datablockRowChangeEventHandler" msprop:Generator_TableClassName="t_datablockDataTable" msprop:Generator_TableVarName="tablet_datablock" msprop:Generator_RowDeletingName="t_datablockRowDeleting" msprop:Generator_TablePropName="t_datablock">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msdata:AutoIncrement="true" msprop:Generator_UserColumnName="id" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInTable="idColumn" type="xs:long" />
+              <xs:element name="device_id" msprop:Generator_UserColumnName="device_id" msprop:Generator_ColumnPropNameInRow="device_id" msprop:Generator_ColumnVarNameInTable="columndevice_id" msprop:Generator_ColumnPropNameInTable="device_idColumn" type="xs:long" />
+              <xs:element name="name" msprop:Generator_UserColumnName="name" msprop:Generator_ColumnPropNameInRow="name" msprop:Generator_ColumnVarNameInTable="columnname" msprop:Generator_ColumnPropNameInTable="nameColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="type" msprop:Generator_UserColumnName="type" msprop:Generator_ColumnPropNameInRow="type" msprop:Generator_ColumnVarNameInTable="columntype" msprop:Generator_ColumnPropNameInTable="typeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="address" msprop:Generator_UserColumnName="address" msprop:Generator_ColumnPropNameInRow="address" msprop:Generator_ColumnVarNameInTable="columnaddress" msprop:Generator_ColumnPropNameInTable="addressColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cyclerate" msprop:Generator_UserColumnName="cyclerate" msprop:Generator_ColumnPropNameInRow="cyclerate" msprop:Generator_ColumnVarNameInTable="columncyclerate" msprop:Generator_ColumnPropNameInTable="cyclerateColumn" type="xs:long" />
+              <xs:element name="elembytes" msprop:Generator_UserColumnName="elembytes" msprop:Generator_ColumnPropNameInRow="elembytes" msprop:Generator_ColumnVarNameInTable="columnelembytes" msprop:Generator_ColumnPropNameInTable="elembytesColumn" type="xs:long" />
+              <xs:element name="elemcount" msprop:Generator_UserColumnName="elemcount" msprop:Generator_ColumnPropNameInRow="elemcount" msprop:Generator_ColumnVarNameInTable="columnelemcount" msprop:Generator_ColumnPropNameInTable="elemcountColumn" type="xs:long" />
+              <xs:element name="phase" msprop:Generator_UserColumnName="phase" msprop:Generator_ColumnPropNameInRow="phase" msprop:Generator_ColumnVarNameInTable="columnphase" msprop:Generator_ColumnPropNameInTable="phaseColumn" type="xs:long" />
+              <xs:element name="task" msprop:Generator_UserColumnName="task" msprop:Generator_ColumnPropNameInRow="task" msprop:Generator_ColumnVarNameInTable="columntask" msprop:Generator_ColumnPropNameInTable="taskColumn" type="xs:long" />
+              <xs:element name="desc" msprop:Generator_UserColumnName="desc" msprop:Generator_ColumnPropNameInRow="desc" msprop:Generator_ColumnVarNameInTable="columndesc" msprop:Generator_ColumnPropNameInTable="descColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="param1" msprop:Generator_UserColumnName="param1" msprop:Generator_ColumnPropNameInRow="param1" msprop:Generator_ColumnVarNameInTable="columnparam1" msprop:Generator_ColumnPropNameInTable="param1Column" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="param2" msprop:Generator_UserColumnName="param2" msprop:Generator_ColumnPropNameInRow="param2" msprop:Generator_ColumnVarNameInTable="columnparam2" msprop:Generator_ColumnPropNameInTable="param2Column" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="param3" msprop:Generator_UserColumnName="param3" msprop:Generator_ColumnPropNameInRow="param3" msprop:Generator_ColumnVarNameInTable="columnparam3" msprop:Generator_ColumnPropNameInTable="param3Column" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="t_tag" msprop:Generator_UserTableName="t_tag" msprop:Generator_RowDeletedName="t_tagRowDeleted" msprop:Generator_RowChangedName="t_tagRowChanged" msprop:Generator_RowClassName="t_tagRow" msprop:Generator_RowChangingName="t_tagRowChanging" msprop:Generator_RowEvArgName="t_tagRowChangeEvent" msprop:Generator_RowEvHandlerName="t_tagRowChangeEventHandler" msprop:Generator_TableClassName="t_tagDataTable" msprop:Generator_TableVarName="tablet_tag" msprop:Generator_RowDeletingName="t_tagRowDeleting" msprop:Generator_TablePropName="t_tag">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="name" msprop:Generator_UserColumnName="name" msprop:Generator_ColumnVarNameInTable="columnname" msprop:Generator_ColumnPropNameInRow="name" msprop:Generator_ColumnPropNameInTable="nameColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="device_id" msprop:Generator_UserColumnName="device_id" msprop:Generator_ColumnVarNameInTable="columndevice_id" msprop:Generator_ColumnPropNameInRow="device_id" msprop:Generator_ColumnPropNameInTable="device_idColumn" type="xs:long" />
+              <xs:element name="type" msprop:Generator_UserColumnName="type" msprop:Generator_ColumnVarNameInTable="columntype" msprop:Generator_ColumnPropNameInRow="type" msprop:Generator_ColumnPropNameInTable="typeColumn" type="xs:long" minOccurs="0" />
+              <xs:element name="address" msprop:Generator_UserColumnName="address" msprop:Generator_ColumnVarNameInTable="columnaddress" msprop:Generator_ColumnPropNameInRow="address" msprop:Generator_ColumnPropNameInTable="addressColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="length" msprop:Generator_UserColumnName="length" msprop:Generator_ColumnVarNameInTable="columnlength" msprop:Generator_ColumnPropNameInRow="length" msprop:Generator_ColumnPropNameInTable="lengthColumn" type="xs:long" />
+              <xs:element name="scan_enable" msprop:Generator_UserColumnName="scan_enable" msprop:Generator_ColumnVarNameInTable="columnscan_enable" msprop:Generator_ColumnPropNameInRow="scan_enable" msprop:Generator_ColumnPropNameInTable="scan_enableColumn" type="xs:short" />
+              <xs:element name="scan_intv" msprop:Generator_UserColumnName="scan_intv" msprop:Generator_ColumnVarNameInTable="columnscan_intv" msprop:Generator_ColumnPropNameInRow="scan_intv" msprop:Generator_ColumnPropNameInTable="scan_intvColumn" type="xs:long" />
+              <xs:element name="scan_phs" msprop:Generator_UserColumnName="scan_phs" msprop:Generator_ColumnVarNameInTable="columnscan_phs" msprop:Generator_ColumnPropNameInRow="scan_phs" msprop:Generator_ColumnPropNameInTable="scan_phsColumn" type="xs:long" />
+              <xs:element name="ctrl_enable" msprop:Generator_UserColumnName="ctrl_enable" msprop:Generator_ColumnVarNameInTable="columnctrl_enable" msprop:Generator_ColumnPropNameInRow="ctrl_enable" msprop:Generator_ColumnPropNameInTable="ctrl_enableColumn" type="xs:short" />
+              <xs:element name="evtctrl_enable" msprop:Generator_UserColumnName="evtctrl_enable" msprop:Generator_ColumnVarNameInTable="columnevtctrl_enable" msprop:Generator_ColumnPropNameInRow="evtctrl_enable" msprop:Generator_ColumnPropNameInTable="evtctrl_enableColumn" type="xs:short" />
+              <xs:element name="evtctrl_priority" msprop:Generator_UserColumnName="evtctrl_priority" msprop:Generator_ColumnVarNameInTable="columnevtctrl_priority" msprop:Generator_ColumnPropNameInRow="evtctrl_priority" msprop:Generator_ColumnPropNameInTable="evtctrl_priorityColumn" type="xs:long" />
+              <xs:element name="desc" msprop:Generator_UserColumnName="desc" msprop:Generator_ColumnVarNameInTable="columndesc" msprop:Generator_ColumnPropNameInRow="desc" msprop:Generator_ColumnPropNameInTable="descColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="param0" msprop:Generator_UserColumnName="param0" msprop:Generator_ColumnVarNameInTable="columnparam0" msprop:Generator_ColumnPropNameInRow="param0" msprop:Generator_ColumnPropNameInTable="param0Column" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="param1" msprop:Generator_UserColumnName="param1" msprop:Generator_ColumnVarNameInTable="columnparam1" msprop:Generator_ColumnPropNameInRow="param1" msprop:Generator_ColumnPropNameInTable="param1Column" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="param2" msprop:Generator_UserColumnName="param2" msprop:Generator_ColumnVarNameInTable="columnparam2" msprop:Generator_ColumnPropNameInRow="param2" msprop:Generator_ColumnPropNameInTable="param2Column" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="param3" msprop:Generator_UserColumnName="param3" msprop:Generator_ColumnVarNameInTable="columnparam3" msprop:Generator_ColumnPropNameInRow="param3" msprop:Generator_ColumnPropNameInTable="param3Column" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />

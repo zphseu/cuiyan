@@ -87,6 +87,10 @@ namespace FepManager
                     MessageBox.Show(String.Format("Œ¥ƒ‹’“µΩ≈‰÷√¥∞ø⁄ [{0}]£°", formName));
                 }
             }
+            else
+            {
+                document.Show(dockPanel);
+            }
         }
 
         private IDockContent GetContentFromPersistString(string persistString)

@@ -83,6 +83,7 @@ namespace FepManager
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.t_deviceTableAdapter = new DataSet.FepCfgTableAdapters.t_deviceTableAdapter();
             this.t_datablockTableAdapter = new DataSet.FepCfgTableAdapters.t_datablockTableAdapter();
+            this.t_driverTableAdapter = new DataSet.FepCfgTableAdapters.t_driverTableAdapter();
             toolStrip = new System.Windows.Forms.ToolStrip();
             btnDevAdd = new System.Windows.Forms.ToolStripButton();
             btnDevModify = new System.Windows.Forms.ToolStripButton();
@@ -240,7 +241,7 @@ namespace FepManager
             this.devGridView.AutoGenerateColumns = false;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -261,7 +262,7 @@ namespace FepManager
             this.devGridView.DataSource = this.tdeviceBindingSource;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -275,7 +276,7 @@ namespace FepManager
             this.devGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.devGridView.Size = new System.Drawing.Size(655, 216);
             this.devGridView.TabIndex = 0;
-            this.devGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.devGridView_CellDoubleClick);
+            this.devGridView.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.devGridView_CellMouseClick);
             this.devGridView.SelectionChanged += new System.EventHandler(this.devGridView_SelectionChanged);
             // 
             // devName
@@ -401,7 +402,7 @@ namespace FepManager
             this.blockGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.blockGridView.Size = new System.Drawing.Size(655, 218);
             this.blockGridView.TabIndex = 0;
-            this.blockGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.blockGridView_CellDoubleClick);
+            this.blockGridView.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.blockGridView_CellMouseClick);
             // 
             // dbName
             // 
@@ -520,6 +521,10 @@ namespace FepManager
             // 
             this.t_datablockTableAdapter.ClearBeforeFill = true;
             // 
+            // t_driverTableAdapter
+            // 
+            this.t_driverTableAdapter.ClearBeforeFill = true;
+            // 
             // FormDriverCfg
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -581,5 +586,6 @@ namespace FepManager
         private System.Windows.Forms.DataGridViewTextBoxColumn dbParam1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dbParam2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dbParam3;
+        private DataSet.FepCfgTableAdapters.t_driverTableAdapter t_driverTableAdapter;
 	}
 }

@@ -86,6 +86,12 @@
     <Compile Include="FormDriverCfg.designer.cs">
       <DependentUpon>FormDriverCfg.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormTagCfg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTagCfg.designer.cs">
+      <DependentUpon>FormTagCfg.cs</DependentUpon>
+    </Compile>
     <Compile Include="LuisRuiz\DataPropertyGrid.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -188,7 +194,10 @@
     </Compile>
     <Compile Include="HelperRegex.cs" />
     <Compile Include="HelperNPOI.cs" />
-    <Compile Include="PropGridHelper\ModbusTcpDevRow.cs" />
+    <Compile Include="PropGridHelper\ListConverter.cs" />
+    <Compile Include="PropGridHelper\ModbusBlockRow.cs" />
+    <Compile Include="PropGridHelper\ModbusEthDevRow.cs" />
+    <Compile Include="PropGridHelper\ModbusRtuComDevRow.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -281,6 +290,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormDriverCfg.resx">
       <DependentUpon>FormDriverCfg.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTagCfg.resx">
+      <DependentUpon>FormTagCfg.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="LuisRuiz\DataPropertyGrid.resx">

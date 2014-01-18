@@ -92,6 +92,7 @@
     <Compile Include="FormTagCfg.designer.cs">
       <DependentUpon>FormTagCfg.cs</DependentUpon>
     </Compile>
+    <Compile Include="HelperConst.cs" />
     <Compile Include="LuisRuiz\DataPropertyGrid.cs">
       <SubType>Component</SubType>
     </Compile>

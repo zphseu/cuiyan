@@ -46,11 +46,12 @@ namespace FepManager
             System.Windows.Forms.ToolStripButton btnBlkModify;
             System.Windows.Forms.ToolStripButton btnBlkDel;
             System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDriverCfg));
             System.Windows.Forms.ToolStripButton btnExport;
             System.Windows.Forms.ToolStripButton btnImport;
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDriverCfg));
+            this.btnSave = new System.Windows.Forms.ToolStripButton();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.devGridView = new System.Windows.Forms.DataGridView();
             this.devName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -117,6 +118,7 @@ namespace FepManager
             btnBlkModify,
             btnBlkDel,
             toolStripSeparator2,
+            this.btnSave,
             btnExport,
             btnImport});
             toolStrip.Location = new System.Drawing.Point(0, 4);
@@ -195,6 +197,16 @@ namespace FepManager
             toolStripSeparator2.Name = "toolStripSeparator2";
             toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
+            // btnSave
+            // 
+            this.btnSave.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
+            this.btnSave.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(23, 22);
+            this.btnSave.ToolTipText = "立即保存";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
             // btnExport
             // 
             btnExport.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -212,7 +224,7 @@ namespace FepManager
             btnImport.ImageTransparentColor = System.Drawing.Color.Magenta;
             btnImport.Name = "btnImport";
             btnImport.Size = new System.Drawing.Size(23, 22);
-            btnImport.ToolTipText = "导入Excel文件中的配置信息";
+            btnImport.ToolTipText = "导入Excel文件中的配置信息，之前会首先保存编辑的数据。";
             btnImport.Click += new System.EventHandler(this.btnImport_Click);
             // 
             // splitContainer1
@@ -241,13 +253,12 @@ namespace FepManager
             this.devGridView.AutoGenerateColumns = false;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.devGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.devGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.devGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.devName,
             this.devConntype,
@@ -262,7 +273,7 @@ namespace FepManager
             this.devGridView.DataSource = this.tdeviceBindingSource;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -379,7 +390,6 @@ namespace FepManager
             this.blockGridView.AllowUserToDeleteRows = false;
             this.blockGridView.AllowUserToOrderColumns = true;
             this.blockGridView.AutoGenerateColumns = false;
-            this.blockGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.blockGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dbName,
             this.dbType,
@@ -587,5 +597,6 @@ namespace FepManager
         private System.Windows.Forms.DataGridViewTextBoxColumn dbParam2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dbParam3;
         private DataSet.FepCfgTableAdapters.t_driverTableAdapter t_driverTableAdapter;
+        private System.Windows.Forms.ToolStripButton btnSave;
 	}
 }

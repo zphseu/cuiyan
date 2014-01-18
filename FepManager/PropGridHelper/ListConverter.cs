@@ -12,6 +12,12 @@ namespace FepManager.PropGridHelper
         {
             this.lists = lists;   
         }
+
+        public String[] Lists
+        {
+            get { return lists; }
+            set { lists = value; }
+        }
     }
 
     class StringListConverter : TypeConverter
@@ -46,6 +52,13 @@ namespace FepManager.PropGridHelper
         {
             this.lists = lists;
         }
+
+        public Int64[] Lists
+        {
+            get { return lists; }
+            set { lists = value; }
+        }
+
     }
 
     class LongListConverter : TypeConverter

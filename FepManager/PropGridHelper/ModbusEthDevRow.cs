@@ -87,7 +87,7 @@ namespace FepManager.PropGridHelper
         }
 
         [DescriptionAttribute("首字母为英文字符，其他为英文、数字或下划线，且同一驱动中不可重名。")
-          , CategoryAttribute("基本属性"), DisplayNameAttribute("设备名称"), PropertyOrder(1), DefaultValue("modbus_Device?")]
+         , CategoryAttribute("\t基本属性"), DisplayNameAttribute("设备名称"), PropertyOrder(1), DefaultValue("modbus_Device?")]
         public String Name
 	    {
 		    get { return m_Row.name; }
@@ -100,7 +100,7 @@ namespace FepManager.PropGridHelper
 	    }
 
 
-        [CategoryAttribute("基本属性"), DisplayNameAttribute("设备描述"), PropertyOrder(2),DescriptionAttribute("设备描述。"), DefaultValue("")]        
+        [CategoryAttribute("\t基本属性"), DisplayNameAttribute("设备描述"), PropertyOrder(2), DescriptionAttribute("设备描述。"), DefaultValue("")]        
         public String Desc
         {
             get { return m_Row.desc; }
@@ -155,7 +155,7 @@ namespace FepManager.PropGridHelper
             set { m_IsMultilink = value; ConvertToRowConn(); }
         }
 
-        [CategoryAttribute("基本属性"), DisplayNameAttribute("采集周期"), PropertyOrder(7), DefaultValue(1000), DescriptionAttribute("单位毫秒。")]
+        [CategoryAttribute("\t基本属性"), DisplayNameAttribute("采集周期"), PropertyOrder(7), DefaultValue(1000), DescriptionAttribute("单位毫秒。")]
         public Int64 CycleRate
         {
             get { return m_Row.cyclerate; }
@@ -167,7 +167,7 @@ namespace FepManager.PropGridHelper
             }
         }
 
-        [CategoryAttribute("基本属性"), DisplayNameAttribute("响应超时"), PropertyOrder(8), DefaultValue(3000)
+        [CategoryAttribute("\t基本属性"), DisplayNameAttribute("响应超时"), PropertyOrder(8), DefaultValue(3000)
            , DescriptionAttribute("发送命令给设备后等待设备返回的超时时间，单位是毫秒。若响应超时，驱动会断开重连。超时时间设定越小，则检测重连越快。但设置时还需考虑网络的稳定性，因此并不建议设置过小。")]
         public Int64 RecvTimout
         {
@@ -180,7 +180,7 @@ namespace FepManager.PropGridHelper
             }
         }
 
-        [CategoryAttribute("基本属性"), DisplayNameAttribute("任务号"), PropertyOrder(9), DefaultValue(1)
+        [CategoryAttribute("\t基本属性"), DisplayNameAttribute("任务号"), PropertyOrder(9), DefaultValue(1)
             ,DescriptionAttribute("不同任务号的设备是并行执行采集的且互不影响，同一任务号的设备是串行执行的，即一个设备采集完成后接着执行下一个设备的采集。")
             , TypeConverter(typeof(LongListConverter)), LongListAttribute(new Int64[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 })]
         public Int64 Task

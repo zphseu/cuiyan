@@ -13,8 +13,9 @@ namespace FepManager
 	/// </summary>
 	internal partial class FormDriverCfg : FormBase
 	{
-        MainForm parentForm;
-        DataSet.FepCfg.t_driverRow drvRow = null;
+        private MainForm parentForm;
+        private DataSet.FepCfg.t_driverRow m_drvRow = null;
+        private Object m_CurPGRow = null;
 
         public FormDriverCfg()
 		{
@@ -38,14 +39,22 @@ namespace FepManager
                 t_deviceTableAdapter.Connection = parentForm.SqlLiteConnection;
                 t_datablockTableAdapter.Connection = parentForm.SqlLiteConnection;
 
+                t_driverTableAdapter.Fill(fepCfg.t_driver);
                 t_deviceTableAdapter.Fill(fepCfg.t_device);
                 t_datablockTableAdapter.Fill(fepCfg.t_datablock);
-                t_driverTableAdapter.FillById(fepCfg.t_driver, (int)(long)this.Tag);
 
-                if (fepCfg.t_driver.Count == 1)
-                    drvRow = fepCfg.t_driver.Rows[0] as DataSet.FepCfg.t_driverRow;
-                else
-                    throw new Exception(String.Format("无法找到id={0}的驱动信息！", this.Tag));
+                foreach (DataSet.FepCfg.t_driverRow row in fepCfg.t_driver.Rows)
+                {
+                    if (row.id == (long)this.Tag)
+                    {
+                        m_drvRow = row;
+                        break;
+                    }
+                }
+                if (m_drvRow == null)
+                {
+                    throw new Exception("无法找到驱动信息！");
+                }
 
                 devGridView_SelectionChanged(this, new EventArgs());
             }
@@ -78,29 +87,32 @@ namespace FepManager
                 break;
             }
 
-            if (!bDevChanged && !bBlkChanged)
-                return;
-
-            switch (MessageBox.Show(String.Format("驱动[{0}]的配置信息已经修改，要保存吗？", Text), "确认", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information))
+            if (bDevChanged || bBlkChanged)
             {
-                case DialogResult.Yes:
-                    try
-                    {
-                        t_deviceTableAdapter.Update(fepCfg.t_device);
-                        t_datablockTableAdapter.Update(fepCfg.t_datablock);
-                    }
-                    catch (Exception Error)
-                    {
-                        MessageBox.Show(Error.Message);
+                switch (MessageBox.Show(String.Format("驱动[{0}]的配置信息已经修改，要保存吗？", Text), "确认", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information))
+                {
+                    case DialogResult.Yes:
+                        try
+                        {
+                            t_deviceTableAdapter.Update(fepCfg.t_device);
+                            t_datablockTableAdapter.Update(fepCfg.t_datablock);
+                        }
+                        catch (Exception Error)
+                        {
+                            MessageBox.Show(Error.Message);
+                            e.Cancel = true;
+                        }
+                        break;
+                    case DialogResult.Cancel:
                         e.Cancel = true;
-                    }
-                    break;
-                case DialogResult.Cancel:
-                    e.Cancel = true;
-                    break;
-                default:
-                    break;
+                        break;
+                    default:
+                        break;
+                }
             }
+
+            if (!e.Cancel && parentForm.PropertyGridObject == m_CurPGRow)
+                parentForm.PropertyGridObject = null;
         }
 
         private void devGridView_SelectionChanged(object sender, EventArgs e)
@@ -128,7 +140,9 @@ namespace FepManager
         {
             try
             {
-                fepCfg.t_device.Addt_deviceRow(this.drvRow, "device?", "", "", 1000, 3000, 1, "", "", "", "");
+                if (fepCfg.t_device.Rows.Count > HelperConst.MAX_DEV_COUNT)
+                    throw new Exception(String.Format("设备变量个数超过限制【{0}】，不可再添加。", HelperConst.MAX_DEV_COUNT));
+                fepCfg.t_device.Addt_deviceRow(m_drvRow, "device?", "", "", 1000, 3000, 1, "", "", "", "");
                 devGridView.Update();
             }
             catch (Exception ex)
@@ -148,11 +162,17 @@ namespace FepManager
                 Assembly _assembly = Assembly.GetExecutingAssembly();
                 Object obj = _assembly.CreateInstance("FepManager.PropGridHelper." + this.Text + "DevRow",
                     false, BindingFlags.Default, null, new object[] { row }, null, null);
-                
+
                 if (obj != null)
-                    parentForm.SetPropertyGridObject(obj);
+                {
+                    m_CurPGRow = obj;
+                    parentForm.PropertyGridObject = m_CurPGRow;
+                }
                 else
-                    parentForm.SetPropertyGridRow(row);
+                {
+                    m_CurPGRow = row;
+                    parentForm.PropertyGridDataRow = (DataRow)m_CurPGRow;
+                }
             }
             catch (Exception ex)
             {
@@ -232,10 +252,17 @@ namespace FepManager
                 Assembly _assembly = Assembly.GetExecutingAssembly();
                 Object obj = _assembly.CreateInstance("FepManager.PropGridHelper." + this.Text + "BlockRow",
                     false, BindingFlags.Default, null, new object[] { row }, null, null);
+
                 if (obj != null)
-                    parentForm.SetPropertyGridObject(obj);
+                {
+                    m_CurPGRow = obj;
+                    parentForm.PropertyGridObject = m_CurPGRow;
+                }
                 else
-                    parentForm.SetPropertyGridRow(row);
+                {
+                    m_CurPGRow = row;
+                    parentForm.PropertyGridDataRow = (DataRow)m_CurPGRow;
+                }
             }
             catch (Exception ex)
             {
@@ -272,18 +299,34 @@ namespace FepManager
 
         private void btnImport_Click(object sender, EventArgs e)
         {
+            btnSave_Click(sender, e);
+            openFileDialog.FileName = String.Format("{0}_", Text);
             if (openFileDialog.ShowDialog() != DialogResult.OK)
                 return;
+
+            if (devGridView.Rows.Count > 0 &&  MessageBox.Show("是否保留原有数据，并在此基础上导入？\r\n如果选择否的话，则先清除此驱动所有配置信息，再进行导入。", 
+                "确认", MessageBoxButtons.YesNo) == DialogResult.No)
+            {
+                for (int i = devGridView.RowCount; i > 0; i--)
+                {
+                    DataGridViewRow dgvRow = devGridView.Rows[i-1];
+                    DataSet.FepCfg.t_deviceRow devRow = (dgvRow.DataBoundItem as DataRowView).Row as DataSet.FepCfg.t_deviceRow;
+                    _delDataBlockGridRow(devRow.id);
+                    tdeviceBindingSource.RemoveAt(dgvRow.Index); 
+                }
+            }
 
             try
             {
                 DataSet.FepCfg dataTmp = fepCfg.Copy() as DataSet.FepCfg;
-                HelperNPOI.DriverCfgLoadFrom(openFileDialog.FileName, dataTmp);
+                String msg = HelperNPOI.DriverCfgLoadFrom(openFileDialog.FileName, m_drvRow, dataTmp);
                 fepCfg.Clear();
                 fepCfg = dataTmp.Copy() as DataSet.FepCfg;
                 dataTmp.Dispose();
                 this.tdeviceBindingSource.DataSource = this.fepCfg;
                 this.tdatablockBindingSource.DataSource = this.fepCfg;
+                if (msg.Length > 0)
+                    throw new Exception(msg);
             }
             catch (Exception ex)
             {
@@ -293,9 +336,23 @@ namespace FepManager
 
         private void btnExport_Click(object sender, EventArgs e)
         {
+            saveFileDialog.FileName = String.Format("{0}_{1:yyyyMMddHHmmss}", m_drvRow.name, DateTime.Now);
             if (saveFileDialog.ShowDialog() != DialogResult.OK)
                 return;
             HelperNPOI.DriverCfgSaveTo(saveFileDialog.FileName, fepCfg);
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                t_deviceTableAdapter.Update(fepCfg.t_device);
+                t_datablockTableAdapter.Update(fepCfg.t_datablock);
+            }
+            catch (Exception Error)
+            {
+                MessageBox.Show(Error.Message);
+            }
         }
 	}
 }

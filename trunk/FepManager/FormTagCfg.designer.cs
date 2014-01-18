@@ -39,7 +39,7 @@
             System.Windows.Forms.ToolStripButton tsBtnSave;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormTagCfg));
             System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
-            System.Windows.Forms.ToolStripButton toolStripButton1;
+            System.Windows.Forms.ToolStripButton tsBtnImp;
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -51,15 +51,18 @@
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.deviceid = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.type = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.fepCfg = new DataSet.FepCfg();
+            this.deviceid = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.address = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.scanintv = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ctrlenable = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.ttagBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.t_tagTableAdapter = new DataSet.FepCfgTableAdapters.t_tagTableAdapter();
             this.t_deviceTableAdapter = new DataSet.FepCfgTableAdapters.t_deviceTableAdapter();
+            this.t_tagtypeTableAdapter = new DataSet.FepCfgTableAdapters.t_tagtypeTableAdapter();
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             toolStripLabel4 = new System.Windows.Forms.ToolStripLabel();
             toolStripLabel5 = new System.Windows.Forms.ToolStripLabel();
@@ -69,7 +72,7 @@
             tsBtnExp = new System.Windows.Forms.ToolStripButton();
             tsBtnSave = new System.Windows.Forms.ToolStripButton();
             toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            tsBtnImp = new System.Windows.Forms.ToolStripButton();
             this.toolBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fepCfg)).BeginInit();
@@ -131,7 +134,7 @@
             tsBtnExp.ImageTransparentColor = System.Drawing.Color.Magenta;
             tsBtnExp.Name = "tsBtnExp";
             tsBtnExp.Size = new System.Drawing.Size(23, 22);
-            tsBtnExp.ToolTipText = "导入配置到Excel文件";
+            tsBtnExp.ToolTipText = "导出配置到Excel文件";
             tsBtnExp.Click += new System.EventHandler(this.tsBtnExp_Click);
             // 
             // tsBtnSave
@@ -149,14 +152,15 @@
             toolStripSeparator5.Name = "toolStripSeparator5";
             toolStripSeparator5.Size = new System.Drawing.Size(6, 25);
             // 
-            // toolStripButton1
+            // tsBtnImp
             // 
-            toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            toolStripButton1.Image = global::FepManager.Properties.Resources._54;
-            toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            toolStripButton1.Name = "toolStripButton1";
-            toolStripButton1.Size = new System.Drawing.Size(23, 22);
-            toolStripButton1.ToolTipText = "导入Excel文件中的配置信息";
+            tsBtnImp.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            tsBtnImp.Image = global::FepManager.Properties.Resources._54;
+            tsBtnImp.ImageTransparentColor = System.Drawing.Color.Magenta;
+            tsBtnImp.Name = "tsBtnImp";
+            tsBtnImp.Size = new System.Drawing.Size(23, 22);
+            tsBtnImp.ToolTipText = "导入Excel文件中的配置信息，之前会首先保存编辑的数据。";
+            tsBtnImp.Click += new System.EventHandler(this.tsBtnImp_Click);
             // 
             // toolBar
             // 
@@ -167,7 +171,7 @@
             this.toolStripSeparator1,
             tsBtnSave,
             tsBtnExp,
-            toolStripButton1,
+            tsBtnImp,
             toolStripSeparator5,
             toolStripLabel1,
             this.tsTxtName,
@@ -190,25 +194,26 @@
             // 
             this.tsTxtName.Name = "tsTxtName";
             this.tsTxtName.Size = new System.Drawing.Size(100, 25);
-            this.tsTxtName.TextChanged += new System.EventHandler(this.tsTxtName_TextChanged);
+            this.tsTxtName.TextChanged += new System.EventHandler(this.toolbarFilerChanged);
             // 
             // tsCbxDevice
             // 
             this.tsCbxDevice.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.tsCbxDevice.Name = "tsCbxDevice";
             this.tsCbxDevice.Size = new System.Drawing.Size(121, 25);
-            this.tsCbxDevice.SelectedIndexChanged += new System.EventHandler(this.tsCbxDevice_SelectedIndexChanged);
+            this.tsCbxDevice.SelectedIndexChanged += new System.EventHandler(this.toolbarFilerChanged);
             // 
             // tsCbxType
             // 
             this.tsCbxType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.tsCbxType.Name = "tsCbxType";
             this.tsCbxType.Size = new System.Drawing.Size(121, 25);
-            this.tsCbxType.SelectedIndexChanged += new System.EventHandler(this.tsCbxType_SelectedIndexChanged);
+            this.tsCbxType.SelectedIndexChanged += new System.EventHandler(this.toolbarFilerChanged);
             // 
             // dataGridView
             // 
             this.dataGridView.AllowUserToAddRows = false;
+            this.dataGridView.AllowUserToDeleteRows = false;
             this.dataGridView.AllowUserToOrderColumns = true;
             this.dataGridView.AutoGenerateColumns = false;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -219,7 +224,6 @@
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.name,
             this.desc,
@@ -239,8 +243,8 @@
             this.dataGridView.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView.Location = new System.Drawing.Point(0, 29);
-            this.dataGridView.MultiSelect = false;
             this.dataGridView.Name = "dataGridView";
+            this.dataGridView.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -261,6 +265,7 @@
             this.name.DataPropertyName = "name";
             this.name.HeaderText = "变量名称";
             this.name.Name = "name";
+            this.name.ReadOnly = true;
             // 
             // desc
             // 
@@ -268,13 +273,26 @@
             this.desc.DataPropertyName = "desc";
             this.desc.HeaderText = "变量描述";
             this.desc.Name = "desc";
+            this.desc.ReadOnly = true;
             // 
             // type
             // 
             this.type.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.type.DataPropertyName = "type";
+            this.type.DataPropertyName = "tagtype_id";
+            this.type.DataSource = this.fepCfg;
+            this.type.DisplayMember = "t_tagtype.name";
+            this.type.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
             this.type.HeaderText = "变量类型";
             this.type.Name = "type";
+            this.type.ReadOnly = true;
+            this.type.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.type.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.type.ValueMember = "t_tagtype.id";
+            // 
+            // fepCfg
+            // 
+            this.fepCfg.DataSetName = "FepCfg";
+            this.fepCfg.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // deviceid
             // 
@@ -282,16 +300,13 @@
             this.deviceid.DataPropertyName = "device_id";
             this.deviceid.DataSource = this.fepCfg;
             this.deviceid.DisplayMember = "t_device.name";
+            this.deviceid.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
             this.deviceid.HeaderText = "设备名称";
             this.deviceid.Name = "deviceid";
+            this.deviceid.ReadOnly = true;
             this.deviceid.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.deviceid.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.deviceid.ValueMember = "t_device.id";
-            // 
-            // fepCfg
-            // 
-            this.fepCfg.DataSetName = "FepCfg";
-            this.fepCfg.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // address
             // 
@@ -299,6 +314,7 @@
             this.address.DataPropertyName = "address";
             this.address.HeaderText = "设备地址";
             this.address.Name = "address";
+            this.address.ReadOnly = true;
             // 
             // scanintv
             // 
@@ -306,6 +322,7 @@
             this.scanintv.DataPropertyName = "scan_intv";
             this.scanintv.HeaderText = "扫描周期";
             this.scanintv.Name = "scanintv";
+            this.scanintv.ReadOnly = true;
             // 
             // ctrlenable
             // 
@@ -316,6 +333,7 @@
             this.ctrlenable.HeaderText = "是否可控";
             this.ctrlenable.IndeterminateValue = "0";
             this.ctrlenable.Name = "ctrlenable";
+            this.ctrlenable.ReadOnly = true;
             this.ctrlenable.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.ctrlenable.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.ctrlenable.TrueValue = "1";
@@ -332,6 +350,18 @@
             // t_deviceTableAdapter
             // 
             this.t_deviceTableAdapter.ClearBeforeFill = true;
+            // 
+            // t_tagtypeTableAdapter
+            // 
+            this.t_tagtypeTableAdapter.ClearBeforeFill = true;
+            // 
+            // openFileDialog
+            // 
+            this.openFileDialog.Filter = "Excel File|*.xls|All files|*.*";
+            // 
+            // saveFileDialog
+            // 
+            this.saveFileDialog.Filter = "Excel File|*.xls|All files|*.*";
             // 
             // FormTagCfg
             // 
@@ -368,12 +398,15 @@
         private DataSet.FepCfgTableAdapters.t_tagTableAdapter t_tagTableAdapter;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private DataSet.FepCfgTableAdapters.t_deviceTableAdapter t_deviceTableAdapter;
+        private DataSet.FepCfgTableAdapters.t_tagtypeTableAdapter t_tagtypeTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
         private System.Windows.Forms.DataGridViewTextBoxColumn desc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn type;
+        private System.Windows.Forms.DataGridViewComboBoxColumn type;
         private System.Windows.Forms.DataGridViewComboBoxColumn deviceid;
         private System.Windows.Forms.DataGridViewTextBoxColumn address;
         private System.Windows.Forms.DataGridViewTextBoxColumn scanintv;
         private System.Windows.Forms.DataGridViewCheckBoxColumn ctrlenable;
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog;
     }
 }

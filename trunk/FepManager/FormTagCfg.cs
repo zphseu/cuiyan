@@ -10,23 +10,10 @@ namespace FepManager
 {
     internal partial class FormTagCfg : FormBase
     {
-        internal enum TypeName
-        {
-            TEXT = 0,	// ASCII string, maximum: 127
-            SINT16 = 1,	// 16 bit Signed Integer value
-            UINT16 = 2,	// 16 bit Unsigned Integer value
-            FLOAT = 3,		// 32 bit IEEE float
-            BIT = 4,		// 1 bit value
-            ULONG = 6,	// 32 bit integer value
-            SLONG = 7,	// 32 bit signed integer value
-            DOUBLE = 8,		// 64 bit double
-            BLOB = 9,	// blob, maximum 65535
-            CHAR = 10,	// 8 bit signed integer value
-            UCHAR = 11   // 8 bit unsigned integer value
-        };
-
         private MainForm parentForm;
         private Dictionary<String, DataSet.FepCfg.t_deviceRow> devNameList = new Dictionary<String, DataSet.FepCfg.t_deviceRow>();
+        private Dictionary<String, DataSet.FepCfg.t_tagtypeRow> typeNameList = new Dictionary<String, DataSet.FepCfg.t_tagtypeRow>();
+        private FepManager.PropGridHelper.TagRow m_CurPGRow = null;
 
         public FormTagCfg()
         {
@@ -41,8 +28,10 @@ namespace FepManager
 
             this.t_tagTableAdapter.Connection = parentForm.SqlLiteConnection;
             this.t_deviceTableAdapter.Connection = parentForm.SqlLiteConnection;
+            this.t_tagtypeTableAdapter.Connection = parentForm.SqlLiteConnection;
             this.t_tagTableAdapter.Fill(this.fepCfg.t_tag);
             this.t_deviceTableAdapter.Fill(this.fepCfg.t_device);
+            this.t_tagtypeTableAdapter.Fill(this.fepCfg.t_tagtype);
 
             tsCbxDevice.Items.Add("所有设备");
             tsCbxDevice.SelectedIndex = 0;
@@ -50,6 +39,14 @@ namespace FepManager
             {
                 devNameList[row.name] = row;
                 tsCbxDevice.Items.Add(row.name);
+            }
+
+            tsCbxType.Items.Add("所有类型");
+            tsCbxType.SelectedIndex = 0;
+            foreach (DataSet.FepCfg.t_tagtypeRow row in fepCfg.t_tagtype.Rows)
+            {
+                typeNameList[row.name] = row;
+                tsCbxType.Items.Add(row.name);
             }
         }
 
@@ -70,28 +67,31 @@ namespace FepManager
                 }
             }
 
-            if (!bChanged)
-                return;
-
-            switch (MessageBox.Show(String.Format("变量配置信息已经修改，要保存吗？"), "确认", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information))
+            if (bChanged)
             {
-                case DialogResult.Yes:
-                    try
-                    {
-                        t_tagTableAdapter.Update(fepCfg.t_tag);
-                    }
-                    catch (Exception Error)
-                    {
-                        MessageBox.Show(Error.Message);
+                switch (MessageBox.Show(String.Format("变量配置信息已经修改，要保存吗？"), "确认", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information))
+                {
+                    case DialogResult.Yes:
+                        try
+                        {
+                            t_tagTableAdapter.Update(fepCfg.t_tag);
+                        }
+                        catch (Exception Error)
+                        {
+                            MessageBox.Show(Error.Message);
+                            e.Cancel = true;
+                        }
+                        break;
+                    case DialogResult.Cancel:
                         e.Cancel = true;
-                    }
-                    break;
-                case DialogResult.Cancel:
-                    e.Cancel = true;
-                    break;
-                default:
-                    break;
+                        break;
+                    default:
+                        break;
+                }
             }
+
+            if (!e.Cancel && parentForm.PropertyGridObject == m_CurPGRow)
+                parentForm.PropertyGridObject = null;
         }
 
         private void dataGridView_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -103,12 +103,17 @@ namespace FepManager
         {
             try
             {
-                if (tsCbxDevice.SelectedIndex == 0)
-                    throw new Exception("请首先在工具条上指定要增加的【变量类型】！");
-                if (!devNameList.ContainsKey(tsCbxDevice.SelectedItem.ToString()))
+                if (fepCfg.t_tag.Rows.Count > HelperConst.MAX_TAG_COUNT)
+                    throw new Exception(String.Format("变量个数超过限制【{0}】，不可再添加。", HelperConst.MAX_TAG_COUNT));    
+                if (tsCbxDevice.SelectedIndex == 0 || tsCbxType.SelectedIndex == 0 )
+                    throw new Exception("请首先在工具条上指定要增加的【设备名称】和 【变量类型】！");
+                if (tsCbxDevice.SelectedItem == null || !devNameList.ContainsKey(tsCbxDevice.SelectedItem.ToString()))
+                    throw new Exception("莫名其妙，怎么找不到你所选择的【设备名称】的ID ？！");
+                if (tsCbxType.SelectedItem == null || !typeNameList.ContainsKey(tsCbxType.SelectedItem.ToString()))
                     throw new Exception("莫名其妙，怎么找不到你所选择的【变量类型】的ID ？！");
 
-                fepCfg.t_tag.Addt_tagRow("tag?", devNameList[tsCbxDevice.SelectedItem.ToString()], 0, "", 0, 0, 0, 0, 0, 0, 0, "", "", "", "", "");
+                fepCfg.t_tag.Addt_tagRow("tag?", devNameList[tsCbxDevice.SelectedItem.ToString()], "", 0, 1, 1000, 0, 0, 1, 3, "", "", "", "", "", 
+                    typeNameList[tsCbxType.SelectedItem.ToString()]);
                 dataGridView.Update();
             }
             catch (Exception ex)
@@ -123,7 +128,9 @@ namespace FepManager
             {
                 if (dataGridView.SelectedRows.Count <= 0)
                     throw new Exception("请首先选中一条【变量】配置记录！");
-                parentForm.SetPropertyGridObject(new FepManager.PropGridHelper.TagRow((dataGridView.CurrentRow.DataBoundItem as DataRowView).Row as DataSet.FepCfg.t_tagRow, devNameList));
+
+                m_CurPGRow = new FepManager.PropGridHelper.TagRow((dataGridView.CurrentRow.DataBoundItem as DataRowView).Row as DataSet.FepCfg.t_tagRow, devNameList, typeNameList);
+                parentForm.PropertyGridObject = m_CurPGRow;
             }
             catch (Exception ex)
             {
@@ -173,27 +180,75 @@ namespace FepManager
 
         private void tsBtnExp_Click(object sender, EventArgs e)
         {
-
+            saveFileDialog.FileName = String.Format("{0}_{1:yyyyMMddHHmmss}", this.Text, DateTime.Now);
+            if (saveFileDialog.ShowDialog() != DialogResult.OK)
+                return;
+            HelperNPOI.TagCfgSaveTo(saveFileDialog.FileName, fepCfg.t_tag);
         }
 
         private void tsBtnImp_Click(object sender, EventArgs e)
         {
+            tsBtnSave_Click(sender, e);
+
+            openFileDialog.FileName = String.Format("{0}_", this.Text);
+            if (openFileDialog.ShowDialog() != DialogResult.OK)
+                return;
+
+            if (dataGridView.Rows.Count > 0 && MessageBox.Show("是否保留原有数据，并在此基础上导入？\r\n如果选择否的话，则先清除此驱动所有配置信息，再进行导入。", 
+                "确认", MessageBoxButtons.YesNo) == DialogResult.No)
+            {
+                for (int i = dataGridView.RowCount; i > 0; i--)
+                {
+                    DataGridViewRow dgvRow = dataGridView.Rows[i - 1];
+                    DataSet.FepCfg.t_tagRow devRow = (dgvRow.DataBoundItem as DataRowView).Row as DataSet.FepCfg.t_tagRow;
+                    ttagBindingSource.RemoveAt(dgvRow.Index);
+                }
+            }
+
+            try
+            {
+                DataSet.FepCfg dataTmp = fepCfg.Copy() as DataSet.FepCfg;
+                String msg = HelperNPOI.TagCfgLoadFrom(openFileDialog.FileName, dataTmp);
+                fepCfg.t_tag.Merge(dataTmp.t_tag);
+                if (msg.Length > 0)
+                    throw new Exception(msg);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "警告 -- 以下记录未导入", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }               
 
         }
 
-        private void tsTxtName_TextChanged(object sender, EventArgs e)
+        private void toolbarFilerChanged(object sender, EventArgs e)
         {
+            //tsTxtName, tsCbxDevice, tsCbxType
+            try
+            {
+                String filer = "";
 
+                String tagFiler = tsTxtName.Text.Trim();
+                if (tagFiler.Length > 0)
+                    filer += String.Format("name like '%{0}%'", tagFiler);
+
+                if (tsCbxDevice.SelectedIndex != 0 && tsCbxDevice.SelectedItem != null)
+                {
+                    filer += (filer.Length > 0) ? " AND " : "";
+                    filer += String.Format("device_id = {0}", devNameList[tsCbxDevice.SelectedItem.ToString()].id);
+                }
+
+                if (tsCbxType.SelectedIndex != 0 && tsCbxType.SelectedItem != null)
+                {
+                    filer += (filer.Length > 0) ? " AND " : "";
+                    filer += String.Format("tagtype_id = {0}", typeNameList[tsCbxType.SelectedItem.ToString()].id);
+                }
+
+                ttagBindingSource.Filter = filer;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
-
-        private void tsCbxDevice_SelectedIndexChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void tsCbxType_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
     }
 }

@@ -77,7 +77,10 @@ namespace LuisRuiz
         #endregion
 
         #region PROPIEDADES
-
+        public DataRow Row
+        {
+            get { return this.Registro; }
+        }
         #endregion
 
         #region METODOS

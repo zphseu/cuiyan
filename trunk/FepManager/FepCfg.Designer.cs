@@ -33,11 +33,15 @@ namespace DataSet {
         
         private t_tagDataTable tablet_tag;
         
+        private t_tagtypeDataTable tablet_tagtype;
+        
         private global::System.Data.DataRelation relationFK_t_device_0_0;
         
         private global::System.Data.DataRelation relationFK_t_datablock_0_0;
         
         private global::System.Data.DataRelation relationFK_t_tag_0_0;
+        
+        private global::System.Data.DataRelation relationFK_t_tag_0_01;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -76,6 +80,9 @@ namespace DataSet {
                 }
                 if ((ds.Tables["t_tag"] != null)) {
                     base.Tables.Add(new t_tagDataTable(ds.Tables["t_tag"]));
+                }
+                if ((ds.Tables["t_tagtype"] != null)) {
+                    base.Tables.Add(new t_tagtypeDataTable(ds.Tables["t_tagtype"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -128,6 +135,15 @@ namespace DataSet {
         public t_tagDataTable t_tag {
             get {
                 return this.tablet_tag;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public t_tagtypeDataTable t_tagtype {
+            get {
+                return this.tablet_tagtype;
             }
         }
         
@@ -202,6 +218,9 @@ namespace DataSet {
                 if ((ds.Tables["t_tag"] != null)) {
                     base.Tables.Add(new t_tagDataTable(ds.Tables["t_tag"]));
                 }
+                if ((ds.Tables["t_tagtype"] != null)) {
+                    base.Tables.Add(new t_tagtypeDataTable(ds.Tables["t_tagtype"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -256,9 +275,16 @@ namespace DataSet {
                     this.tablet_tag.InitVars();
                 }
             }
+            this.tablet_tagtype = ((t_tagtypeDataTable)(base.Tables["t_tagtype"]));
+            if ((initTable == true)) {
+                if ((this.tablet_tagtype != null)) {
+                    this.tablet_tagtype.InitVars();
+                }
+            }
             this.relationFK_t_device_0_0 = this.Relations["FK_t_device_0_0"];
             this.relationFK_t_datablock_0_0 = this.Relations["FK_t_datablock_0_0"];
             this.relationFK_t_tag_0_0 = this.Relations["FK_t_tag_0_0"];
+            this.relationFK_t_tag_0_01 = this.Relations["FK_t_tag_0_01"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -276,6 +302,8 @@ namespace DataSet {
             base.Tables.Add(this.tablet_datablock);
             this.tablet_tag = new t_tagDataTable();
             base.Tables.Add(this.tablet_tag);
+            this.tablet_tagtype = new t_tagtypeDataTable();
+            base.Tables.Add(this.tablet_tagtype);
             this.relationFK_t_device_0_0 = new global::System.Data.DataRelation("FK_t_device_0_0", new global::System.Data.DataColumn[] {
                         this.tablet_driver.idColumn}, new global::System.Data.DataColumn[] {
                         this.tablet_device.driver_idColumn}, false);
@@ -288,6 +316,10 @@ namespace DataSet {
                         this.tablet_device.idColumn}, new global::System.Data.DataColumn[] {
                         this.tablet_tag.device_idColumn}, false);
             this.Relations.Add(this.relationFK_t_tag_0_0);
+            this.relationFK_t_tag_0_01 = new global::System.Data.DataRelation("FK_t_tag_0_01", new global::System.Data.DataColumn[] {
+                        this.tablet_tagtype.idColumn}, new global::System.Data.DataColumn[] {
+                        this.tablet_tag.tagtype_idColumn}, false);
+            this.Relations.Add(this.relationFK_t_tag_0_01);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -307,6 +339,11 @@ namespace DataSet {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private bool ShouldSerializet_tag() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private bool ShouldSerializet_tagtype() {
             return false;
         }
         
@@ -370,6 +407,8 @@ namespace DataSet {
         public delegate void t_datablockRowChangeEventHandler(object sender, t_datablockRowChangeEvent e);
         
         public delegate void t_tagRowChangeEventHandler(object sender, t_tagRowChangeEvent e);
+        
+        public delegate void t_tagtypeRowChangeEventHandler(object sender, t_tagtypeRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -1551,8 +1590,6 @@ namespace DataSet {
             
             private global::System.Data.DataColumn columndevice_id;
             
-            private global::System.Data.DataColumn columntype;
-            
             private global::System.Data.DataColumn columnaddress;
             
             private global::System.Data.DataColumn columnlength;
@@ -1578,6 +1615,8 @@ namespace DataSet {
             private global::System.Data.DataColumn columnparam2;
             
             private global::System.Data.DataColumn columnparam3;
+            
+            private global::System.Data.DataColumn columntagtype_id;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public t_tagDataTable() {
@@ -1620,13 +1659,6 @@ namespace DataSet {
             public global::System.Data.DataColumn device_idColumn {
                 get {
                     return this.columndevice_id;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn typeColumn {
-                get {
-                    return this.columntype;
                 }
             }
             
@@ -1722,6 +1754,13 @@ namespace DataSet {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn tagtype_idColumn {
+                get {
+                    return this.columntagtype_id;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1753,7 +1792,6 @@ namespace DataSet {
             public t_tagRow Addt_tagRow(
                         string name, 
                         t_deviceRow parentt_deviceRowByFK_t_tag_0_0, 
-                        long type, 
                         string address, 
                         long length, 
                         short scan_enable, 
@@ -1766,12 +1804,12 @@ namespace DataSet {
                         string param0, 
                         string param1, 
                         string param2, 
-                        string param3) {
+                        string param3, 
+                        t_tagtypeRow parentt_tagtypeRowByFK_t_tag_0_01) {
                 t_tagRow rowt_tagRow = ((t_tagRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         name,
                         null,
-                        type,
                         address,
                         length,
                         scan_enable,
@@ -1784,9 +1822,13 @@ namespace DataSet {
                         param0,
                         param1,
                         param2,
-                        param3};
+                        param3,
+                        null};
                 if ((parentt_deviceRowByFK_t_tag_0_0 != null)) {
                     columnValuesArray[1] = parentt_deviceRowByFK_t_tag_0_0[0];
+                }
+                if ((parentt_tagtypeRowByFK_t_tag_0_01 != null)) {
+                    columnValuesArray[15] = parentt_tagtypeRowByFK_t_tag_0_01[0];
                 }
                 rowt_tagRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowt_tagRow);
@@ -1820,7 +1862,6 @@ namespace DataSet {
             internal void InitVars() {
                 this.columnname = base.Columns["name"];
                 this.columndevice_id = base.Columns["device_id"];
-                this.columntype = base.Columns["type"];
                 this.columnaddress = base.Columns["address"];
                 this.columnlength = base.Columns["length"];
                 this.columnscan_enable = base.Columns["scan_enable"];
@@ -1834,6 +1875,7 @@ namespace DataSet {
                 this.columnparam1 = base.Columns["param1"];
                 this.columnparam2 = base.Columns["param2"];
                 this.columnparam3 = base.Columns["param3"];
+                this.columntagtype_id = base.Columns["tagtype_id"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1842,8 +1884,6 @@ namespace DataSet {
                 base.Columns.Add(this.columnname);
                 this.columndevice_id = new global::System.Data.DataColumn("device_id", typeof(long), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndevice_id);
-                this.columntype = new global::System.Data.DataColumn("type", typeof(long), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columntype);
                 this.columnaddress = new global::System.Data.DataColumn("address", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnaddress);
                 this.columnlength = new global::System.Data.DataColumn("length", typeof(long), null, global::System.Data.MappingType.Element);
@@ -1870,6 +1910,8 @@ namespace DataSet {
                 base.Columns.Add(this.columnparam2);
                 this.columnparam3 = new global::System.Data.DataColumn("param3", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnparam3);
+                this.columntagtype_id = new global::System.Data.DataColumn("tagtype_id", typeof(long), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntagtype_id);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnname}, true));
                 this.columnname.AllowDBNull = false;
@@ -1889,6 +1931,7 @@ namespace DataSet {
                 this.columnparam1.MaxLength = 2147483647;
                 this.columnparam2.MaxLength = 2147483647;
                 this.columnparam3.MaxLength = 2147483647;
+                this.columntagtype_id.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1966,6 +2009,287 @@ namespace DataSet {
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
                 attribute2.FixedValue = "t_tagDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class t_tagtypeDataTable : global::System.Data.DataTable, global::System.Collections.IEnumerable {
+            
+            private global::System.Data.DataColumn columnid;
+            
+            private global::System.Data.DataColumn columnname;
+            
+            private global::System.Data.DataColumn columnlength;
+            
+            private global::System.Data.DataColumn columndesc;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public t_tagtypeDataTable() {
+                this.TableName = "t_tagtype";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal t_tagtypeDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected t_tagtypeDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn idColumn {
+                get {
+                    return this.columnid;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn nameColumn {
+                get {
+                    return this.columnname;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn lengthColumn {
+                get {
+                    return this.columnlength;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn descColumn {
+                get {
+                    return this.columndesc;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public t_tagtypeRow this[int index] {
+                get {
+                    return ((t_tagtypeRow)(this.Rows[index]));
+                }
+            }
+            
+            public event t_tagtypeRowChangeEventHandler t_tagtypeRowChanging;
+            
+            public event t_tagtypeRowChangeEventHandler t_tagtypeRowChanged;
+            
+            public event t_tagtypeRowChangeEventHandler t_tagtypeRowDeleting;
+            
+            public event t_tagtypeRowChangeEventHandler t_tagtypeRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void Addt_tagtypeRow(t_tagtypeRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public t_tagtypeRow Addt_tagtypeRow(long id, string name, long length, string desc) {
+                t_tagtypeRow rowt_tagtypeRow = ((t_tagtypeRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        id,
+                        name,
+                        length,
+                        desc};
+                rowt_tagtypeRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowt_tagtypeRow);
+                return rowt_tagtypeRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public t_tagtypeRow FindByid(long id) {
+                return ((t_tagtypeRow)(this.Rows.Find(new object[] {
+                            id})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public virtual global::System.Collections.IEnumerator GetEnumerator() {
+                return this.Rows.GetEnumerator();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public override global::System.Data.DataTable Clone() {
+                t_tagtypeDataTable cln = ((t_tagtypeDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new t_tagtypeDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal void InitVars() {
+                this.columnid = base.Columns["id"];
+                this.columnname = base.Columns["name"];
+                this.columnlength = base.Columns["length"];
+                this.columndesc = base.Columns["desc"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            private void InitClass() {
+                this.columnid = new global::System.Data.DataColumn("id", typeof(long), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnid);
+                this.columnname = new global::System.Data.DataColumn("name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnname);
+                this.columnlength = new global::System.Data.DataColumn("length", typeof(long), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnlength);
+                this.columndesc = new global::System.Data.DataColumn("desc", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndesc);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnid}, true));
+                this.columnid.AllowDBNull = false;
+                this.columnid.Unique = true;
+                this.columnname.AllowDBNull = false;
+                this.columnname.MaxLength = 2147483647;
+                this.columnlength.AllowDBNull = false;
+                this.columndesc.MaxLength = 2147483647;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public t_tagtypeRow Newt_tagtypeRow() {
+                return ((t_tagtypeRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new t_tagtypeRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Type GetRowType() {
+                return typeof(t_tagtypeRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.t_tagtypeRowChanged != null)) {
+                    this.t_tagtypeRowChanged(this, new t_tagtypeRowChangeEvent(((t_tagtypeRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.t_tagtypeRowChanging != null)) {
+                    this.t_tagtypeRowChanging(this, new t_tagtypeRowChangeEvent(((t_tagtypeRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.t_tagtypeRowDeleted != null)) {
+                    this.t_tagtypeRowDeleted(this, new t_tagtypeRowChangeEvent(((t_tagtypeRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.t_tagtypeRowDeleting != null)) {
+                    this.t_tagtypeRowDeleting(this, new t_tagtypeRowChangeEvent(((t_tagtypeRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void Removet_tagtypeRow(t_tagtypeRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                FepCfg ds = new FepCfg();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "t_tagtypeDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -2626,21 +2950,6 @@ namespace DataSet {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public long type {
-                get {
-                    try {
-                        return ((long)(this[this.tablet_tag.typeColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'type\' in table \'t_tag\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablet_tag.typeColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public string address {
                 get {
                     try {
@@ -2801,6 +3110,16 @@ namespace DataSet {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public long tagtype_id {
+                get {
+                    return ((long)(this[this.tablet_tag.tagtype_idColumn]));
+                }
+                set {
+                    this[this.tablet_tag.tagtype_idColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public t_deviceRow t_deviceRow {
                 get {
                     return ((t_deviceRow)(this.GetParentRow(this.Table.ParentRelations["FK_t_tag_0_0"])));
@@ -2811,13 +3130,13 @@ namespace DataSet {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool IstypeNull() {
-                return this.IsNull(this.tablet_tag.typeColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void SettypeNull() {
-                this[this.tablet_tag.typeColumn] = global::System.Convert.DBNull;
+            public t_tagtypeRow t_tagtypeRow {
+                get {
+                    return ((t_tagtypeRow)(this.GetParentRow(this.Table.ParentRelations["FK_t_tag_0_01"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_t_tag_0_01"]);
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2878,6 +3197,86 @@ namespace DataSet {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public void Setparam3Null() {
                 this[this.tablet_tag.param3Column] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        public partial class t_tagtypeRow : global::System.Data.DataRow {
+            
+            private t_tagtypeDataTable tablet_tagtype;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal t_tagtypeRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tablet_tagtype = ((t_tagtypeDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public long id {
+                get {
+                    return ((long)(this[this.tablet_tagtype.idColumn]));
+                }
+                set {
+                    this[this.tablet_tagtype.idColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string name {
+                get {
+                    return ((string)(this[this.tablet_tagtype.nameColumn]));
+                }
+                set {
+                    this[this.tablet_tagtype.nameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public long length {
+                get {
+                    return ((long)(this[this.tablet_tagtype.lengthColumn]));
+                }
+                set {
+                    this[this.tablet_tagtype.lengthColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string desc {
+                get {
+                    try {
+                        return ((string)(this[this.tablet_tagtype.descColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'desc\' in table \'t_tagtype\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablet_tagtype.descColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsdescNull() {
+                return this.IsNull(this.tablet_tagtype.descColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetdescNull() {
+                this[this.tablet_tagtype.descColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public t_tagRow[] Gett_tagRows() {
+                if ((this.Table.ChildRelations["FK_t_tag_0_01"] == null)) {
+                    return new t_tagRow[0];
+                }
+                else {
+                    return ((t_tagRow[])(base.GetChildRows(this.Table.ChildRelations["FK_t_tag_0_01"])));
+                }
             }
         }
         
@@ -2992,6 +3391,37 @@ namespace DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public t_tagRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        public class t_tagtypeRowChangeEvent : global::System.EventArgs {
+            
+            private t_tagtypeRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public t_tagtypeRowChangeEvent(t_tagtypeRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public t_tagtypeRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -3358,24 +3788,12 @@ namespace DataSet.FepCfgTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SQLite.SQLiteCommand[2];
+            this._commandCollection = new global::System.Data.SQLite.SQLiteCommand[1];
             this._commandCollection[0] = new global::System.Data.SQLite.SQLiteCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT [id], [name], [type], [filename], [visble], [enable], [desc], [preserve] F" +
                 "ROM [t_driver]";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1] = new global::System.Data.SQLite.SQLiteCommand();
-            this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT [id], [name], [type], [filename], [visble], [enable], [desc], [preserve] F" +
-                "ROM [t_driver] WHERE [id] = @id";
-            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            global::System.Data.SQLite.SQLiteParameter param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@id";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.DbType = global::System.Data.DbType.Int64;
-            param.Size = 8;
-            param.SourceColumn = "id";
-            this._commandCollection[1].Parameters.Add(param);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3398,19 +3816,6 @@ namespace DataSet.FepCfgTableAdapters {
             FepCfg.t_driverDataTable dataTable = new FepCfg.t_driverDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillById(FepCfg.t_driverDataTable dataTable, int id) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(id));
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5450,7 +5855,6 @@ namespace DataSet.FepCfgTableAdapters {
             tableMapping.DataSetTable = "t_tag";
             tableMapping.ColumnMappings.Add("name", "name");
             tableMapping.ColumnMappings.Add("device_id", "device_id");
-            tableMapping.ColumnMappings.Add("type", "type");
             tableMapping.ColumnMappings.Add("address", "address");
             tableMapping.ColumnMappings.Add("length", "length");
             tableMapping.ColumnMappings.Add("scan_enable", "scan_enable");
@@ -5464,10 +5868,11 @@ namespace DataSet.FepCfgTableAdapters {
             tableMapping.ColumnMappings.Add("param1", "param1");
             tableMapping.ColumnMappings.Add("param2", "param2");
             tableMapping.ColumnMappings.Add("param3", "param3");
+            tableMapping.ColumnMappings.Add("tagtype_id", "tagtype_id");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SQLite.SQLiteCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [main].[sqlite_default_schema].[t_tag] WHERE (([name] = @Original_name) AND ([device_id] = @Original_device_id) AND ((@IsNull_type = 1 AND [type] IS NULL) OR ([type] = @Original_type)) AND ((@IsNull_address = 1 AND [address] IS NULL) OR ([address] = @Original_address)) AND ([length] = @Original_length) AND ([scan_enable] = @Original_scan_enable) AND ([scan_intv] = @Original_scan_intv) AND ([scan_phs] = @Original_scan_phs) AND ([ctrl_enable] = @Original_ctrl_enable) AND ([evtctrl_enable] = @Original_evtctrl_enable) AND ([evtctrl_priority] = @Original_evtctrl_priority) AND ((@IsNull_desc = 1 AND [desc] IS NULL) OR ([desc] = @Original_desc)) AND ((@IsNull_param0 = 1 AND [param0] IS NULL) OR ([param0] = @Original_param0)) AND ((@IsNull_param1 = 1 AND [param1] IS NULL) OR ([param1] = @Original_param1)) AND ((@IsNull_param2 = 1 AND [param2] IS NULL) OR ([param2] = @Original_param2)) AND ((@IsNull_param3 = 1 AND [param3] IS NULL) OR ([param3] = @Original_param3)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [main].[sqlite_default_schema].[t_tag] WHERE (([name] = @Original_name) AND ([device_id] = @Original_device_id) AND ([tagtype_id] = @Original_tagtype_id) AND ((@IsNull_address = 1 AND [address] IS NULL) OR ([address] = @Original_address)) AND ([length] = @Original_length) AND ([scan_enable] = @Original_scan_enable) AND ([scan_intv] = @Original_scan_intv) AND ([scan_phs] = @Original_scan_phs) AND ([ctrl_enable] = @Original_ctrl_enable) AND ([evtctrl_enable] = @Original_evtctrl_enable) AND ([evtctrl_priority] = @Original_evtctrl_priority) AND ((@IsNull_desc = 1 AND [desc] IS NULL) OR ([desc] = @Original_desc)) AND ((@IsNull_param0 = 1 AND [param0] IS NULL) OR ([param0] = @Original_param0)) AND ((@IsNull_param1 = 1 AND [param1] IS NULL) OR ([param1] = @Original_param1)) AND ((@IsNull_param2 = 1 AND [param2] IS NULL) OR ([param2] = @Original_param2)) AND ((@IsNull_param3 = 1 AND [param3] IS NULL) OR ([param3] = @Original_param3)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             global::System.Data.SQLite.SQLiteParameter param = new global::System.Data.SQLite.SQLiteParameter();
             param.ParameterName = "@Original_name";
@@ -5484,18 +5889,10 @@ namespace DataSet.FepCfgTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@IsNull_type";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "type";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@Original_type";
+            param.ParameterName = "@Original_tagtype_id";
             param.DbType = global::System.Data.DbType.Int64;
             param.DbType = global::System.Data.DbType.Int64;
-            param.SourceColumn = "type";
+            param.SourceColumn = "tagtype_id";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::System.Data.SQLite.SQLiteParameter();
@@ -5639,7 +6036,7 @@ namespace DataSet.FepCfgTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::System.Data.SQLite.SQLiteCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [main].[sqlite_default_schema].[t_tag] ([name], [device_id], [type], [address], [length], [scan_enable], [scan_intv], [scan_phs], [ctrl_enable], [evtctrl_enable], [evtctrl_priority], [desc], [param0], [param1], [param2], [param3]) VALUES (@name, @device_id, @type, @address, @length, @scan_enable, @scan_intv, @scan_phs, @ctrl_enable, @evtctrl_enable, @evtctrl_priority, @desc, @param0, @param1, @param2, @param3)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [main].[sqlite_default_schema].[t_tag] ([name], [device_id], [tagtype_id], [address], [length], [scan_enable], [scan_intv], [scan_phs], [ctrl_enable], [evtctrl_enable], [evtctrl_priority], [desc], [param0], [param1], [param2], [param3]) VALUES (@name, @device_id, @tagtype_id, @address, @length, @scan_enable, @scan_intv, @scan_phs, @ctrl_enable, @evtctrl_enable, @evtctrl_priority, @desc, @param0, @param1, @param2, @param3)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::System.Data.SQLite.SQLiteParameter();
             param.ParameterName = "@name";
@@ -5654,10 +6051,10 @@ namespace DataSet.FepCfgTableAdapters {
             param.SourceColumn = "device_id";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@type";
+            param.ParameterName = "@tagtype_id";
             param.DbType = global::System.Data.DbType.Int64;
             param.DbType = global::System.Data.DbType.Int64;
-            param.SourceColumn = "type";
+            param.SourceColumn = "tagtype_id";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::System.Data.SQLite.SQLiteParameter();
             param.ParameterName = "@address";
@@ -5739,7 +6136,7 @@ namespace DataSet.FepCfgTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::System.Data.SQLite.SQLiteCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [main].[sqlite_default_schema].[t_tag] SET [name] = @name, [device_id] = @device_id, [type] = @type, [address] = @address, [length] = @length, [scan_enable] = @scan_enable, [scan_intv] = @scan_intv, [scan_phs] = @scan_phs, [ctrl_enable] = @ctrl_enable, [evtctrl_enable] = @evtctrl_enable, [evtctrl_priority] = @evtctrl_priority, [desc] = @desc, [param0] = @param0, [param1] = @param1, [param2] = @param2, [param3] = @param3 WHERE (([name] = @Original_name) AND ([device_id] = @Original_device_id) AND ((@IsNull_type = 1 AND [type] IS NULL) OR ([type] = @Original_type)) AND ((@IsNull_address = 1 AND [address] IS NULL) OR ([address] = @Original_address)) AND ([length] = @Original_length) AND ([scan_enable] = @Original_scan_enable) AND ([scan_intv] = @Original_scan_intv) AND ([scan_phs] = @Original_scan_phs) AND ([ctrl_enable] = @Original_ctrl_enable) AND ([evtctrl_enable] = @Original_evtctrl_enable) AND ([evtctrl_priority] = @Original_evtctrl_priority) AND ((@IsNull_desc = 1 AND [desc] IS NULL) OR ([desc] = @Original_desc)) AND ((@IsNull_param0 = 1 AND [param0] IS NULL) OR ([param0] = @Original_param0)) AND ((@IsNull_param1 = 1 AND [param1] IS NULL) OR ([param1] = @Original_param1)) AND ((@IsNull_param2 = 1 AND [param2] IS NULL) OR ([param2] = @Original_param2)) AND ((@IsNull_param3 = 1 AND [param3] IS NULL) OR ([param3] = @Original_param3)))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [main].[sqlite_default_schema].[t_tag] SET [name] = @name, [device_id] = @device_id, [tagtype_id] = @tagtype_id, [address] = @address, [length] = @length, [scan_enable] = @scan_enable, [scan_intv] = @scan_intv, [scan_phs] = @scan_phs, [ctrl_enable] = @ctrl_enable, [evtctrl_enable] = @evtctrl_enable, [evtctrl_priority] = @evtctrl_priority, [desc] = @desc, [param0] = @param0, [param1] = @param1, [param2] = @param2, [param3] = @param3 WHERE (([name] = @Original_name) AND ([device_id] = @Original_device_id) AND ([tagtype_id] = @Original_tagtype_id) AND ((@IsNull_address = 1 AND [address] IS NULL) OR ([address] = @Original_address)) AND ([length] = @Original_length) AND ([scan_enable] = @Original_scan_enable) AND ([scan_intv] = @Original_scan_intv) AND ([scan_phs] = @Original_scan_phs) AND ([ctrl_enable] = @Original_ctrl_enable) AND ([evtctrl_enable] = @Original_evtctrl_enable) AND ([evtctrl_priority] = @Original_evtctrl_priority) AND ((@IsNull_desc = 1 AND [desc] IS NULL) OR ([desc] = @Original_desc)) AND ((@IsNull_param0 = 1 AND [param0] IS NULL) OR ([param0] = @Original_param0)) AND ((@IsNull_param1 = 1 AND [param1] IS NULL) OR ([param1] = @Original_param1)) AND ((@IsNull_param2 = 1 AND [param2] IS NULL) OR ([param2] = @Original_param2)) AND ((@IsNull_param3 = 1 AND [param3] IS NULL) OR ([param3] = @Original_param3)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::System.Data.SQLite.SQLiteParameter();
             param.ParameterName = "@name";
@@ -5754,10 +6151,10 @@ namespace DataSet.FepCfgTableAdapters {
             param.SourceColumn = "device_id";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@type";
+            param.ParameterName = "@tagtype_id";
             param.DbType = global::System.Data.DbType.Int64;
             param.DbType = global::System.Data.DbType.Int64;
-            param.SourceColumn = "type";
+            param.SourceColumn = "tagtype_id";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::System.Data.SQLite.SQLiteParameter();
             param.ParameterName = "@address";
@@ -5852,18 +6249,10 @@ namespace DataSet.FepCfgTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@IsNull_type";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.DbType = global::System.Data.DbType.Int32;
-            param.SourceColumn = "type";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::System.Data.SQLite.SQLiteParameter();
-            param.ParameterName = "@Original_type";
+            param.ParameterName = "@Original_tagtype_id";
             param.DbType = global::System.Data.DbType.Int64;
             param.DbType = global::System.Data.DbType.Int64;
-            param.SourceColumn = "type";
+            param.SourceColumn = "tagtype_id";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::System.Data.SQLite.SQLiteParameter();
@@ -6018,9 +6407,9 @@ namespace DataSet.FepCfgTableAdapters {
             this._commandCollection = new global::System.Data.SQLite.SQLiteCommand[1];
             this._commandCollection[0] = new global::System.Data.SQLite.SQLiteCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT [name], [device_id], [type], [address], [length], [scan_enable], [scan_int" +
-                "v], [scan_phs], [ctrl_enable], [evtctrl_enable], [evtctrl_priority], [desc], [pa" +
-                "ram0], [param1], [param2], [param3] FROM [t_tag]";
+            this._commandCollection[0].CommandText = "SELECT [name], [device_id], [tagtype_id], [address], [length], [scan_enable], [sc" +
+                "an_intv], [scan_phs], [ctrl_enable], [evtctrl_enable], [evtctrl_priority], [desc" +
+                "], [param0], [param1], [param2], [param3] FROM [t_tag]";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -6077,7 +6466,7 @@ namespace DataSet.FepCfgTableAdapters {
         public virtual int Delete(
                     string Original_name, 
                     long Original_device_id, 
-                    global::System.Nullable<long> Original_type, 
+                    long Original_tagtype_id, 
                     string Original_address, 
                     long Original_length, 
                     short Original_scan_enable, 
@@ -6098,68 +6487,61 @@ namespace DataSet.FepCfgTableAdapters {
                 this.Adapter.DeleteCommand.Parameters[0].Value = ((string)(Original_name));
             }
             this.Adapter.DeleteCommand.Parameters[1].Value = ((long)(Original_device_id));
-            if ((Original_type.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((long)(Original_type.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
+            this.Adapter.DeleteCommand.Parameters[2].Value = ((long)(Original_tagtype_id));
             if ((Original_address == null)) {
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[5].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((string)(Original_address));
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_address));
             }
-            this.Adapter.DeleteCommand.Parameters[6].Value = ((long)(Original_length));
-            this.Adapter.DeleteCommand.Parameters[7].Value = ((short)(Original_scan_enable));
-            this.Adapter.DeleteCommand.Parameters[8].Value = ((long)(Original_scan_intv));
-            this.Adapter.DeleteCommand.Parameters[9].Value = ((long)(Original_scan_phs));
-            this.Adapter.DeleteCommand.Parameters[10].Value = ((short)(Original_ctrl_enable));
-            this.Adapter.DeleteCommand.Parameters[11].Value = ((short)(Original_evtctrl_enable));
-            this.Adapter.DeleteCommand.Parameters[12].Value = ((long)(Original_evtctrl_priority));
+            this.Adapter.DeleteCommand.Parameters[5].Value = ((long)(Original_length));
+            this.Adapter.DeleteCommand.Parameters[6].Value = ((short)(Original_scan_enable));
+            this.Adapter.DeleteCommand.Parameters[7].Value = ((long)(Original_scan_intv));
+            this.Adapter.DeleteCommand.Parameters[8].Value = ((long)(Original_scan_phs));
+            this.Adapter.DeleteCommand.Parameters[9].Value = ((short)(Original_ctrl_enable));
+            this.Adapter.DeleteCommand.Parameters[10].Value = ((short)(Original_evtctrl_enable));
+            this.Adapter.DeleteCommand.Parameters[11].Value = ((long)(Original_evtctrl_priority));
             if ((Original_desc == null)) {
-                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[14].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[14].Value = ((string)(Original_desc));
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[13].Value = ((string)(Original_desc));
             }
             if ((Original_param0 == null)) {
-                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[16].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[14].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[15].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[16].Value = ((string)(Original_param0));
+                this.Adapter.DeleteCommand.Parameters[14].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[15].Value = ((string)(Original_param0));
             }
             if ((Original_param1 == null)) {
-                this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[18].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[16].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[17].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[18].Value = ((string)(Original_param1));
+                this.Adapter.DeleteCommand.Parameters[16].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[17].Value = ((string)(Original_param1));
             }
             if ((Original_param2 == null)) {
-                this.Adapter.DeleteCommand.Parameters[19].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[20].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[18].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[19].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[19].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[20].Value = ((string)(Original_param2));
+                this.Adapter.DeleteCommand.Parameters[18].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[19].Value = ((string)(Original_param2));
             }
             if ((Original_param3 == null)) {
-                this.Adapter.DeleteCommand.Parameters[21].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[22].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[20].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[21].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[21].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[22].Value = ((string)(Original_param3));
+                this.Adapter.DeleteCommand.Parameters[20].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[21].Value = ((string)(Original_param3));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -6183,7 +6565,7 @@ namespace DataSet.FepCfgTableAdapters {
         public virtual int Insert(
                     string name, 
                     long device_id, 
-                    global::System.Nullable<long> type, 
+                    long tagtype_id, 
                     string address, 
                     long length, 
                     short scan_enable, 
@@ -6204,12 +6586,7 @@ namespace DataSet.FepCfgTableAdapters {
                 this.Adapter.InsertCommand.Parameters[0].Value = ((string)(name));
             }
             this.Adapter.InsertCommand.Parameters[1].Value = ((long)(device_id));
-            if ((type.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((long)(type.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
+            this.Adapter.InsertCommand.Parameters[2].Value = ((long)(tagtype_id));
             if ((address == null)) {
                 this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
@@ -6275,7 +6652,7 @@ namespace DataSet.FepCfgTableAdapters {
         public virtual int Update(
                     string name, 
                     long device_id, 
-                    global::System.Nullable<long> type, 
+                    long tagtype_id, 
                     string address, 
                     long length, 
                     short scan_enable, 
@@ -6291,7 +6668,7 @@ namespace DataSet.FepCfgTableAdapters {
                     string param3, 
                     string Original_name, 
                     long Original_device_id, 
-                    global::System.Nullable<long> Original_type, 
+                    long Original_tagtype_id, 
                     string Original_address, 
                     long Original_length, 
                     short Original_scan_enable, 
@@ -6312,12 +6689,7 @@ namespace DataSet.FepCfgTableAdapters {
                 this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(name));
             }
             this.Adapter.UpdateCommand.Parameters[1].Value = ((long)(device_id));
-            if ((type.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((long)(type.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((long)(tagtype_id));
             if ((address == null)) {
                 this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
@@ -6368,68 +6740,61 @@ namespace DataSet.FepCfgTableAdapters {
                 this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_name));
             }
             this.Adapter.UpdateCommand.Parameters[17].Value = ((long)(Original_device_id));
-            if ((Original_type.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((long)(Original_type.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
-            }
+            this.Adapter.UpdateCommand.Parameters[18].Value = ((long)(Original_tagtype_id));
             if ((Original_address == null)) {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((string)(Original_address));
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((string)(Original_address));
             }
-            this.Adapter.UpdateCommand.Parameters[22].Value = ((long)(Original_length));
-            this.Adapter.UpdateCommand.Parameters[23].Value = ((short)(Original_scan_enable));
-            this.Adapter.UpdateCommand.Parameters[24].Value = ((long)(Original_scan_intv));
-            this.Adapter.UpdateCommand.Parameters[25].Value = ((long)(Original_scan_phs));
-            this.Adapter.UpdateCommand.Parameters[26].Value = ((short)(Original_ctrl_enable));
-            this.Adapter.UpdateCommand.Parameters[27].Value = ((short)(Original_evtctrl_enable));
-            this.Adapter.UpdateCommand.Parameters[28].Value = ((long)(Original_evtctrl_priority));
+            this.Adapter.UpdateCommand.Parameters[21].Value = ((long)(Original_length));
+            this.Adapter.UpdateCommand.Parameters[22].Value = ((short)(Original_scan_enable));
+            this.Adapter.UpdateCommand.Parameters[23].Value = ((long)(Original_scan_intv));
+            this.Adapter.UpdateCommand.Parameters[24].Value = ((long)(Original_scan_phs));
+            this.Adapter.UpdateCommand.Parameters[25].Value = ((short)(Original_ctrl_enable));
+            this.Adapter.UpdateCommand.Parameters[26].Value = ((short)(Original_evtctrl_enable));
+            this.Adapter.UpdateCommand.Parameters[27].Value = ((long)(Original_evtctrl_priority));
             if ((Original_desc == null)) {
-                this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[30].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[29].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[30].Value = ((string)(Original_desc));
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[29].Value = ((string)(Original_desc));
             }
             if ((Original_param0 == null)) {
-                this.Adapter.UpdateCommand.Parameters[31].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[32].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[31].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[31].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[32].Value = ((string)(Original_param0));
+                this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[31].Value = ((string)(Original_param0));
             }
             if ((Original_param1 == null)) {
-                this.Adapter.UpdateCommand.Parameters[33].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[34].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[33].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[33].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[34].Value = ((string)(Original_param1));
+                this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[33].Value = ((string)(Original_param1));
             }
             if ((Original_param2 == null)) {
-                this.Adapter.UpdateCommand.Parameters[35].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[36].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[34].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[35].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[35].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[36].Value = ((string)(Original_param2));
+                this.Adapter.UpdateCommand.Parameters[34].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[35].Value = ((string)(Original_param2));
             }
             if ((Original_param3 == null)) {
-                this.Adapter.UpdateCommand.Parameters[37].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[38].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[36].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[37].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[37].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[38].Value = ((string)(Original_param3));
+                this.Adapter.UpdateCommand.Parameters[36].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[37].Value = ((string)(Original_param3));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -6452,7 +6817,7 @@ namespace DataSet.FepCfgTableAdapters {
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(
                     long device_id, 
-                    global::System.Nullable<long> type, 
+                    long tagtype_id, 
                     string address, 
                     long length, 
                     short scan_enable, 
@@ -6468,7 +6833,7 @@ namespace DataSet.FepCfgTableAdapters {
                     string param3, 
                     string Original_name, 
                     long Original_device_id, 
-                    global::System.Nullable<long> Original_type, 
+                    long Original_tagtype_id, 
                     string Original_address, 
                     long Original_length, 
                     short Original_scan_enable, 
@@ -6482,7 +6847,427 @@ namespace DataSet.FepCfgTableAdapters {
                     string Original_param1, 
                     string Original_param2, 
                     string Original_param3) {
-            return this.Update(Original_name, device_id, type, address, length, scan_enable, scan_intv, scan_phs, ctrl_enable, evtctrl_enable, evtctrl_priority, desc, param0, param1, param2, param3, Original_name, Original_device_id, Original_type, Original_address, Original_length, Original_scan_enable, Original_scan_intv, Original_scan_phs, Original_ctrl_enable, Original_evtctrl_enable, Original_evtctrl_priority, Original_desc, Original_param0, Original_param1, Original_param2, Original_param3);
+            return this.Update(Original_name, device_id, tagtype_id, address, length, scan_enable, scan_intv, scan_phs, ctrl_enable, evtctrl_enable, evtctrl_priority, desc, param0, param1, param2, param3, Original_name, Original_device_id, Original_tagtype_id, Original_address, Original_length, Original_scan_enable, Original_scan_intv, Original_scan_phs, Original_ctrl_enable, Original_evtctrl_enable, Original_evtctrl_priority, Original_desc, Original_param0, Original_param1, Original_param2, Original_param3);
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    internal partial class t_tagtypeTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SQLite.SQLiteDataAdapter _adapter;
+        
+        private global::System.Data.SQLite.SQLiteConnection _connection;
+        
+        private global::System.Data.SQLite.SQLiteCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public t_tagtypeTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private global::System.Data.SQLite.SQLiteDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        internal global::System.Data.SQLite.SQLiteConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SQLite.SQLiteCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        protected global::System.Data.SQLite.SQLiteCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SQLite.SQLiteDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "t_tagtype";
+            tableMapping.ColumnMappings.Add("id", "id");
+            tableMapping.ColumnMappings.Add("name", "name");
+            tableMapping.ColumnMappings.Add("length", "length");
+            tableMapping.ColumnMappings.Add("desc", "desc");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::System.Data.SQLite.SQLiteCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [main].[sqlite_default_schema].[t_tagtype] WHERE (([id] = @Original_i" +
+                "d) AND ([name] = @Original_name) AND ([length] = @Original_length) AND ((@IsNull" +
+                "_desc = 1 AND [desc] IS NULL) OR ([desc] = @Original_desc)))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            global::System.Data.SQLite.SQLiteParameter param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@Original_id";
+            param.DbType = global::System.Data.DbType.Int64;
+            param.DbType = global::System.Data.DbType.Int64;
+            param.SourceColumn = "id";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@Original_name";
+            param.DbType = global::System.Data.DbType.AnsiString;
+            param.DbType = global::System.Data.DbType.AnsiString;
+            param.SourceColumn = "name";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@Original_length";
+            param.DbType = global::System.Data.DbType.Int64;
+            param.DbType = global::System.Data.DbType.Int64;
+            param.SourceColumn = "length";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@IsNull_desc";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.DbType = global::System.Data.DbType.Int32;
+            param.SourceColumn = "desc";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@Original_desc";
+            param.DbType = global::System.Data.DbType.AnsiString;
+            param.DbType = global::System.Data.DbType.AnsiString;
+            param.SourceColumn = "desc";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            this._adapter.InsertCommand = new global::System.Data.SQLite.SQLiteCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [main].[sqlite_default_schema].[t_tagtype] ([id], [name], [length], [" +
+                "desc]) VALUES (@id, @name, @length, @desc)";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@id";
+            param.DbType = global::System.Data.DbType.Int64;
+            param.DbType = global::System.Data.DbType.Int64;
+            param.SourceColumn = "id";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@name";
+            param.DbType = global::System.Data.DbType.AnsiString;
+            param.DbType = global::System.Data.DbType.AnsiString;
+            param.SourceColumn = "name";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@length";
+            param.DbType = global::System.Data.DbType.Int64;
+            param.DbType = global::System.Data.DbType.Int64;
+            param.SourceColumn = "length";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@desc";
+            param.DbType = global::System.Data.DbType.AnsiString;
+            param.DbType = global::System.Data.DbType.AnsiString;
+            param.SourceColumn = "desc";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            this._adapter.UpdateCommand = new global::System.Data.SQLite.SQLiteCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [main].[sqlite_default_schema].[t_tagtype] SET [id] = @id, [name] = @name, [length] = @length, [desc] = @desc WHERE (([id] = @Original_id) AND ([name] = @Original_name) AND ([length] = @Original_length) AND ((@IsNull_desc = 1 AND [desc] IS NULL) OR ([desc] = @Original_desc)))";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@id";
+            param.DbType = global::System.Data.DbType.Int64;
+            param.DbType = global::System.Data.DbType.Int64;
+            param.SourceColumn = "id";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@name";
+            param.DbType = global::System.Data.DbType.AnsiString;
+            param.DbType = global::System.Data.DbType.AnsiString;
+            param.SourceColumn = "name";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@length";
+            param.DbType = global::System.Data.DbType.Int64;
+            param.DbType = global::System.Data.DbType.Int64;
+            param.SourceColumn = "length";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@desc";
+            param.DbType = global::System.Data.DbType.AnsiString;
+            param.DbType = global::System.Data.DbType.AnsiString;
+            param.SourceColumn = "desc";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@Original_id";
+            param.DbType = global::System.Data.DbType.Int64;
+            param.DbType = global::System.Data.DbType.Int64;
+            param.SourceColumn = "id";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@Original_name";
+            param.DbType = global::System.Data.DbType.AnsiString;
+            param.DbType = global::System.Data.DbType.AnsiString;
+            param.SourceColumn = "name";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@Original_length";
+            param.DbType = global::System.Data.DbType.Int64;
+            param.DbType = global::System.Data.DbType.Int64;
+            param.SourceColumn = "length";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@IsNull_desc";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.DbType = global::System.Data.DbType.Int32;
+            param.SourceColumn = "desc";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@Original_desc";
+            param.DbType = global::System.Data.DbType.AnsiString;
+            param.DbType = global::System.Data.DbType.AnsiString;
+            param.SourceColumn = "desc";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SQLite.SQLiteConnection();
+            this._connection.ConnectionString = global::FepManager.Properties.Settings.Default.defaultConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SQLite.SQLiteCommand[1];
+            this._commandCollection[0] = new global::System.Data.SQLite.SQLiteCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT [id], [name], [length], [desc] FROM [t_tagtype]";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(FepCfg.t_tagtypeDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual FepCfg.t_tagtypeDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            FepCfg.t_tagtypeDataTable dataTable = new FepCfg.t_tagtypeDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(FepCfg.t_tagtypeDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(FepCfg dataSet) {
+            return this.Adapter.Update(dataSet, "t_tagtype");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(long Original_id, string Original_name, long Original_length, string Original_desc) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((long)(Original_id));
+            if ((Original_name == null)) {
+                throw new global::System.ArgumentNullException("Original_name");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_name));
+            }
+            this.Adapter.DeleteCommand.Parameters[2].Value = ((long)(Original_length));
+            if ((Original_desc == null)) {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_desc));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(long id, string name, long length, string desc) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((long)(id));
+            if ((name == null)) {
+                throw new global::System.ArgumentNullException("name");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(name));
+            }
+            this.Adapter.InsertCommand.Parameters[2].Value = ((long)(length));
+            if ((desc == null)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(desc));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(long id, string name, long length, string desc, long Original_id, string Original_name, long Original_length, string Original_desc) {
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((long)(id));
+            if ((name == null)) {
+                throw new global::System.ArgumentNullException("name");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(name));
+            }
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((long)(length));
+            if ((desc == null)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(desc));
+            }
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((long)(Original_id));
+            if ((Original_name == null)) {
+                throw new global::System.ArgumentNullException("Original_name");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Original_name));
+            }
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((long)(Original_length));
+            if ((Original_desc == null)) {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_desc));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(string name, long length, string desc, long Original_id, string Original_name, long Original_length, string Original_desc) {
+            return this.Update(Original_id, name, length, desc, Original_id, Original_name, Original_length, Original_desc);
         }
     }
 }

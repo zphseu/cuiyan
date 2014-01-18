@@ -147,6 +147,30 @@
   <metadata name="toolStripSeparator2.GenerateMember" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>False</value>
   </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnSave.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAA9hJREFUSEu9Vtkr
+        rX0UPn/D9wcIhQtkzizzPGae50wXlGTKPGxz5MacOS4oiaKkCMeN3Lhw4wIRyZAx03P2s2q/zj4535dT
+        3/nV6tfe77ae9az1rOf17dvfOI2Njaivr0d8fDwCAgIQHBwMLy8vNDQ0YGNjA1tbW1heXsbi4iLm5+cx
+        OzuLiYkJjI6OYmxsDAMDA6iurkZycjLi4uJgZmY2qVV3S0sLmpqaJKmxsTF/AD09PXR1dUFzrq+vcXFx
+        gfPzc+zu7qK/v18Atre3sbm5ie7ubsTExCA0NFQK1AKpq6tDbW0tfH19YWFhAWtraxgZGaGjowP39/d4
+        fn7GyckJDg8P5SaTsLAwZGVlCbO1tTW0tbUhPDwcgYGB8Pf3R1BQEBQWlZWVqKiogI+PjwDY2NjA0NAQ
+        7e3teHh40AI4PT3FwsKCJElLSxOA9fV1tLa2SvUskp3w8/P7ACgrKwPD09MT5ubmwsDAwEAYPD4+CgAT
+        Hx0dCYOlpSUkJiaioKAAKysrAtDc3CzVM4ebmxu8vb0/AIqKisDgAxMTEwHR1dVFZ2enMoObmxtlBnt7
+        e5ibm5OB7+zsiAjIltW7urrC2dkZHh4eHwD5+fkoLCxERESEtIk/dHFxQWlpqVS7uroqCWdmZjA1NYXx
+        8XGMjIyIenp6eqT/eXl5UqCTkxPs7OwESJlBdna20M3NzUVGRgaSkpJEbpRtSkoKUlNTkZCQgNjYWERG
+        RsowGSEhIVKMu7s7HB0dJTHDyspKWCgAHBYrIEBmZqYMj4mjoqJEchwomXF4TKZpg4ODA+zt7WFra6sE
+        52dqago+UwBYMSXHpLxVKpXQ5m5olpAyZtTU1ChRVVUlC8bv2E4ysrS0FIkTVAHQtIItYNKzszO8vr7K
+        Dtzd3SnBz78GZczDBSQYZa6vry9SVwCYmCDsL/XMrf3q4d/QbjQuoAUQHR0NBreTer66usLCys6XgjZC
+        Bp8CUBFMzoGyRQT4r/P29iYLyBa9vLzIAtINPgXgcLiFdFIO+N8A3t/fZT5PT08yDy4gb/rUbwFoTJQh
+        QwPw1RYdHBygvLz8cwbUOfVNH/mMAatmGzRV397eCkv2nYrjvb+/L1KlzdDqtYbMymkNXHXq/mcV/dxr
+        Juazy8tLkSUN8Pj4WG76028BuKHqxchR+4iKb7HHCYM/iuLiYrZIpWaQo8WAq69ekEa1j5xTRbet//xR
+        lJSU0CYGdXR0vtMylEWjd9Oc2CJ6Et+3dM7p6Wlxz8nJSXFQviKHh4cxNDSEwcFB9PX1obe3V26+XtPT
+        0yUPq2euv/H/xP+P8QN6iMtWCyVgqQAAAABJRU5ErkJggg==
+</value>
+  </data>
   <metadata name="btnExport.GenerateMember" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>False</value>
   </metadata>
@@ -177,7 +201,6 @@
   <metadata name="t_driverTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>403, 50</value>
   </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAEAEBAQAAAAAAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAABAA

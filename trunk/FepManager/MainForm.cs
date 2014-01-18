@@ -40,14 +40,17 @@ namespace FepManager
             m_propertyWindow.dataPropertyGrid.MuestraDatos(row, field, dispname, category, description, order, readOnly);
         }
 
-        internal void SetPropertyGridRow(DataRow row)
+        internal DataRow PropertyGridDataRow
         {
-            m_propertyWindow.dataPropertyGrid.MuestraDatos(row);
+            get { return m_propertyWindow.dataPropertyGrid.Row; }
+            set { m_propertyWindow.dataPropertyGrid.MuestraDatos(value); }
         }
 
-        internal void SetPropertyGridObject(Object obj)
+        internal Object PropertyGridObject
         {
-            m_propertyWindow.dataPropertyGrid.SelectedObject = obj;
+            get { return m_propertyWindow.dataPropertyGrid.SelectedObject; }
+            set { m_propertyWindow.dataPropertyGrid.SelectedObject = value; }
+            
         }
 
         private DockContent FindDockContent(string text)

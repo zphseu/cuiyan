@@ -74,7 +74,7 @@ namespace FepManager.PropGridHelper
         }
 
         [DescriptionAttribute("首字母为英文字符，其他为英文、数字或下划线，且同设备动中不可重名。")
-         , CategoryAttribute("基本属性"), DisplayNameAttribute("名称"), PropertyOrder(1), DefaultValue("DB?")]
+        , CategoryAttribute("\t\t基本属性"), DisplayNameAttribute("名称"), PropertyOrder(1), DefaultValue("DB?")]
         public String Name
 	    {
 		    get { return m_Row.name; }
@@ -86,14 +86,14 @@ namespace FepManager.PropGridHelper
             }
 	    }
 
-        [CategoryAttribute("基本属性"), DisplayNameAttribute("描述"), PropertyOrder(2), DescriptionAttribute("数据块描述。"), DefaultValue("")]        
+        [CategoryAttribute("\t\t基本属性"), DisplayNameAttribute("描述"), PropertyOrder(2), DescriptionAttribute("数据块描述。"), DefaultValue("")]        
         public String Desc
         {
             get { return m_Row.desc; }
             set { m_Row.desc = value; }
         }
 
-        [CategoryAttribute("数据属性"), DisplayNameAttribute("站号"), PropertyOrder(3), DefaultValue(1)
+        [CategoryAttribute("\t数据属性"), DisplayNameAttribute("站号"), PropertyOrder(3), DefaultValue(1)
             , DescriptionAttribute("所属站号。")]
         public Int16 StationId
         {
@@ -107,7 +107,7 @@ namespace FepManager.PropGridHelper
             }
         }
 
-        [CategoryAttribute("数据属性"), DisplayNameAttribute("类型"), PropertyOrder(4), DefaultValue("AO"), DescriptionAttribute("数据块类型。")
+        [CategoryAttribute("\t数据属性"), DisplayNameAttribute("类型"), PropertyOrder(4), DefaultValue("AO"), DescriptionAttribute("数据块类型。")
           , TypeConverter(typeof(StringListConverter)), StringListAttribute(new String[] { "AO", "AI", "DI", "DO" })]
         public String TheType
         {
@@ -141,7 +141,7 @@ namespace FepManager.PropGridHelper
             }
         }
 
-        [CategoryAttribute("数据属性"), DisplayNameAttribute("起始地址"), PropertyOrder(5), DefaultValue(1000), DescriptionAttribute("单位毫秒。")]
+        [CategoryAttribute("\t数据属性"), DisplayNameAttribute("起始地址"), PropertyOrder(5), DefaultValue(1000), DescriptionAttribute("单位毫秒。")]
         public Int32 StartAddress
         {
             get { return m_StarAddress; }
@@ -154,7 +154,7 @@ namespace FepManager.PropGridHelper
             }
         }
 
-        [CategoryAttribute("数据属性"), DisplayNameAttribute("寄存器数"), PropertyOrder(6), DefaultValue(1000), DescriptionAttribute("寄存器个数。")]
+        [CategoryAttribute("\t数据属性"), DisplayNameAttribute("寄存器数"), PropertyOrder(6), DefaultValue(1000), DescriptionAttribute("寄存器个数。")]
         public Int64 Count
         {
             get { return m_Row.elemcount; }
